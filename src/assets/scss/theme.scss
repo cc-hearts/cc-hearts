@@ -1,0 +1,27 @@
+:root {
+  --text-color: #303133;
+  --bg-color: #ffffff;
+  // text color
+  --color-text-1: #141414;
+  --color-text-2: #5c5c5c;
+  --color-text-3: #909399;
+  --color-white: #fff;
+}
+
+:root.dark {
+  --text-color: #e5eaf3;
+  --bg-color: #141414;
+  // text color dark
+  --color-text-1: rgba(255, 255, 255, 0.9);
+  --color-text-2: rgba(255, 255, 255, 0.7);
+  --color-text-3: rgba(255, 255, 255, 0.5);
+}
+
+html {
+  color: var(--text-color);
+}
+
+body {
+  background-color: var(--bg-color);
+  transition: background-color 0.2s ease;
+}
