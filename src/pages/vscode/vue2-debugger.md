@@ -1,5 +1,5 @@
 ---
-title: vscode vue2 debugger 配置文件参数
+title: vscode debugger 配置参数
 ---
 
 ```json

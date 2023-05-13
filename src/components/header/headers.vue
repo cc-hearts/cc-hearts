@@ -10,7 +10,7 @@ const headerCls = usePrefixCls('header')
     <slot name="left">
       <div></div>
     </slot>
-    <div class="flex text-2xl items-center" :class="[`${headerCls}__icon`]">
+    <div class="flex items-center" :class="[`${headerCls}__icon`]">
       <slot name="right-icon"></slot>
       <GithubIcon />
       <ToggleDark />
@@ -22,27 +22,31 @@ const headerCls = usePrefixCls('header')
 @use '@/assets/scss/var/variable.scss' as var;
 
 .#{var.$prefixCls}-header {
-  --header-shadow: rgb(229, 230, 235);
+  // --header-shadow: rgb(229, 230, 235);
   height: 60px;
-  box-shadow: 0 1px 0 var(--header-shadow);
+  // box-shadow: 0 1px 0 var(--header-shadow);
 
   &__icon {
 
-    color: var(--color-text-2);
+    color: var(--color-text-3);
 
     &>div,
     &>button,
-    &>svg {
-      margin: 0 0.5rem;
-    }
+    &>svg,
+    &>a {
+      margin: 0 0.7rem;
 
-    svg {
-      cursor: pointer;
       transition: color 0.3s;
 
       &:hover {
         color: var(--color-text-1);
       }
+    }
+
+    svg {
+      cursor: pointer;
+      font-size: 24px;
+
     }
   }
 }
