@@ -1,13 +1,18 @@
 <script setup lang="ts">
 import Headers from '@/components/header/headers.vue';
 import Home from '@/layouts/home'
+import { LogoIcon } from '@/icons/index'
 const subTitle = [
   { tilte: 'Blog', link: '/blog' }
 ]
+
 </script>
 
 <template>
   <Headers>
+    <template #left>
+      <LogoIcon />
+    </template>
     <template #right-icon>
       <template v-for="titles in subTitle">
         <a class="links" :href="titles.link">{{ titles.tilte }}</a>

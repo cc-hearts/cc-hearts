@@ -1,5 +1,5 @@
 ---
-title: vscode debugger 配置参数
+title: Visual Studio Code Debugger
 ---
 
 ```json

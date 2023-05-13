@@ -6,10 +6,13 @@ const router = useRouter().getRoutes().filter(router => router.meta?.frontmatter
 const posts = Object.create(null)
 router.forEach(route => {
   const frontmatter = route.meta.frontmatter as IFrontmatter
-  const time = frontmatter.time || new Date()
-  const year = new Date(time).getFullYear()
+  let time = frontmatter.time || new Date()
+  time = new Date(time)
+  const year = time.getFullYear()
+  const month = time.toDateString().split(" ")[1]
+  const date = time.getDate()
   const postList = Reflect.get(posts, year)
-  const config = { title: frontmatter.title, path: route.path }
+  const config = { title: frontmatter.title, path: route.path, month, date }
   if (!postList)
     Reflect.set(posts, year, [config])
   else
@@ -23,12 +26,17 @@ router.forEach(route => {
       <span class="year">{{ year }}</span>
       <div class="post-list">
         <template v-for="post in posts[year]">
-          <a class="post-title text-lg leading-1.2em my-2 inline-block " :href="post.path"> {{ post.title
-          }}</a>
+          <a class="post-title text-lg leading-1.2em my-2 inline-block " :href="post.path">
+            <span>
+              {{ post.title }}
+            </span>
+            <span class="mx-2">
+              {{ post.month }} {{ post.date }}
+            </span>
+          </a>
         </template>
       </div>
     </template>
-
   </div>
 </template>
 
