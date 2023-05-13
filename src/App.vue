@@ -5,8 +5,7 @@ import Home from '@/layouts/home'
 
 <template>
   <Headers />
-  <Home>
-  </Home>
+  <Home />
 </template>
 
 <style lang="scss">

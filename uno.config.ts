@@ -6,4 +6,7 @@ export default defineConfig({
     presetUno(),
     // ...custom presets
   ],
+  rules: [
+    ['max-blog-prose', { 'max-width': '70ch' }]
+  ]
 })
