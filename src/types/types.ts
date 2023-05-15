@@ -4,3 +4,11 @@ export interface IFrontmatter {
   description?: string
   time?: string
 }
+
+export interface IPosts {
+  title?: string
+  path:string
+  month: string
+  date: number
+  time: Date
+}

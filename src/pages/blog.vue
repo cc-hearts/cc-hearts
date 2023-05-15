@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { IFrontmatter } from '@/types/types';
+import type { IFrontmatter, IPosts } from '@/types/types';
 import { useRouter } from 'vue-router';
 
 const router = useRouter().getRoutes().filter(router => router.meta?.frontmatter)
@@ -12,11 +12,15 @@ router.forEach(route => {
   const month = time.toDateString().split(" ")[1]
   const date = time.getDate()
   const postList = Reflect.get(posts, year)
-  const config = { title: frontmatter.title, path: route.path, month, date }
+  const config:IPosts = { title: frontmatter.title, path: route.path, month, date, time }
   if (!postList)
     Reflect.set(posts, year, [config])
   else
-    Reflect.set(posts, year, [...postList, config])
+    Reflect.set(posts, year, [...postList,config])
+})
+Object.keys(posts).forEach(key => {
+  const array = posts[key]
+  array.sort((a:IPosts, b:IPosts) => b.time.getTime() - a.time.getTime())
 })
 </script>
 
@@ -45,6 +49,7 @@ router.forEach(route => {
   color: var(--color-text-3);
 
   .post-title {
+    display: block;
     transition: color 0.3s;
 
     &:hover {
