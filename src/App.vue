@@ -2,9 +2,17 @@
 import Headers from '@/components/header/headers.vue';
 import Home from '@/layouts/home'
 import { LogoIcon } from '@/icons/index'
+import { useRouter } from 'vue-router';
+
+const router = useRouter()
+
 const subTitle = [
-  { tilte: 'Blog', link: '/blog' }
+  { title: 'Blog', link: '/blog' }
 ]
+
+const toRoute = (link: string) => {
+  router.push(link)
+}
 
 </script>
 
@@ -15,7 +23,7 @@ const subTitle = [
     </template>
     <template #right-icon>
       <template v-for="titles in subTitle">
-        <a class="links" :href="titles.link">{{ titles.tilte }}</a>
+        <a class="links" @click="toRoute(titles.link)">{{ titles.title }}</a>
       </template>
     </template>
   </Headers>
@@ -44,6 +52,7 @@ html,
 a {
   text-decoration: none;
   color: inherit;
+  cursor: pointer;
 
   &:visited {
     color: inherit;

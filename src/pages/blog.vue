@@ -2,9 +2,10 @@
 import type { IFrontmatter, IPosts } from '@/types/types';
 import { useRouter } from 'vue-router';
 
-const router = useRouter().getRoutes().filter(router => router.meta?.frontmatter)
+const router = useRouter()
+const routes = router.getRoutes().filter(router => router.meta?.frontmatter)
 const posts = Object.create(null)
-router.forEach(route => {
+routes.forEach(route => {
   const frontmatter = route.meta.frontmatter as IFrontmatter
   let time = frontmatter.time || new Date()
   time = new Date(time)
@@ -12,16 +13,20 @@ router.forEach(route => {
   const month = time.toDateString().split(" ")[1]
   const date = time.getDate()
   const postList = Reflect.get(posts, year)
-  const config:IPosts = { title: frontmatter.title, path: route.path, month, date, time }
+  const config: IPosts = { title: frontmatter.title, path: route.path, month, date, time }
   if (!postList)
     Reflect.set(posts, year, [config])
   else
-    Reflect.set(posts, year, [...postList,config])
+    Reflect.set(posts, year, [...postList, config])
 })
 Object.keys(posts).forEach(key => {
   const array = posts[key]
-  array.sort((a:IPosts, b:IPosts) => b.time.getTime() - a.time.getTime())
+  array.sort((a: IPosts, b: IPosts) => b.time.getTime() - a.time.getTime())
 })
+
+const toRoute = (link: string) => {
+  router.push(link)
+}
 </script>
 
 <template>
@@ -30,7 +35,7 @@ Object.keys(posts).forEach(key => {
       <span class="year">{{ year }}</span>
       <div class="post-list">
         <template v-for="post in posts[year]">
-          <a class="post-title text-lg leading-1.2em my-2 inline-block " :href="post.path">
+          <a class="post-title text-lg leading-1.2em my-2 inline-block " @click="toRoute(post.path)">
             <span>
               {{ post.title }}
             </span>

@@ -1,9 +1,9 @@
 ---
-title: me
+title: cc-hearts
 ---
 
 <h2 class="my-10">
-  Cc
+  cc hearts
 </h2>
 
-Front-end
+A front end, learning rust...

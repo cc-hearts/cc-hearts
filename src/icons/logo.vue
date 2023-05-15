@@ -1,9 +1,17 @@
 <script setup lang="ts">
+import { useRouter } from 'vue-router';
+
+
+const router = useRouter()
+
+const toHome = () => {
+  router.push('/')
+}
 </script>
 
 <template>
-  <svg class="logo" xmlns="http://www.w3.org/2000/svg" width="100" height="100" stroke="null" id="svgcontent" x="332"
-    y="267" viewBox="0 0 100 100">
+  <svg @click="toHome" class="logo" xmlns="http://www.w3.org/2000/svg" width="100" height="100" stroke="null"
+    id="svgcontent" x="332" y="267" viewBox="0 0 100 100">
     <g stroke="null" style="pointer-events:all">
       <title stroke="null" style="pointer-events: none" opacity="0.33">Layer 1</title>
       <g id="svg_1" stroke="null">
