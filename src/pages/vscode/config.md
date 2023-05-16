@@ -39,6 +39,25 @@ title: Visual Studio Code Config
   "workbench.preferredLightColorTheme": "Vitesse Light",
   "workbench.fontAliasing": "antialiased",
   "terminal.integrated.enableMultiLinePasteWarning": false,
-  "editor.formatOnSave": true
+  // 保存文件进行格式化
+  "editor.formatOnSave": true,
+  // 是用eslint 格式化
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true
+  },
+  "eslint.validate": [
+    "javascript",
+    "javascriptreact",
+    "html",
+    "vue"
+  ]
+}
+```
+
+在项目中 可以在`.vscode` 的 `settings.json` 中 设置参数配置
+
+```json
+{
+  "editor.formatOnSave": false
 }
 ```
