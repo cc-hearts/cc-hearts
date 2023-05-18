@@ -4,6 +4,7 @@ title: Visual Studio Code Config
 
 ```json
 {
+{
   // 保存之后是否格式化
   "explorer.compactFolders": false,
   // tab缩进
@@ -32,12 +33,12 @@ title: Visual Studio Code Config
   "editor.fontFamily": "Fira Code",
   "editor.fontWeight": "500",
   "editor.fontLigatures": false,
-  "git.confirmSync": false,
   "window.commandCenter": true,
-  "workbench.colorTheme": "Vitesse Dark",
+  "workbench.colorTheme": "Vitesse Light",
   "workbench.preferredDarkColorTheme": "Vitesse Dark",
   "workbench.preferredLightColorTheme": "Vitesse Light",
   "workbench.fontAliasing": "antialiased",
+  "window.autoDetectColorScheme": true,
   "terminal.integrated.enableMultiLinePasteWarning": false,
   // 保存文件进行格式化
   "editor.formatOnSave": true,
@@ -50,7 +51,9 @@ title: Visual Studio Code Config
     "javascriptreact",
     "html",
     "vue"
-  ]
+  ],
+  "git.confirmSync": false,
+  "git.openRepositoryInParentFolders": "always",
 }
 ```
 
