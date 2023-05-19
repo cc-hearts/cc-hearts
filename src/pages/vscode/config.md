@@ -4,7 +4,6 @@ title: Visual Studio Code Config
 
 ```json
 {
-{
   // 保存之后是否格式化
   "explorer.compactFolders": false,
   // tab缩进
@@ -30,30 +29,60 @@ title: Visual Studio Code Config
   // 控制在资源管理器内拖放移动文件或文件夹时是否进行确认
   "explorer.confirmDragAndDrop": false,
   // 字体设置
-  "editor.fontFamily": "Fira Code",
-  "editor.fontWeight": "500",
-  "editor.fontLigatures": false,
   "window.commandCenter": true,
-  "workbench.colorTheme": "Vitesse Light",
+  "workbench.colorTheme": "Vitesse Dark",
   "workbench.preferredDarkColorTheme": "Vitesse Dark",
   "workbench.preferredLightColorTheme": "Vitesse Light",
   "workbench.fontAliasing": "antialiased",
   "window.autoDetectColorScheme": true,
   "terminal.integrated.enableMultiLinePasteWarning": false,
-  // 保存文件进行格式化
+  "editor.fontFamily": "Input Mono, Fira Code, monospace",
+  "editor.fontWeight": "500",
+  "editor.fontLigatures": false,
+  // 保存时使用VSCode 自身格式化程序格式化
   "editor.formatOnSave": true,
-  // 是用eslint 格式化
   "editor.codeActionsOnSave": {
-    "source.fixAll.eslint": true
+    "source.fixAll": false,
+    "source.fixAll.eslint": true,
+    "source.organizeImports": false
   },
+  // 禁用 默认的 js/ts 格式化 使用eslint格式化
+  "javascript.format.enable": false,
+  "typescript.format.enable": false,
+  // 使用eslint 格式化 js/ts
+  "[javascript]": {
+    "editor.defaultFormatter": "dbaeumer.vscode-eslint"
+  },
+  "[typescript]": {
+    "editor.defaultFormatter": "dbaeumer.vscode-eslint"
+  },
+  "[json]": {
+    "editor.defaultFormatter": "vscode.json-language-features"
+  },
+  // jsonc是有注释的json
+  "[jsonc]": {
+    "editor.defaultFormatter": "vscode.json-language-features"
+  },
+  "eslint.format.enable": true,
+  "eslint.codeActionsOnSave.mode": "problems",
   "eslint.validate": [
     "javascript",
     "javascriptreact",
-    "html",
+    "typescript",
+    "typescriptreact",
     "vue"
   ],
   "git.confirmSync": false,
   "git.openRepositoryInParentFolders": "always",
+  "diffEditor.ignoreTrimWhitespace": false,
+  "stylelint.validate": [
+    "css",
+    "less",
+    "postcss",
+    "scss",
+    "vue",
+    "sass"
+  ]
 }
 ```
 
