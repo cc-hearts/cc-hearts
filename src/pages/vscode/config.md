@@ -6,6 +6,7 @@ title: Visual Studio Code Config
 {
   // 保存之后是否格式化
   "explorer.compactFolders": false,
+
   // tab缩进
   "editor.tabSize": 2,
   // 是否在解决合并冲突后自动转到下一个合并冲突
