@@ -2,6 +2,8 @@
 title: Visual Studio Code Debugger
 ---
 
+launch config:
+
 ```json
 {
   "configurations": [
@@ -18,8 +20,9 @@ title: Visual Studio Code Debugger
       "runtimeExecutable": "canary",
       // 运行时启动的参数
       "runtimeArgs": [
+        "--disable-web-security", // close CORS
         "--auto-open-devtools-for-tabs ", // 自动打开调试面板
-        "incognito", // 无痕模式/隐身模式 预览
+        "incognito" // 无痕模式/隐身模式 预览
       ],
       // 是否支持sourceMap映射
       "sourceMaps": true,
@@ -33,5 +36,17 @@ title: Visual Studio Code Debugger
       }
     }
   ]
+}
+```
+
+attach config:
+
+```json
+{
+  "name": "Attach to Chrome",
+  "port": 9222, // 指定浏览器提供调试的端口号 需要与 --remote-debugging-port 端口对应
+  "request": "attach",
+  "type": "chrome",
+  "webRoot": "${workspaceFolder}"
 }
 ```
