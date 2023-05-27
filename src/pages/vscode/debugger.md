@@ -2,7 +2,7 @@
 title: Visual Studio Code Debugger
 ---
 
-launch config:
+`launch config`
 
 ```json
 {
@@ -39,12 +39,14 @@ launch config:
 }
 ```
 
-attach config:
+`attach config`
 
 ```json
 {
   "name": "Attach to Chrome",
-  "port": 9222, // 指定浏览器提供调试的端口号 需要与 --remote-debugging-port 端口对应
+  // 指定浏览器提供调试的端口号
+  // 需要与 --remote-debugging-port 端口对应
+  "port": 9222,
   "request": "attach",
   "type": "chrome",
   "webRoot": "${workspaceFolder}"
