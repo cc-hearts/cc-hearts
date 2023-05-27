@@ -6,7 +6,6 @@ title: Visual Studio Code Config
 {
   // 保存之后是否格式化
   "explorer.compactFolders": false,
-
   // tab缩进
   "editor.tabSize": 2,
   // 是否在解决合并冲突后自动转到下一个合并冲突
@@ -76,14 +75,7 @@ title: Visual Studio Code Config
   "git.confirmSync": false,
   "git.openRepositoryInParentFolders": "always",
   "diffEditor.ignoreTrimWhitespace": false,
-  "stylelint.validate": [
-    "css",
-    "less",
-    "postcss",
-    "scss",
-    "vue",
-    "sass"
-  ]
+  "stylelint.validate": ["css", "less", "postcss", "scss", "vue", "sass"]
 }
 ```
 
