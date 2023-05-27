@@ -1,5 +1,9 @@
 @import './markdown.css';
 
+:root {
+  color-scheme: light dark;
+}
+
 html,
 body,
 #app {

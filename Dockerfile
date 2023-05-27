@@ -1,6 +1,6 @@
 FROM nginx:latest
 
-MAINTAINER  heart<7362469@qq.com>
+LABEL MAINTAINER="heart<7362469@qq.com>"
 
 COPY dist/ /opt/cc-hearts/
 
