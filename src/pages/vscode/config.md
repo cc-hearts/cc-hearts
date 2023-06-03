@@ -2,6 +2,8 @@
 title: Visual Studio Code Config
 ---
 
+## `settings.json`
+
 ```json
 {
   // 保存之后是否格式化
@@ -75,7 +77,17 @@ title: Visual Studio Code Config
   "git.confirmSync": false,
   "git.openRepositoryInParentFolders": "always",
   "diffEditor.ignoreTrimWhitespace": false,
-  "stylelint.validate": ["css", "less", "postcss", "scss", "vue", "sass"]
+  "stylelint.validate": [
+    "css",
+    "less",
+    "postcss",
+    "scss",
+    "vue",
+    "sass",
+    "stylus"
+  ],
+  // vetur ignore warning tips
+  "vetur.ignoreProjectWarning": true
 }
 ```
 
@@ -85,4 +97,70 @@ title: Visual Studio Code Config
 {
   "editor.formatOnSave": false
 }
+```
+
+## `plugins`
+
+```json
+[
+  // tools
+  "Code SPell Checker",
+  "CodeSnap",
+  "Project Manager",
+  "TabOut",
+  "EditorConfig for VS Code",
+  "Error Lens",
+  "ESLint",
+  "Stylelint",
+  "Better Comments",
+  "Auto Rename Tag",
+  "Code Translate",
+  "Git Graph",
+  // keyboards
+  "IntelliJ IDEA Keybindings",
+  // icons
+  "Material Icon Theme",
+  // rust
+  "rust-analyzer",
+  "codeLLDB",
+  "Even Better TOML",
+  // vue
+  "TypeScript Vue Plugin (Volar)",
+  "UnoCSS",
+  "Vitest",
+  // AI
+  "Codeium"
+]
+```
+
+## snippets
+
+> `csl.snippets`
+
+```json
+ "Print to console": {
+  "scope": "javascript,typescript,vue,javascriptreact,typescriptreact",
+  "prefix": "csl",
+  "body": [
+   "console.log($1);"
+  ],
+  "description": "Log output to console"
+ }
+```
+
+> `vue.snippets`
+
+```json
+ "vue 3 snippet": {
+  "scope": "vue",
+  "prefix": "vue",
+  "body": [
+   "<script setup lang='ts'> \n",
+   "</script>",
+   "<template> \n",
+   "</template>",
+   "<style lang='scss'> \n",
+   "</style>",
+  ]
+ }
 ```
