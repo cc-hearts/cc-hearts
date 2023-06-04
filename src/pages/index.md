@@ -2,8 +2,6 @@
 title: cc-hearts
 ---
 
-<h2 class="my-10">
-  cc hearts
-</h2>
+## cc hearts
 
-A front end, learning rust...
+Learning javascript、rust

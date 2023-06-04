@@ -28,3 +28,16 @@ html.dark .shiki-light {
 html:not(.dark) .shiki-dark {
   display: none;
 }
+
+h2 {
+  margin: 0.5em 0;
+}
+
+p a {
+  transition: border 0.3s;
+  border-bottom: 1px solid var(--color-text-3);
+}
+
+p a:hover {
+  border-color: var(--color-text-1);
+}

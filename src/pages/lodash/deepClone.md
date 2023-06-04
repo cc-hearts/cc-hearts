@@ -2,7 +2,7 @@
 title: cloneDeep 源码解析
 ---
 
-# cloneDeep 源码解析
+## cloneDeep 源码解析
 
 `cloneDeep` 等 其他`clone` 方法 都依赖于 `baseClone` 这个方法
 
@@ -137,6 +137,8 @@ function isObject(value) {
     }
 ```
 
+## `clone Function`
+
 `initCloneObject` 函数如下：
 
 ```js
@@ -167,9 +169,11 @@ function isPrototype(value) {
 function initCloneByTag(object, tag, isDeep) {
   const Ctor = object.constructor
   switch (tag) {
+    // clone  Uint8Array
     case arrayBufferTag:
       return cloneArrayBuffer(object)
 
+    // Boolean Date 转换成Number 在进行调用
     case boolTag:
     case dateTag:
       return new Ctor(+object)
@@ -185,6 +189,7 @@ function initCloneByTag(object, tag, isDeep) {
     case mapTag:
       return new Ctor
 
+    // clone Number String
     case numberTag:
     case stringTag:
       return new Ctor(object)
@@ -201,7 +206,7 @@ function initCloneByTag(object, tag, isDeep) {
 }
 ```
 
-对于 `Symbol` 的 `clone`
+## `clone Symbol`
 
 ```js
 const symbolValueOf = Symbol.prototype.valueOf
@@ -217,7 +222,7 @@ function cloneSymbol(symbol) {
 // cloneSym.valueOf() === sym.valueOf() // true
 ```
 
-`cloneRegExp`
+## `clone RegExp`
 
 ```js
 const reFlags = /\w*$/ // 匹配后续 gmi 等标识符
@@ -231,4 +236,24 @@ function cloneRegExp(regexp) {
 }
 
 // cloneRegExp(/a/gi)
+```
+
+## `clone Set Map`
+
+```js
+
+  if (tag == mapTag) {
+    value.forEach((subValue, key) => {
+      result.set(key, baseClone(subValue, bitmask, customizer, key, value, stack))
+    })
+    return result
+  }
+
+  if (tag == setTag) {
+    value.forEach((subValue) => {
+      result.add(baseClone(subValue, bitmask, customizer, subValue, value, stack))
+    })
+    return result
+  }
+
 ```
