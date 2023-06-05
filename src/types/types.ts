@@ -1,4 +1,3 @@
-
 export interface IFrontmatter {
   title?: string
   description?: string
@@ -7,7 +6,7 @@ export interface IFrontmatter {
 
 export interface IPosts {
   title?: string
-  path:string
+  path: string
   month: string
   date: number
   time: Date

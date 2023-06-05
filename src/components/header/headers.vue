@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import { usePrefixCls } from '@/hooks';
-import { GithubIcon } from '@/icons';
-import ToggleDark from '@/components/switch/toggleDark.vue';
+import { usePrefixCls } from '@/hooks'
+import { GithubIcon } from '@/icons'
+import ToggleDark from '@/components/switch/toggleDark.vue'
 const headerCls = usePrefixCls('header')
 </script>
 
@@ -27,13 +27,12 @@ const headerCls = usePrefixCls('header')
   // box-shadow: 0 1px 0 var(--header-shadow);
 
   &__icon {
-
     color: var(--color-text-3);
 
-    &>div,
-    &>button,
-    &>svg,
-    &>a {
+    & > div,
+    & > button,
+    & > svg,
+    & > a {
       margin: 0 0.7rem;
 
       transition: color 0.3s;
@@ -46,7 +45,6 @@ const headerCls = usePrefixCls('header')
     svg {
       cursor: pointer;
       font-size: 24px;
-
     }
   }
 }

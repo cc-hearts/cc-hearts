@@ -2,7 +2,7 @@
 title: ref 赋值给 reactive引发的问题
 ---
 
-## ref 赋值给 reactive引发的问题
+## ref 赋值给 reactive 引发的问题
 
 以下是出现问题的最小复现代码 <br />
 
@@ -22,17 +22,15 @@ title: ref 赋值给 reactive引发的问题
 
 ![image-20230604204747228](http://oss.cc-heart.cn:30002/oss/file/WPJTOOANlAvXos4EJeb0m/2023-06-04/image-20230604204747228.png)
 
-
-
 可以看到`!isArray(target) && isRef(oldValue) && !isRef(value)` 的条件成立 通过`debugger` 可以看出：
 
-`target === state`  
+`target === state`
 
- `oldValue === msg` 
+`oldValue === msg`
 
-  `value === []`
+`value === []`
 
-现在会通过调用`oldvalue.value = value` 改变值  此时的 `state.data === msg`
+现在会通过调用`oldvalue.value = value` 改变值 此时的 `state.data === msg`
 
 ## 总结
 
@@ -40,17 +38,17 @@ title: ref 赋值给 reactive引发的问题
 
 ```vue
 <script setup>
- const msg = ref(['1','2'])
+const msg = ref(['1', '2'])
 
-  const state = reactive({
-    data: null
-  })
+const state = reactive({
+  data: null,
+})
 
-  state.data = msg
-  state.data = []
+state.data = msg
+state.data = []
 
-  console.log(msg.value) // []
-  console.log(state.data) // []
+console.log(msg.value) // []
+console.log(state.data) // []
 </script>
 ```
 

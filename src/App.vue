@@ -1,19 +1,16 @@
 <script setup lang="ts">
-import Headers from '@/components/header/headers.vue';
+import Headers from '@/components/header/headers.vue'
 import Home from '@/layouts/home'
 import { LogoIcon } from '@/icons/index'
-import { useRouter } from 'vue-router';
+import { useRouter } from 'vue-router'
 
 const router = useRouter()
 
-const subTitle = [
-  { title: 'Blog', link: '/blog' }
-]
+const subTitle = [{ title: 'Blog', link: '/blog' }]
 
 const toRoute = (link: string) => {
   router.push(link)
 }
-
 </script>
 
 <template>
@@ -36,7 +33,6 @@ const toRoute = (link: string) => {
   padding: 0;
   box-sizing: border-box;
 }
-
 
 body,
 html,

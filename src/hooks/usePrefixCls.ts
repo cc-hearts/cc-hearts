@@ -1,4 +1,4 @@
-import { prefixCls } from "@/configs"
+import { prefixCls } from '@/configs'
 
 export function usePrefixCls(cls: string) {
   if (cls === undefined) return prefixCls

@@ -1,31 +1,39 @@
 <script setup lang="ts">
-import type { IFrontmatter, IPosts } from '@/types/types';
-import { useRouter } from 'vue-router';
-
+import type { IFrontmatter, IPosts } from '@/types/types'
+import { useRouter } from 'vue-router'
+import { NewIcon } from '@/icons'
 const router = useRouter()
-const routes = router.getRoutes().filter(router => router.meta?.frontmatter)
+const routes = router.getRoutes().filter((router) => router.meta?.frontmatter)
 const posts = Object.create(null)
-routes.forEach(route => {
+routes.forEach((route) => {
   const frontmatter = route.meta.frontmatter as IFrontmatter
   let time = frontmatter.time || new Date()
   time = new Date(time)
   const year = time.getFullYear()
-  const month = time.toDateString().split(" ")[1]
+  const month = time.toDateString().split(' ')[1]
   const date = time.getDate()
   const postList = Reflect.get(posts, year)
-  const config: IPosts = { title: frontmatter.title, path: route.path, month, date, time }
-  if (!postList)
-    Reflect.set(posts, year, [config])
-  else
-    Reflect.set(posts, year, [...postList, config])
+  const config: IPosts = {
+    title: frontmatter.title,
+    path: route.path,
+    month,
+    date,
+    time,
+  }
+  if (!postList) Reflect.set(posts, year, [config])
+  else Reflect.set(posts, year, [...postList, config])
 })
-Object.keys(posts).forEach(key => {
+Object.keys(posts).forEach((key) => {
   const array = posts[key]
   array.sort((a: IPosts, b: IPosts) => b.time.getTime() - a.time.getTime())
 })
 
 const toRoute = (link: string) => {
   router.push(link)
+}
+
+const isShowNewTag = (date: Date) => {
+  return Date.now() - +date <= 1000 * 60 * 60 * 48
 }
 </script>
 
@@ -35,13 +43,18 @@ const toRoute = (link: string) => {
       <span class="year">{{ year }}</span>
       <div class="post-list">
         <template v-for="post in posts[year]">
-          <a class="post-title text-lg leading-1.2em my-2 inline-block " @click="toRoute(post.path)">
+          <a
+            class="post-title text-lg leading-1.2em my-2 inline-block"
+            @click="toRoute(post.path)"
+          >
             <span>
               {{ post.title }}
             </span>
-            <span class="mx-2">
-              {{ post.month }} {{ post.date }}
-            </span>
+            <span class="mx-2"> {{ post.month }} {{ post.date }} </span>
+            <NewIcon
+              v-if="isShowNewTag(post.time)"
+              class="text-3xl align-sub leading-none"
+            />
           </a>
         </template>
       </div>
@@ -68,7 +81,7 @@ const toRoute = (link: string) => {
   font-size: 8em;
   color: transparent;
   font-weight: 700;
-  -webkit-text-stroke-color: rgba(170, 160, 160, 1.0);
+  -webkit-text-stroke-color: rgba(170, 160, 160, 1);
   -webkit-text-stroke-width: 2px;
   opacity: 0.2;
   transform: translate(-60px);

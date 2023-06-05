@@ -7,7 +7,8 @@
     "dev": "vite --host",
     "build": "vite-ssg build",
     "preview": "vite preview",
-    "fix": "eslint --fix --ext .js,.ts,.vue ."
+    "fix": "eslint --fix --ext .js,.ts,.vue .",
+    "prettier": "prettier --write ."
   },
   "dependencies": {
     "@cc-heart/utils": "^2.0.11",
@@ -27,6 +28,7 @@
     "eslint-plugin-vue": "^9.12.0",
     "markdown-it-link-attributes": "^4.0.1",
     "markdown-it-shiki": "^0.9.0",
+    "prettier": "^2.8.8",
     "sass": "^1.62.1",
     "typescript": "^5.0.2",
     "vite": "^4.3.5",
