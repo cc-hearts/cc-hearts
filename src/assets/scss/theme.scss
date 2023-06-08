@@ -6,6 +6,9 @@
   --color-text-2: #5c5c5c;
   --color-text-3: #909399;
   --color-white: #fff;
+  --tag-bgc-color: #f6f6f7;
+  --tip-bgc-color: #f3f4f5;
+  --a-link-color: #5bab70;
 }
 
 :root.dark {
@@ -15,6 +18,9 @@
   --color-text-1: rgba(255, 255, 255, 0.9);
   --color-text-2: rgba(255, 255, 255, 0.7);
   --color-text-3: rgba(255, 255, 255, 0.5);
+  --tag-bgc-color: #313136;
+  --tip-bgc-color: #202229;
+  --a-link-color: #86dfba;
 }
 
 html {
@@ -23,5 +29,4 @@ html {
 
 body {
   background-color: var(--bg-color);
-  transition: background-color 0.2s ease;
 }

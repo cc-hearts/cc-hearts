@@ -2,6 +2,7 @@
 import type { IFrontmatter, IPosts } from '@/types/types'
 import { useRouter } from 'vue-router'
 import { NewIcon } from '@/icons'
+import { computed } from 'vue'
 const router = useRouter()
 const routes = router.getRoutes().filter((router) => router.meta?.frontmatter)
 const posts = Object.create(null)
@@ -35,11 +36,15 @@ const toRoute = (link: string) => {
 const isShowNewTag = (date: Date) => {
   return Date.now() - +date <= 1000 * 60 * 60 * 48
 }
+
+const years = computed(() =>
+  Object.keys(posts).sort((a: string, b: string) => Number(b) - Number(a))
+)
 </script>
 
 <template>
   <div class="cc-blog">
-    <template v-for="year in Object.keys(posts)">
+    <template v-for="year in years">
       <span class="year">{{ year }}</span>
       <div class="post-list">
         <template v-for="post in posts[year]">
@@ -85,6 +90,7 @@ const isShowNewTag = (date: Date) => {
   -webkit-text-stroke-width: 2px;
   opacity: 0.2;
   transform: translate(-60px);
+  user-select: none;
 }
 
 .post-list {

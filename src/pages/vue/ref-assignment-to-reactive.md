@@ -16,11 +16,11 @@ title: ref 赋值给 reactive引发的问题
 
 在 `inspect` 函数处打下断点
 
-![image-20230604204614029](http://oss.cc-heart.cn:30002/oss/file/WPJTOOANlAvXos4EJeb0m/2023-06-04/image-20230604204614029.png)
+![image-20230604204614029](http://oss.cc-heart.cn:30002/oss/file/WPJTOOANlAvXos4EJeb0m/2023-06-07/image-20230604204614029-20230607213558400.png)
 
 根据断点往下走，可以看到`setter`方法
 
-![image-20230604204747228](http://oss.cc-heart.cn:30002/oss/file/WPJTOOANlAvXos4EJeb0m/2023-06-04/image-20230604204747228.png)
+![image-20230604204747228](http://oss.cc-heart.cn:30002/oss/file/WPJTOOANlAvXos4EJeb0m/2023-06-07/image-20230604204747228.png)
 
 可以看到`!isArray(target) && isRef(oldValue) && !isRef(value)` 的条件成立 通过`debugger` 可以看出：
 

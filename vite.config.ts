@@ -50,6 +50,7 @@ export default defineConfig({
         md.use(LinkAttributes, {
           matcher: (link: string) => /^https?:\/\//.test(link),
           attrs: {
+            class: 'cc-link',
             target: '_blank',
             rel: 'noopener',
           },
