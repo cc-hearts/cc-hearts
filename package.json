@@ -15,6 +15,7 @@
     "@unhead/vue": "^1.1.27",
     "gray-matter": "^4.0.3",
     "nprogress": "^0.2.0",
+    "typed.js": "^2.0.16",
     "unocss": "^0.51.8",
     "vue": "^3.2.47",
     "vue-router": "^4.2.0"

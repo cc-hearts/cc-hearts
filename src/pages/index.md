@@ -4,4 +4,8 @@ title: cc-hearts
 
 ## cc hearts
 
-Learning javascript、rust
+<script setup>
+import Introduce from '../layouts/introduce'
+</script>
+
+<Introduce />
