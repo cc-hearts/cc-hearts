@@ -48,18 +48,12 @@ const years = computed(() =>
       <span class="year">{{ year }}</span>
       <div class="post-list">
         <template v-for="post in posts[year]">
-          <a
-            class="post-title text-lg leading-1.2em my-2 inline-block"
-            @click="toRoute(post.path)"
-          >
+          <a class="post-title text-lg leading-1.2em my-2 inline-block" @click="toRoute(post.path)">
             <span>
               {{ post.title }}
             </span>
             <span class="mx-2"> {{ post.month }} {{ post.date }} </span>
-            <NewIcon
-              v-if="isShowNewTag(post.time)"
-              class="text-3xl align-sub leading-none"
-            />
+            <NewIcon v-if="isShowNewTag(post.time)" class="text-3xl align-sub leading-none" />
           </a>
         </template>
       </div>

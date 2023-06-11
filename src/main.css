@@ -33,9 +33,9 @@ html.dark {
 }
 
 p {
-  line-height: 3em;
+  line-height: 2.5em;
 }
 
-.shiki-container > pre {
+.shiki-container>pre {
   padding: 1em;
 }

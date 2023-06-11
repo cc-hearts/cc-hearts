@@ -1,4 +1,4 @@
-import { defineConfig, presetAttributify, presetUno } from 'unocss'
+import { defineConfig, presetAttributify, presetUno, presetIcons } from 'unocss'
 
 export default defineConfig({
   presets: [
@@ -7,6 +7,12 @@ export default defineConfig({
     }),
     presetUno(),
     // ...custom presets
+    presetIcons({
+      collections: {
+        carbon: () =>
+          import('@iconify-json/carbon').then((i) => i.icons as any)
+      }
+     }),
   ],
   rules: [['max-blog-prose', { 'max-width': '70ch' }]],
 })
