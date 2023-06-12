@@ -8,8 +8,9 @@
 
 .prose .shiki {
   font-family: 'DM Mono', monospace;
-  font-size: 1.2em;
-  line-height: 1.4;
+  font-size: 1.1em;
+  border-radius: 4px;
+  line-height: 1.2;
   overflow: auto;
 }
 
@@ -47,11 +48,13 @@ p a:hover {
   border-color: var(--color-text-1);
 }
 
-.prose :not(pre) > code {
+.prose :not(pre)>code {
   background-color: var(--tag-bgc-color);
   padding: 0.2em;
   border-radius: 4px;
 }
+
+
 
 .prose blockquote {
   background-color: var(--tip-bgc-color);
@@ -67,8 +70,13 @@ ol {
 
 a.cc-link {
   color: var(--a-link-color);
+  transition: all 0.3s;
 }
 
 a.cc-link:hover {
-  text-decoration: underline;
+  box-shadow: 0 1px 0 0 currentColor;
+}
+
+.prose .shiki-container>pre {
+  padding: 0.5em;
 }
