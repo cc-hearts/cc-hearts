@@ -13,7 +13,7 @@ body,
 }
 
 html.dark {
-  background: #121212;
+  background: #1e1e1f;
   color-scheme: dark;
 }
 
@@ -33,9 +33,9 @@ html.dark {
 }
 
 p {
-  line-height: 2;
+  margin: 1em 0;
 }
 
-.shiki-container>pre {
+.shiki-container > pre {
   padding: 1em;
 }

@@ -1,4 +1,4 @@
-import { defineComponent, onMounted, ref } from "vue"
+import { defineComponent, onMounted, ref } from 'vue'
 import Typed from 'typed.js'
 export default defineComponent({
   setup() {
@@ -13,10 +13,12 @@ export default defineComponent({
         typeSpeed: 40,
       })
     })
-    return () => <div>
-      <p>
-        🌱 <span ref={el}></span>
-      </p>
-    </div>
-  }
+    return () => (
+      <div>
+        <p>
+          🌱 <span ref={el}></span>
+        </p>
+      </div>
+    )
+  },
 })

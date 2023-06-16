@@ -10,9 +10,9 @@ export default defineConfig({
     presetIcons({
       collections: {
         carbon: () =>
-          import('@iconify-json/carbon').then((i) => i.icons as any)
-      }
-     }),
+          import('@iconify-json/carbon').then((i) => i.icons as any),
+      },
+    }),
   ],
   rules: [['max-blog-prose', { 'max-width': '70ch' }]],
 })

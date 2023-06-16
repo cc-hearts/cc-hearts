@@ -35,7 +35,8 @@ html:not(.dark) .shiki-dark {
 }
 
 h2,
-h3 {
+h3,
+h4 {
   margin: 0.5em 0;
 }
 
@@ -48,19 +49,19 @@ p a:hover {
   border-color: var(--color-text-1);
 }
 
-.prose :not(pre)>code {
+.prose :not(pre) > code {
   background-color: var(--tag-bgc-color);
-  padding: 0.2em;
+  padding: 0.2em 0.5em;
+  margin: 0 0.2em;
   border-radius: 4px;
 }
-
-
 
 .prose blockquote {
   background-color: var(--tip-bgc-color);
   padding: 0 0.5em;
   border-radius: 2px;
   margin: 0.5em 0 1em;
+  overflow: hidden;
 }
 
 .prose blockquote ul,
@@ -77,6 +78,6 @@ a.cc-link:hover {
   box-shadow: 0 1px 0 0 currentColor;
 }
 
-.prose .shiki-container>pre {
+.prose .shiki-container > pre {
   padding: 0.5em;
 }
