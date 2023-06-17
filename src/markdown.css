@@ -42,7 +42,6 @@ h4 {
 
 p a {
   transition: border 0.3s;
-  border-bottom: 1px solid var(--color-text-3);
 }
 
 p a:hover {

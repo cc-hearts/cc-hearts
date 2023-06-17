@@ -1,0 +1,131 @@
+:root {
+  color-scheme: light dark;
+}
+
+
+
+html.dark {
+  background: #1e1e1f;
+  color-scheme: dark;
+}
+
+.shiki-light {
+  background: #f8f8f8 !important;
+}
+
+.shiki-dark {
+  background: #0e0e0e !important;
+}
+
+html.dark .shiki-light {
+  display: none;
+}
+
+h2,
+h3,
+h4 {
+  margin: 0.5em 0;
+}
+
+html:not(.dark) .shiki-dark {
+  display: none;
+}
+
+
+.prose {
+  letter-spacing: 2px;
+
+  pre {
+    &:not(.shiki) {
+      padding: 0;
+    }
+  }
+
+  .shiki {
+    font-family: 'DM Mono', monospace;
+    font-size: 1.1em;
+    border-radius: 4px;
+    line-height: 1.2;
+    overflow: auto;
+  }
+
+  img {
+    width: 100%;
+  }
+
+  table {
+    border-collapse: collapse;
+
+    td {
+      border: 1px solid var(--color-text-3);
+    }
+  }
+
+
+
+  .shiki-container {
+    &>pre {
+      padding: 0.5em 1em;
+      border-radius: 0.5rem;
+      margin: 0 0 0.5em;
+    }
+
+    @at-root {
+      .shiki-container>pre {
+        padding: 1em;
+      }
+    }
+  }
+
+
+  & :not(pre)>code {
+    background-color: var(--tag-bgc-color);
+    padding: 0.2em 0.5em;
+    margin: 0 0.2em;
+    border-radius: 4px;
+    background-color: var(--tag-color)
+  }
+
+  blockquote {
+    background-color: var(--tip-bgc-color);
+    padding: 0 0.5em;
+    border-radius: 2px;
+    margin: 0.5em 0 1em;
+    overflow: hidden;
+
+
+    & ul,
+    ol {
+      padding-left: 2em;
+
+    }
+  }
+}
+
+p {
+  margin: 1em 0;
+
+  a {
+    transition: border 0.3s;
+
+    &:hover {
+      border-color: var(--color-text-1);
+
+    }
+  }
+}
+
+
+
+
+
+
+
+a.cc-link {
+  color: var(--a-link-color);
+  transition: all 0.3s;
+}
+
+a.cc-link:hover {
+  box-shadow: 0 1px 0 0 currentColor;
+}
