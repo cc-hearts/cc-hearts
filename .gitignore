@@ -25,3 +25,6 @@ dist-ssr
 copy.sh
 
 app.development.yaml
+
+# vercel ci error
+pnpm-lock.yaml
