@@ -1,5 +1,6 @@
 ---
 title: class-validator 基础api介绍
+date: 2023-02-10
 ---
 
 ## 基本使用

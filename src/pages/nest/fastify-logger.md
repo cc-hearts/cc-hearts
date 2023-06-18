@@ -1,5 +1,6 @@
 ---
 title: fastify logger 自定义日志
+date: 2023-05-04
 ---
 
 安装 依赖

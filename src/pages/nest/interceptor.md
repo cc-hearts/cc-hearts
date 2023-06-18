@@ -1,5 +1,6 @@
 ---
 title: 拦截器的使用
+date: 2022-12-19
 ---
 
 ## http 拦截器的使用
@@ -89,11 +90,17 @@ export class interceptor implements NestInterceptor {
     next: CallHandler<any>
   ): Observable<any> | Promise<Observable<any>> {
     const start = Date.now();
-    console.log("------before", start);
+    console.log("---
+title: 拦截器的使用
+date: 2022-12-19
+---before", start);
     return next.handle().pipe(
       map((val) => {
         const end = Date.now();
-        console.log("------after", end);
+        console.log("---
+title: 拦截器的使用
+date: 2022-12-19
+---after", end);
         console.log(end - start);
         return val;
       })

@@ -1,5 +1,6 @@
 ---
 title: Visual Studio Code Config
+date: 2023-05-14
 ---
 
 ## `settings.json`

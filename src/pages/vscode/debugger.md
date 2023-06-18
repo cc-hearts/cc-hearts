@@ -1,5 +1,6 @@
 ---
 title: Visual Studio Code Debugger
+date: 2023-05-12
 ---
 
 `launch config`

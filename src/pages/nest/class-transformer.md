@@ -1,5 +1,6 @@
 ---
 title: class-transformer
+date: 2023-02-11
 ---
 
 ## class-transformer 使用

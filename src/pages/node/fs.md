@@ -1,5 +1,6 @@
 ---
 title: '文件系统'
+date: 2023-06-02
 ---
 
 ## fs.existSync
