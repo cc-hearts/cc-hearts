@@ -186,59 +186,13 @@ describe('test', () => {
 ```
 ### 常用的断言
 
-|              |                                                          |                                 |
-| :---
-title: jest、vitest 单元测试 与 assert 原生断言(持续更新)
-date: 2023-06-12
-------
-title: jest、vitest 单元测试 与 assert 原生断言(持续更新)
-date: 2023-06-12
-------
-title: jest、vitest 单元测试 与 assert 原生断言(持续更新)
-date: 2023-06-12
-------
-title: jest、vitest 单元测试 与 assert 原生断言(持续更新)
-date: 2023-06-12
-------
-title: jest、vitest 单元测试 与 assert 原生断言(持续更新)
-date: 2023-06-12
-------
-title: jest、vitest 单元测试 与 assert 原生断言(持续更新)
-date: 2023-06-12
-------
-title: jest、vitest 单元测试 与 assert 原生断言(持续更新)
-date: 2023-06-12
-------
-title: jest、vitest 单元测试 与 assert 原生断言(持续更新)
-date: 2023-06-12
-------
-title: jest、vitest 单元测试 与 assert 原生断言(持续更新)
-date: 2023-06-12
-------
-title: jest、vitest 单元测试 与 assert 原生断言(持续更新)
-date: 2023-06-12
-------
-title: jest、vitest 单元测试 与 assert 原生断言(持续更新)
-date: 2023-06-12
-------
-title: jest、vitest 单元测试 与 assert 原生断言(持续更新)
-date: 2023-06-12
-------
-title: jest、vitest 单元测试 与 assert 原生断言(持续更新)
-date: 2023-06-12
-------
-title: jest、vitest 单元测试 与 assert 原生断言(持续更新)
-date: 2023-06-12
-------
-title: jest、vitest 单元测试 与 assert 原生断言(持续更新)
-date: 2023-06-12
------: |
-|   toEqual    |             递归检查所有属性和属性值是否相等             | `expect([1,2]).not.toBe([1,2])` |
-|     not      |                 允许测试结果不等于某个值                 |    `expect([]).not.toBe([])`    |
+|      |      |      |
+| :--: | :--: | :--: |
+|   toEqual   |  递归检查所有属性和属性值是否相等    |   `expect([1,2]).not.toBe([1,2])`   |
+|   not   |   允许测试结果不等于某个值   |   `expect([]).not.toBe([])`    |
 | toHaveLength |      可以用来测试字符串和数组类型的长度是否满足预期      | `expect([1,2]).toHaveLength(2)` |
 |   toThorw    |              被测试方法是否按照预期抛出异常              |                                 |
 |   toMatch    | 传入一个正则表达式，它允许我们来进行字符串类型的正则匹配 |                                 |
-
 
 
 ## 参考资料

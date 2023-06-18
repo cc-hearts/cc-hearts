@@ -1,5 +1,5 @@
 ---
-title: element bem 工具类/方法解析
+title: Element plus BEM 工具类/方法解析
 date: 2023-05-28
 ---
 

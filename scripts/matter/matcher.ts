@@ -8,8 +8,8 @@ function objectTransformMatter(data: Record<string, string>) {
 }
 
 export function replaceMdMatter(md:string,defaultMatters: Record<string,string>) {
-   const matchMatterRegex = /---[\w\W]*?---/gm
-   const [matcher] =  md.match(matchMatterRegex) || []
+   const matchMatterRegex = /^---[\w\W]*?---/gm
+   const [matcher] =  (md.trim()).match(matchMatterRegex) || []
    if (typeof matcher === 'string') {
       let matterList = matcher.split('\n')
       const len = matterList.length
