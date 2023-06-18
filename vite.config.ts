@@ -27,11 +27,8 @@ export default defineConfig({
         if (route.path !== '/' && path.endsWith('.md')) {
           const md = readFileSync(path)
           const { data } = matter(md)
-          console.log(data);
-          const stat = statSync(path)
-          const time = stat.birthtime
           route.meta = Object.assign(route.meta || {}, {
-            frontmatter: { ...data, time },
+            frontmatter: { ...data, time: data.date || new Date().toISOString().split('T')[0] },
           })
         }
         return route
