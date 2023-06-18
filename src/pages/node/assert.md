@@ -201,4 +201,6 @@ describe('test', () => {
 
 [jest setup teardown](https://jestjs.io/docs/setup-teardown)
 
+[Jest: Timer and Promise don't work well. (setTimeout and async function)](https://stackoverflow.com/questions/52177631/jest-timer-and-promise-dont-work-well-settimeout-and-async-function)
+
 [再谈 babel 7.18.0 引发的问题](https://developer.aliyun.com/article/982111)
