@@ -10,7 +10,7 @@ import { __DEV__ } from './configs'
 useInitTheme()
 
 if (__DEV__) {
-  console.log(routes);
+  console.log(routes)
 }
 export const createApp = ViteSSG(App, { routes })
 // Object.entries(import.meta.glob('./modules/*.ts', { eager: true })).forEach(([, Module]) => {

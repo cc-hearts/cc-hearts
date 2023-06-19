@@ -2,7 +2,11 @@
   color-scheme: light dark;
 }
 
-
+html {
+  font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
+    Segoe UI, Roboto, Helvetica Neue, Arial, Noto Sans, sans-serif,
+    'Apple Color Emoji', 'Segoe UI Emoji', Segoe UI Symbol, 'Noto Color Emoji';
+}
 
 html.dark {
   background: #1e1e1f;
@@ -30,7 +34,6 @@ h4 {
 html:not(.dark) .shiki-dark {
   display: none;
 }
-
 
 .prose {
   letter-spacing: 2px;
@@ -61,29 +64,26 @@ html:not(.dark) .shiki-dark {
     }
   }
 
-
-
   .shiki-container {
-    &>pre {
+    & > pre {
       padding: 0.5em 1em;
       border-radius: 0.5rem;
       margin: 0 0 0.5em;
     }
 
     @at-root {
-      .shiki-container>pre {
+      .shiki-container > pre {
         padding: 1em;
       }
     }
   }
 
-
-  & :not(pre)>code {
+  & :not(pre) > code {
     background-color: var(--tag-bgc-color);
     padding: 0.2em 0.5em;
     margin: 0 0.2em;
     border-radius: 4px;
-    background-color: var(--tag-color)
+    background-color: var(--tag-color);
   }
 
   blockquote {
@@ -93,11 +93,9 @@ html:not(.dark) .shiki-dark {
     margin: 0.5em 0 1em;
     overflow: hidden;
 
-
     & ul,
     ol {
       padding-left: 2em;
-
     }
   }
 }
@@ -110,16 +108,9 @@ p {
 
     &:hover {
       border-color: var(--color-text-1);
-
     }
   }
 }
-
-
-
-
-
-
 
 a.cc-link {
   color: var(--a-link-color);

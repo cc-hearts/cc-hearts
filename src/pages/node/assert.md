@@ -1,5 +1,5 @@
 ---
-title: jest、vitest 单元测试 与 assert 原生断言(持续更新)
+title: jest、vitest 单元测试 与 assert 原生断言
 date: 2023-06-12
 ---
 
@@ -47,12 +47,15 @@ pnpm i @babel/core @babel/preset-env --save-dev
 `afterEach`：每个测试实例完成之后执行
 
 运行顺序:
+
 ```js
-beforeAll => beforeeach => afterEach => afterAll
+;(beforeAll) => (beforeeach) => (afterEach) => afterAll
 ```
 
-### typescript测试
+### typescript 测试
+
 `jest` 需要借助 `.babelrc` 去解析 `TypeScript` 文件再进行测试
+
 ```js
 pnpm i @babel/preset-typescript
 ```
@@ -123,7 +126,7 @@ describe('test', () => {
 })
 ```
 
-#### setTimeout超时问题
+#### setTimeout 超时问题
 
 以下代码会造成执行超时：
 
@@ -184,16 +187,18 @@ describe('test', () => {
   })
 })
 ```
+
+### css 等引入失败问题
+
 ### 常用的断言
 
-|      |      |      |
-| :--: | :--: | :--: |
-|   toEqual   |  递归检查所有属性和属性值是否相等    |   `expect([1,2]).not.toBe([1,2])`   |
-|   not   |   允许测试结果不等于某个值   |   `expect([]).not.toBe([])`    |
+|              |                                                          |                                 |
+| :----------: | :------------------------------------------------------: | :-----------------------------: |
+|   toEqual    |             递归检查所有属性和属性值是否相等             | `expect([1,2]).not.toBe([1,2])` |
+|     not      |                 允许测试结果不等于某个值                 |    `expect([]).not.toBe([])`    |
 | toHaveLength |      可以用来测试字符串和数组类型的长度是否满足预期      | `expect([1,2]).toHaveLength(2)` |
 |   toThorw    |              被测试方法是否按照预期抛出异常              |                                 |
 |   toMatch    | 传入一个正则表达式，它允许我们来进行字符串类型的正则匹配 |                                 |
-
 
 ## 参考资料
 
@@ -204,3 +209,5 @@ describe('test', () => {
 [Jest: Timer and Promise don't work well. (setTimeout and async function)](https://stackoverflow.com/questions/52177631/jest-timer-and-promise-dont-work-well-settimeout-and-async-function)
 
 [再谈 babel 7.18.0 引发的问题](https://developer.aliyun.com/article/982111)
+
+[jest unexpected token when importing css](https://stackoverflow.com/questions/54627028/jest-unexpected-token-when-importing-css)

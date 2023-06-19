@@ -28,7 +28,10 @@ export default defineConfig({
           const md = readFileSync(path)
           const { data } = matter(md)
           route.meta = Object.assign(route.meta || {}, {
-            frontmatter: { ...data, time: data.date || new Date().toISOString().split('T')[0] },
+            frontmatter: {
+              ...data,
+              time: data.date || new Date().toISOString().split('T')[0],
+            },
           })
         }
         return route
@@ -63,6 +66,8 @@ export default defineConfig({
     },
   },
 
+  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+  // @ts-ignore
   ssgOptions: {
     script: 'async',
     formatting: 'minify',

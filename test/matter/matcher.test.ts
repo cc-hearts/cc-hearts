@@ -7,6 +7,8 @@ describe('replaceMdMatter function test', () => {
     const defaultMatters = {
       date: '2022-01-01',
     }
-    expect(replaceMdMatter(markdown, defaultMatters)).toEqual('---\ntitle: Front Matter\ndate: 2022-01-01\n---\nThis is content.')
+    expect(replaceMdMatter(markdown, defaultMatters)).toEqual(
+      '---\ntitle: Front Matter\ndate: 2022-01-01\n---\nThis is content.'
+    )
   })
 })
