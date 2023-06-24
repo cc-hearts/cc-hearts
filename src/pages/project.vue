@@ -87,12 +87,12 @@ const toLink = (project: getArraySubitem<typeof projects>) =>
   }
 
   & > div {
-    transition: all 0.12s;
+    transition: all 0.28s;
     padding: 8px;
 
     h3,
     p {
-      transition: all 0.12s;
+      transition: all 0.28s;
     }
 
     &:hover {
