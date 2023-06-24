@@ -6,7 +6,10 @@ import { useRouter } from 'vue-router'
 
 const router = useRouter()
 
-const subTitle = [{ title: 'Blog', link: '/blog' }]
+const subTitle = [
+  { title: 'Blog', link: '/blog' },
+  { title: 'Projects', link: '/project' },
+]
 
 const toRoute = (link: string) => {
   router.push(link)

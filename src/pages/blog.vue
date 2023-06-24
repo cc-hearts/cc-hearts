@@ -1,8 +1,8 @@
 <script setup lang="ts">
-import type { IFrontmatter, IPosts } from '@/types/types'
 import { useRouter } from 'vue-router'
 import { NewIcon } from '@/icons'
 import { computed } from 'vue'
+import type { IFrontmatter, IPosts } from '@/types/types'
 const router = useRouter()
 const routes = router.getRoutes().filter((router) => router.meta?.frontmatter)
 const posts = Object.create(null)

@@ -11,6 +11,8 @@
   --tag-color: #e4e5e8;
   --tip-bgc-color: #f3f4f5;
   --a-link-color: #04c994;
+
+  --project-bgc: rgba(245, 245, 245, 0.8);
 }
 
 :root.dark {
@@ -24,6 +26,7 @@
   --tag-color: #5c5c5c;
   --tip-bgc-color: #202229;
   --a-link-color: #03c988;
+  --project-bgc: rgba(43, 43, 45, 0.8);
 }
 
 html {
