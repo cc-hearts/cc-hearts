@@ -190,19 +190,44 @@ describe('test', () => {
 
 ### css 等引入失败问题
 
+jest 如果引用了 css 或者其他等字体文件 jest 在解析模块的时候会报错， `jest` 提供了
+
+`moduleNameMapper` 属性，可以`mock` 导入的文件，使其能正确运行。
+
+> webpack 配置了别名不会在 jest 中生效，需要在`moduleNameMapper`中再次去写入映射关系。
+
+```js
+jest: {
+  // 在根目录下创建fileMock.js 文件 用于第三方字体、图片等文件的mock
+   "moduleNameMapper": {
+     "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/fileMock.js",
+       // css 会映射到 identity-obj-proxy 这个包
+       // 使用之前需要判断是否安装了 identity-obj-proxy包
+     "\\.(css|less)$": "identity-obj-proxy"
+}
+```
+
 ### 常用的断言
 
-|              |                                                          |                                 |
-| :----------: | :------------------------------------------------------: | :-----------------------------: |
-|   toEqual    |             递归检查所有属性和属性值是否相等             | `expect([1,2]).not.toBe([1,2])` |
-|     not      |                 允许测试结果不等于某个值                 |    `expect([]).not.toBe([])`    |
-| toHaveLength |      可以用来测试字符串和数组类型的长度是否满足预期      | `expect([1,2]).toHaveLength(2)` |
-|   toThorw    |              被测试方法是否按照预期抛出异常              |                                 |
-|   toMatch    | 传入一个正则表达式，它允许我们来进行字符串类型的正则匹配 |                                 |
+|                        |                                                          |                                        |
+| :--------------------: | :------------------------------------------------------: | :------------------------------------: |
+|        toEqual         |             递归检查所有属性和属性值是否相等             |    `expect([1,2]).not.toBe([1,2])`     |
+|          not           |                 允许测试结果不等于某个值                 |       `expect([]).not.toBe([])`        |
+|      toHaveLength      |      可以用来测试字符串和数组类型的长度是否满足预期      |    `expect([1,2]).toHaveLength(2)`     |
+|        toThorw         |              被测试方法是否按照预期抛出异常              |                                        |
+|        toMatch         | 传入一个正则表达式，它允许我们来进行字符串类型的正则匹配 |                                        |
+|    toBeGreaterThan     |                    判断是否大于期望值                    |      expect(n).toBeGreaterThan(3)      |
+| toBeGreaterThanOrEqual |                  判断是否大于等于期望值                  | expect(n).toBeGreaterThanOrEqual(3.5)  |
+|     toBeUnDefined      |                  判断是否为`undefined`                   |       expect(n).toBeUnDefined()        |
+|      toBeLessThan      |                   判断是否小于于期望值                   |       expect(n).toBeLessThan(3)        |
+|      toBeCloseTo       |                      浮点数判断相等                      |       expect(n).toBeCloseTo(0.3)       |
+|       toContain        |                  判断数组中是否包含元素                  | expect(['one','two']).toContain('one') |
 
 ## 参考资料
 
 [jest tutorial](https://github.yanhaixiang.com/jest-tutorial/basic/mock-timer/#%E6%A8%A1%E6%8B%9F%E6%97%B6%E9%92%9F%E7%9A%84%E6%9C%BA%E5%88%B6)
+
+[jest expect](https://jestjs.io/docs/expect)
 
 [jest setup teardown](https://jestjs.io/docs/setup-teardown)
 

@@ -26,3 +26,15 @@ join()
 
 join('data', '/a/b/c', '..') // data/a/b
 ```
+
+## isAbsolute
+
+判断是否是绝对路径
+
+```js
+const path = require('path')
+
+// @see https://coldfunction.com/k/nodejs/path/isAbsolute
+// https://nodejs.org/api/path.html
+path.isAbsolute('/Users/heart/tet') // true
+```
