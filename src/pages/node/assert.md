@@ -223,6 +223,139 @@ jest: {
 |      toBeCloseTo       |                      浮点数判断相等                      |       expect(n).toBeCloseTo(0.3)       |
 |       toContain        |                  判断数组中是否包含元素                  | expect(['one','two']).toContain('one') |
 
+## 异步代码回调
+
+```js
+describe('callback', () => {
+  it('callback example', (done) => {
+    setTimeout(() => {
+      expect(true).toBeTruthy()
+      // 使用done 可以告知jest 结束测试
+      done()
+    })
+  })
+})
+```
+
+### promises
+
+> 注意需要把 promise 作为返回值。
+
+```js
+const promises = () => {
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      resolve('123')
+    }, 100)
+  })
+}
+describe('callback', () => {
+  it('callback example', () => {
+    return expect(promises()).resolves.toBe('123')
+    // return promises().then(data => expect(data).toBe('123'))
+
+    // catch 对应的则是 rejects
+  })
+})
+```
+
+### 执行顺序
+
+默认情况下，`before`和`after`块中的代码将应用于文件中的每个测试，而不管它们属于哪个`describe`块。这意味着在同一个文件中的所有测试都将受到这些代码的影响。
+
+但是，如果将`before`和`after`块放置在`describe`块内部，它们将仅适用于该`describe`块内的测试。这意味着在同一个文件中的其他`describe`块中的测试将不会受到这些代码的影响。
+
+```js
+describe('global', () => {
+  beforeAll(() => console.log('global - beforeAll'))
+  afterAll(() => console.log('global - afterAll'))
+  beforeEach(() => console.log('global - beforeEach'))
+  afterEach(() => console.log('global - afterEach'))
+  test('', () => console.log('global - test'))
+  describe('scoped before/after', () => {
+    beforeAll(() => console.log('scope - beforeAll'))
+    afterAll(() => console.log('scope - afterAll'))
+    beforeEach(() => console.log('scope - beforeEach'))
+    afterEach(() => console.log('scope - afterEach'))
+    test('', () => console.log('scope - test'))
+  })
+})
+
+// global - beforeAll
+// global - beforeEach
+// global - test
+// global - afterEach
+// scope - beforeAll
+// global - beforeEach
+// scope - beforeEach
+// scope - test
+// scope - afterEach
+// global - afterEach
+// scope - afterAll
+// global - afterAll
+```
+
+从打印日志结果来看 `beforeAll` 会比`beforeEach`先调用，并且全局的会比局部的优先调用。
+
+### describe 与 test 调用时机
+
+```js
+describe('describe and test invoke timers', () => {
+  describe('describe 1', () => {
+    console.log('describe-1')
+    test('describe-test-1', () => {
+      console.log('describe-test-1')
+      expect(1).toBe(1)
+    })
+  })
+
+  test('test 2', () => {
+    console.log('test-2')
+    expect(2).toBe(2)
+  })
+
+  describe('describe 2', () => {
+    console.log('describe-2')
+    test('describe-test-2', () => {
+      console.log('describe-test-2')
+      expect(3).toBe(3)
+    })
+  })
+})
+
+// describe-1
+// describe-2
+// describe-test-1
+// test-2
+// describe-test-2
+```
+
+可以看到`describe`会比同等级别的的`test`优先调用
+
+### Mock 函数
+
+通过`jest.fn` 模拟的函数都会有一个特殊的`.mock`属性，它保存了函数调用的次数、入参、以及每次调用`this`的值
+
+> toBeCalled、toBeCalledWith、lastCalledWith 就是检查 `.mock` 属性的语法糖。
+
+```js
+describe('mock', () => {
+  test('mock fn', () => {
+    const fn = jest.fn((data) => data + 1)
+    ;[1, 2, 3].forEach(fn)
+
+    // 第一次调用的第一个参数
+    expect(fn.mock.calls[0][0]).toEqual(1)
+    // 第一次调用的第二个参数
+    expect(fn.mock.calls[0][1]).toEqual(0)
+    // fn函数调用的次数
+    expect(fn.mock.calls.length).toBe(3)
+    // 返回的值
+    expect(fn.mock.results[0].value).toBe(2)
+  })
+})
+```
+
 ## 参考资料
 
 [jest tutorial](https://github.yanhaixiang.com/jest-tutorial/basic/mock-timer/#%E6%A8%A1%E6%8B%9F%E6%97%B6%E9%92%9F%E7%9A%84%E6%9C%BA%E5%88%B6)

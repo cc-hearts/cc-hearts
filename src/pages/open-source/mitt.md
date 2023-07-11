@@ -1,10 +1,11 @@
 ---
 title: mitt 源码解析
+date: 2023-06-27
 ---
 
 # mitt 源码解析
 
-`mitt` 是一个轻量级的发布订阅库， 可以在任何`javaScript runtime`的环境中运行。
+`mitt` 是一个轻量级的发布订阅库， 可以在任何 `javaScript runtime` 的环境中运行。
 
 [源码地址](https://github.com/developit/mitt/blob/main/src/index.ts)
 

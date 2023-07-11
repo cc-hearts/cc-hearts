@@ -56,7 +56,12 @@ const toLink = (project: getArraySubitem<typeof projects>) =>
 
 <template>
   <div class="grid grid-cols-2 gap-4 cc-heart-projects">
-    <div v-for="project in projects" :key="project.title" class="flex" @click="toLink(project)">
+    <div
+      v-for="project in projects"
+      :key="project.title"
+      class="flex"
+      @click="toLink(project)"
+    >
       <template v-if="project.icon">
         <component :is="markRaw(project.icon)" />
       </template>
@@ -86,7 +91,7 @@ const toLink = (project: getArraySubitem<typeof projects>) =>
     align-self: center;
   }
 
-  &>div {
+  & > div {
     @include project-transition();
     padding: 8px;
 
@@ -105,7 +110,7 @@ const toLink = (project: getArraySubitem<typeof projects>) =>
       }
     }
 
-    &>div {
+    & > div {
       flex: 1;
     }
   }
