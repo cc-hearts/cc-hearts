@@ -12,7 +12,7 @@ vue DOM 更新采用的是异步的更新策略 每次监听到数据发生变�
 
 nextTick 接收一个回调函数作为参数 这个回调函数会在 DOM 更新之后才执行 因此对基于最新的数据生成的 DOM 进行操作的时候 可以将改操作放入 nextTick 中
 
-> [源码地址:](https://github.com/vuejs/vue/blob/main/src/core/util/next-tick.ts)
+> [源码地址](https://github.com/vuejs/vue/blob/main/src/core/util/next-tick.ts)
 
 nextTick 提供了四种异步的方法: `Promise.then` 、 `MutationObserver` 、 `setTimeout` 、 `setImmediate`
 
