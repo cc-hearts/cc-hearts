@@ -1,6 +1,6 @@
 ---
 title: vue-class-component 源码解析
-date: 2023-07-02
+date: 2023-04-02
 ---
 
 ```ts
