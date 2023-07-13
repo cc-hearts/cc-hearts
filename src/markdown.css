@@ -49,9 +49,8 @@ p a:hover {
 
 .prose :not(pre) > code {
   background-color: var(--tag-bgc-color);
-  padding: 0.2em 0.5em;
-  margin: 0 0.2em;
-  border-radius: 4px;
+  padding: 0.125rem;
+  border-radius: 0.375rem;
 }
 
 .prose blockquote {

@@ -9,16 +9,16 @@ html {
 }
 
 html.dark {
-  background: #1e1e1f;
+  background: var(--bg-color);
   color-scheme: dark;
 }
 
 .shiki-light {
-  background: #f8f8f8 !important;
+  background: rgba(0, 93, 199, 0.05) !important;
 }
 
 .shiki-dark {
-  background: #0e0e0e !important;
+  background: rgba(138, 208, 255, 0.1) !important;
 }
 
 html.dark .shiki-light {
@@ -65,6 +65,7 @@ html:not(.dark) .shiki-dark {
   }
 
   .shiki-container {
+    margin-top: 1rem;
     & > pre {
       padding: 1rem;
       border-radius: 0.5rem;
@@ -79,18 +80,17 @@ html:not(.dark) .shiki-dark {
   }
 
   & :not(pre) > code {
-    background-color: var(--tag-bgc-color);
-    padding: 0.2em 0.5em;
-    margin: 0 0.2em;
-    border-radius: 4px;
+    padding: 0.2rem 0.25rem;
+    border-radius: 0.3rem;
     background-color: var(--tag-color);
+    border: 1px solid var(--tag-color);
   }
 
   blockquote {
-    background-color: var(--tip-bgc-color);
-    padding: 0 0.5em;
-    border-radius: 2px;
-    margin: 0.5em 0 1em;
+    background-color: var(--tag-color);
+    padding: 0.5rem 1rem 1rem;
+    border-radius: 0.5rem;
+    margin: 1rem 0;
     overflow: hidden;
 
     & ul,
@@ -101,7 +101,8 @@ html:not(.dark) .shiki-dark {
 }
 
 p {
-  margin: 1em 0;
+  margin: 0.5em 0 0;
+  line-height: 1.75rem;
 
   a {
     transition: border 0.3s;

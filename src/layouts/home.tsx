@@ -3,7 +3,7 @@ import { defineComponent } from 'vue'
 export default defineComponent({
   setup() {
     return () => (
-      <main class="px-4 py-10 max-blog-prose m-auto text-gray-700 dark:text-gray-200">
+      <main class="py-10 max-blog-prose m-auto">
         <router-view />
       </main>
     )
