@@ -8,7 +8,8 @@ import LinkAttributes from 'markdown-it-link-attributes'
 import Shiki from 'markdown-it-shiki'
 import generateSitemap from 'vite-ssg-sitemap'
 import { resolve } from 'path'
-import { readFileSync, statSync } from 'fs'
+import codeCopy from './plugins/markdown-it-code-copy.cjs'
+import { readFileSync } from 'fs'
 import matter from 'gray-matter'
 
 // https://vitejs.dev/config/
@@ -41,13 +42,14 @@ export default defineConfig({
       wrapperClasses: 'prose prose-sm m-auto text-left',
       headEnabled: true,
       markdownItSetup(md) {
-        // https://prismjs.com/
-        md.use(Shiki, {
-          theme: {
-            light: 'vitesse-light',
-            dark: 'vitesse-dark',
-          },
-        })
+        md.use(codeCopy),
+          // https://prismjs.com/
+          md.use(Shiki, {
+            theme: {
+              light: 'vitesse-light',
+              dark: 'vitesse-dark',
+            },
+          })
         md.use(LinkAttributes, {
           matcher: (link: string) => /^https?:\/\//.test(link),
           attrs: {
