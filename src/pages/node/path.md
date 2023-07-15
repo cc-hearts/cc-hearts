@@ -29,7 +29,7 @@ join('data', '/a/b/c', '..') // data/a/b
 
 ## isAbsolute
 
-判断是否是绝对路径
+> 判断是否是绝对路径
 
 ```js
 const path = require('path')

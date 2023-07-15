@@ -6,7 +6,10 @@ const headerCls = usePrefixCls('header')
 </script>
 
 <template>
-  <header class="flex justify-between items-center px-10" :class="[headerCls]">
+  <header
+    class="flex justify-between items-center px-10 flex-shrink-0"
+    :class="[headerCls]"
+  >
     <slot name="left">
       <div></div>
     </slot>

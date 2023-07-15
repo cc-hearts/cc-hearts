@@ -1,22 +1,22 @@
 import { defineComponent, onMounted, ref } from 'vue'
 import Typed from 'typed.js'
+import '@/assets/pages/introduce.scss'
 export default defineComponent({
   setup() {
     const el = ref(null)
+    const introduce = ["Hi, I'm cc-hearts 👋", 'A NodeJS Full Stack'].join(
+      '<br />'
+    )
     onMounted(() => {
       new Typed(el.value, {
-        strings: [
-          'I’m currently learning <code>Javascript</code>',
-          'I’m currently learning <code>Rust</code>',
-          'I’m currently learning <code>Nest</code>',
-        ],
+        strings: [introduce],
         typeSpeed: 40,
       })
     })
     return () => (
       <div>
-        <p>
-          🌱 <span ref={el}></span>
+        <p class="introduce-text">
+          <span ref={el}></span>
         </p>
       </div>
     )

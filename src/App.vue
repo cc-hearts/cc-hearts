@@ -48,6 +48,11 @@ html,
   transition: all 0.3s;
 }
 
+#app {
+  display: flex;
+  flex-direction: column;
+}
+
 a {
   text-decoration: none;
   color: inherit;
