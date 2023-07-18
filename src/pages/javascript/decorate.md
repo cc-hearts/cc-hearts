@@ -19,13 +19,13 @@ date: 2023-7-17
 
 ```js
 function logger(_) {
-    return 0
+  return 0
 }
 
 function User() {
-    return {
-        name: 'join',
-    }
+  return {
+    name: 'join',
+  }
 }
 ```
 
@@ -45,36 +45,36 @@ class User {}
 
 ```js
 var __decorate =
-    // 通过调试发现一般this 都是undefined 因此都会走后续的逻辑
-    (this && this.__decorate) ||
-    function(decorators, target, key, desc) {
-        // 这里只传进来两个参数 [logger], User
-        var c = arguments.length,
-            // 因此r 就是 target 也就是 我们装饰的类 User
-            r =
-            c < 3 ?
-            target :
-            desc === null ?
-            (desc = Object.getOwnPropertyDescriptor(target, key)) :
-            desc,
-            d
-        // 现提案还没有Reflect.decorate 这个API 因此走 else
-        if (typeof Reflect === 'object' && typeof Reflect.decorate === 'function')
-            r = Reflect.decorate(decorators, target, key, desc)
-        else
-            for (var i = decorators.length - 1; i >= 0; i--)
-                if ((d = decorators[i]))
-                    // 因为 c < 3
-                    // 通后便利 decorators 不断的使得 r = d(r) || r
-                    // 因此 logger 装饰器的第一个参数 target 就是r(上述的 User赋值给了r)
-                    // 因此 装饰器 logger 以及后续的装饰器 如果不返回一个 class 则 r 始终就是User
-                    r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r
-        // c < 3 的缘故 因此可以直接看成 return r
-        return c > 3 && r && Object.defineProperty(target, key, r), r
-    }
+  // 通过调试发现一般this 都是undefined 因此都会走后续的逻辑
+  (this && this.__decorate) ||
+  function (decorators, target, key, desc) {
+    // 这里只传进来两个参数 [logger], User
+    var c = arguments.length,
+      // 因此r 就是 target 也就是 我们装饰的类 User
+      r =
+        c < 3
+          ? target
+          : desc === null
+          ? (desc = Object.getOwnPropertyDescriptor(target, key))
+          : desc,
+      d
+    // 现提案还没有Reflect.decorate 这个API 因此走 else
+    if (typeof Reflect === 'object' && typeof Reflect.decorate === 'function')
+      r = Reflect.decorate(decorators, target, key, desc)
+    else
+      for (var i = decorators.length - 1; i >= 0; i--)
+        if ((d = decorators[i]))
+          // 因为 c < 3
+          // 通后便利 decorators 不断的使得 r = d(r) || r
+          // 因此 logger 装饰器的第一个参数 target 就是r(上述的 User赋值给了r)
+          // 因此装饰器 logger 以及后续的装饰器 如果不返回一个 class 则 r 始终就是User
+          r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r
+    // c < 3 的缘故 因此可以直接看成 return r
+    return c > 3 && r && Object.defineProperty(target, key, r), r
+  }
 
 function logger(target) {
-    console.log(target)
+  console.log(target)
 }
 let User = class User {}
 User = __decorate([logger], User)
@@ -94,7 +94,7 @@ User = __decorate([logger], User)
 
 可以看到运行的结果依旧是 User 类本身的实例化对象。
 
-`typeof User` - 说明返回值的类型需要是这个类本身或者是子类，一般而言返回的都是子类（返回类本身 和 返回 `void` 一致 ），因为只有子类才能继承和扩展原始的类，在不改变原有的类的属性的基础上进行添加或修改属性和方法。
+`typeof User` - 说明返回值的类型需要是这个类本身或者是子类，一般而言返回的都是子类（返回类本身 和 返回 `void` 的结果一致 ），因为只有子类才能继承和扩展原始的类，在不改变原有的类的属性的基础上进行添加或修改属性和方法。
 
 ```ts
 function logger(target: User) {
@@ -137,43 +137,43 @@ class User {
 
 ```js
 var __decorate =
-    (this && this.__decorate) ||
-    function(decorators, target, key, desc) {
-        var c = arguments.length,
-            r =
-            c < 3 ?
-            target :
-            desc === null ?
-            (desc = Object.getOwnPropertyDescriptor(target, key)) :
-            desc,
-            d
-        if (typeof Reflect === 'object' && typeof Reflect.decorate === 'function')
-            r = Reflect.decorate(decorators, target, key, desc)
-        else
-            for (var i = decorators.length - 1; i >= 0; i--)
-                if ((d = decorators[i]))
-                    r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r
-        return c > 3 && r && Object.defineProperty(target, key, r), r
-    }
+  (this && this.__decorate) ||
+  function (decorators, target, key, desc) {
+    var c = arguments.length,
+      r =
+        c < 3
+          ? target
+          : desc === null
+          ? (desc = Object.getOwnPropertyDescriptor(target, key))
+          : desc,
+      d
+    if (typeof Reflect === 'object' && typeof Reflect.decorate === 'function')
+      r = Reflect.decorate(decorators, target, key, desc)
+    else
+      for (var i = decorators.length - 1; i >= 0; i--)
+        if ((d = decorators[i]))
+          r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r
+    return c > 3 && r && Object.defineProperty(target, key, r), r
+  }
 
 function logger(bool) {
-    if (bool) {
-        return function(target) {
-            console.log('logger')
-            return target
-        }
+  if (bool) {
+    return function (target) {
+      console.log('logger')
+      return target
     }
-    return void 0
+  }
+  return void 0
 }
 let User = class User {
-    constructor() {
-        Object.defineProperty(this, 'name', {
-            enumerable: true,
-            configurable: true,
-            writable: true,
-            value: void 0,
-        })
-    }
+  constructor() {
+    Object.defineProperty(this, 'name', {
+      enumerable: true,
+      configurable: true,
+      writable: true,
+      value: void 0,
+    })
+  }
 }
 User = __decorate([logger(false)], User)
 ```
@@ -219,6 +219,8 @@ console.log(new User())
 ```js
 User = __decorate([logger(false)('new name')], User)
 ```
+
+### class decorate 小结
 
 `class decorate` 的本质是收集 `decorators` 并对类进行修改（如果 `decorator` 有返回值并且返回值为 truly ， 会替换原有的类）。
 
