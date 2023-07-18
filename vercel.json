@@ -1,7 +1,7 @@
 {
   "headers": [
     {
-      "source": "/(.*)",
+      "source": "/(.*)\\.js",
       "headers": [
         {
           "key": "Content-Type",
