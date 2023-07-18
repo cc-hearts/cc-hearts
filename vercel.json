@@ -10,8 +10,8 @@
       "source": "/(.*)",
       "headers": [
         {
-          "key": "Content-type",
-          "value": "application/javascript"
+          "key": "Content-Type",
+          "value": "application/json"
         }
       ]
     }
