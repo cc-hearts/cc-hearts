@@ -12,7 +12,7 @@ title: 装饰器（decorator）在ts的使用 - (正在更新)
 
 本着试一试的态度准备进行编码进行测试，然而还没写完就 ts 已经报出了错误： `Decorators are not valid here`
 
-![image-20230718012101981](https://pic.jxwazx.cn//oss/file/WPJTOOANlAvXos4EJeb0m/2023-07-17/image-20230718012101981.png)
+![image-20230718012101981](https://pic.jxwazx.cn/oss/file/WPJTOOANlAvXos4EJeb0m/2023-07-17/image-20230718012101981.png)
 
 运行 `tsc` 看看编译之后的结果：
 
@@ -85,11 +85,11 @@ User = __decorate([logger], User)
 
 通过调试可知， ts 的类型约束装饰器的返回值必须为 `void | typeof User` 。
 
-![image-20230717233855978](https://pic.jxwazx.cn//oss/file/WPJTOOANlAvXos4EJeb0m/2023-07-17/image-20230717233855978.png)
+![image-20230717233855978](https://pic.jxwazx.cn/oss/file/WPJTOOANlAvXos4EJeb0m/2023-07-17/image-20230717233855978.png)
 
 `void` - 在上述的编译后的 js 代码可知，js runtime 时 `return falsy` 与 `return void 0` 的结果是一样的。使用 `@ts-ignore` 注释类型错误后， 使用 tsc 编译运行如下：
 
-![image-20230718010110575](https://pic.jxwazx.cn//oss/file/WPJTOOANlAvXos4EJeb0m/2023-07-17/image-20230718010110575.png)
+![image-20230718010110575](https://pic.jxwazx.cn/oss/file/WPJTOOANlAvXos4EJeb0m/2023-07-17/image-20230718010110575.png)
 
 可以看到运行的结果依旧是 User 类本身的实例化对象。
 

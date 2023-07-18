@@ -9,11 +9,11 @@ date: 2023-03-14
 
 问题原因： 点击 `bind` 后，再点击 `inspect` 会将 `msg` 中的值一并清除。按照传统的类型引用来说，改变了 `state.data` 的引用值，不会对 `msg` 造成影响，但这里却改变了 `msg` 的值。将代码进行 `debugger` 调试, 在 `inspect` 函数处打下断点
 
-![image-20230614174310347](https://pic.jxwazx.cn//oss/file/WPJTOOANlAvXos4EJeb0m/2023-07-11/image-20230614174310347.png)
+![image-20230614174310347](https://pic.jxwazx.cn/oss/file/WPJTOOANlAvXos4EJeb0m/2023-07-11/image-20230614174310347.png)
 
 根据断点往下走，可以看到 `setter` 方法
 
-![image-20230614174440448](https://pic.jxwazx.cn//oss/file/WPJTOOANlAvXos4EJeb0m/2023-07-11/image-20230614174440448.png)
+![image-20230614174440448](https://pic.jxwazx.cn/oss/file/WPJTOOANlAvXos4EJeb0m/2023-07-11/image-20230614174440448.png)
 
 通过 `debugger` 可以看出，可以看到 `!isArray(target) && isRef(oldValue) && !isRef(value)` 的条件成立，此时进行了赋值的操作:
 
@@ -29,7 +29,7 @@ oldValue.value = value // oldValue 就是 ref 声明的 msg
 
 此时的赋值相当于 `state.data = toRaw(msg)` ，由于是 `ref` 声明 所以 `toRaw` 返回的还是 `ref` 之后的代理对象
 
-![image-20230615235532710](https://pic.jxwazx.cn//oss/file/WPJTOOANlAvXos4EJeb0m/2023-07-11/image-20230615235532710.png)
+![image-20230615235532710](https://pic.jxwazx.cn/oss/file/WPJTOOANlAvXos4EJeb0m/2023-07-11/image-20230615235532710.png)
 
 ## 总结
 
