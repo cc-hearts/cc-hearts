@@ -25,12 +25,6 @@ html.dark .shiki-light {
   display: none;
 }
 
-h2,
-h3,
-h4 {
-  margin: 0.5em 0;
-}
-
 html:not(.dark) .shiki-dark {
   display: none;
 }
@@ -66,6 +60,7 @@ html:not(.dark) .shiki-dark {
 
   .shiki-container {
     margin-top: 1rem;
+
     & > pre {
       padding: 1rem;
       border-radius: 0.5rem;
@@ -102,7 +97,11 @@ html:not(.dark) .shiki-dark {
 
 p {
   margin: 0.5em 0 0;
-  line-height: 1.75rem;
+  line-height: 2rem;
+
+  & + p {
+    margin: 0;
+  }
 
   a {
     transition: border 0.3s;
@@ -120,4 +119,33 @@ a.cc-link {
 
 a.cc-link:hover {
   box-shadow: 0 1px 0 0 currentColor;
+}
+
+h1 {
+  font-size: 2rem;
+  line-height: 2.5rem;
+}
+
+h2 {
+  font-size: 1.75rem;
+  line-height: 2rem;
+  margin: 1rem 0 0;
+}
+
+h3 {
+  font-size: 1.5rem;
+  line-height: 1.75rem;
+  margin: 1rem 0 0;
+}
+
+h4 {
+  font-size: 1.25rem;
+  line-height: 1.5rem;
+  margin: 1rem 0 0;
+}
+
+h5 {
+  font-size: 1rem;
+  line-height: 1.25rem;
+  margin-top: 1rem 0 0;
 }

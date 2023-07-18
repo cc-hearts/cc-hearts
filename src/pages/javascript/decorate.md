@@ -1,5 +1,6 @@
 ---
-title: 装饰器（decorator）在ts的使用 - (正在更新)
+title: 装饰器（decorator）在ts的使用
+date: 2023-7-17
 ---
 
 ## 前言
@@ -109,4 +110,122 @@ function logger(target: User) {
 class User {}
 
 new User()
+```
+
+### class factory
+
+ts 支持 class factory 的写法：
+
+```ts
+function logger(bool: boolean) {
+  if (bool) {
+    return function (target) {
+      console.log('logger')
+      return target
+    }
+  }
+  return void 0
+}
+
+@logger(false)
+class User {
+  name: 'join'
+}
+```
+
+将此 ts 代码使用 tsc 编译之后:
+
+```js
+var __decorate =
+    (this && this.__decorate) ||
+    function(decorators, target, key, desc) {
+        var c = arguments.length,
+            r =
+            c < 3 ?
+            target :
+            desc === null ?
+            (desc = Object.getOwnPropertyDescriptor(target, key)) :
+            desc,
+            d
+        if (typeof Reflect === 'object' && typeof Reflect.decorate === 'function')
+            r = Reflect.decorate(decorators, target, key, desc)
+        else
+            for (var i = decorators.length - 1; i >= 0; i--)
+                if ((d = decorators[i]))
+                    r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r
+        return c > 3 && r && Object.defineProperty(target, key, r), r
+    }
+
+function logger(bool) {
+    if (bool) {
+        return function(target) {
+            console.log('logger')
+            return target
+        }
+    }
+    return void 0
+}
+let User = class User {
+    constructor() {
+        Object.defineProperty(this, 'name', {
+            enumerable: true,
+            configurable: true,
+            writable: true,
+            value: void 0,
+        })
+    }
+}
+User = __decorate([logger(false)], User)
+```
+
+与第一次编译的例子对比可知，执行的变化部分在 decorate 的第一个参数的值，并且函数调用的方式与我们装饰器修饰的语法相似。
+
+```diff
+- User = __decorate([logger], User)
++ User = __decorate([logger(false)], User);
+```
+
+因此装饰器可以使用函数柯里化进行修饰：
+
+```ts
+function logger(bool: boolean) {
+  if (bool) {
+    return function (name: string) {
+      return function (target) {
+        return class extends target {
+          constructor() {
+            super()
+            this.name = name
+          }
+        }
+      }
+    }
+  }
+  return function (_) {
+    return void 0
+  }
+}
+
+@logger(false)('new name')
+class User {
+  public name: string = 'join'
+}
+
+console.log(new User())
+```
+
+编译之后的 `__decorate` 函数：
+
+```js
+User = __decorate([logger(false)('new name')], User)
+```
+
+`class decorate` 的本质是收集 `decorators` 并对类进行修改（如果 `decorator` 有返回值并且返回值为 truly ， 会替换原有的类）。
+
+无论装饰器有多少次柯里化调用（ `@xxx()()()` ），最后的一次返回值都需要是一个函数。
+
+> 装饰器 `@xxx()()()` 会编译成 `xxx()()()` , 在入参的时候就已经优先调用将结果作为 `decorators` 的子项传入 `__decorate` 中，为了满足 `d(r)` 能够顺利运行， 因此 `xxx()()()` 的返回值必须是一个函数。
+
+```js
+r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r
 ```
