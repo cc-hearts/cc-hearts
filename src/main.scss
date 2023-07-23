@@ -62,22 +62,20 @@ html:not(.dark) .shiki-dark {
   .shiki-container {
     margin-top: 1rem;
 
-    &>pre {
+    & > pre {
       padding: 1rem;
       border-radius: 0.5rem;
       margin: 0 0 1rem;
     }
 
     @at-root {
-      .shiki-container>pre {
+      .shiki-container > pre {
         padding: 1em;
       }
     }
   }
 
-
-
-  & :not(pre)>code {
+  & :not(pre) > code {
     white-space: pre;
     padding: 0.2rem 0.25rem;
     border-radius: 0.3rem;
@@ -103,7 +101,7 @@ p {
   margin: 0.5em 0 0;
   line-height: 2rem;
 
-  &+p {
+  & + p {
     margin: 0;
   }
 

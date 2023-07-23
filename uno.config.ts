@@ -14,5 +14,8 @@ export default defineConfig({
       },
     }),
   ],
-  rules: [['max-blog-prose', { 'max-width': '70ch' }]],
+  rules: [
+    ['max-blog-prose', { 'max-width': '70ch' }],
+    ['min-blog-prose', { 'min-width': '45ch' }],
+  ],
 })

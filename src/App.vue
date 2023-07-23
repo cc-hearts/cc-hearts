@@ -9,6 +9,7 @@ const router = useRouter()
 const subTitle = [
   { title: 'Blog', link: '/blog' },
   { title: 'Projects', link: '/project' },
+  { title: 'experiment', link: '/experiment' },
 ]
 
 const toRoute = (link: string) => {

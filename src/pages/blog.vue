@@ -4,7 +4,11 @@ import { NewIcon } from '@/icons'
 import { computed } from 'vue'
 import type { IFrontmatter, IPosts } from '@/types/types'
 const router = useRouter()
-const routes = router.getRoutes().filter((router) => router.meta?.frontmatter)
+const routes = router
+  .getRoutes()
+  .filter((router) => router.meta?.frontmatter)
+  .filter((router) => !(router.meta.frontmatter as IFrontmatter)?._meta?.hidden)
+
 const posts = Object.create(null)
 routes.forEach((route) => {
   const frontmatter = route.meta.frontmatter as IFrontmatter

@@ -25,9 +25,7 @@ const headerCls = usePrefixCls('header')
 @use '@/assets/scss/var/variable.scss' as var;
 
 .#{var.$prefixCls}-header {
-  // --header-shadow: rgb(229, 230, 235);
   height: 60px;
-  // box-shadow: 0 1px 0 var(--header-shadow);
 
   &__icon {
     color: var(--color-text-3);
