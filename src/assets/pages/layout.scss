@@ -1,0 +1,24 @@
+@use '../scss/var/variable.scss' as *;
+
+.#{$prefixCls}-nav {
+  position: fixed;
+
+  li {
+    color: var(--color-text-3);
+    transition: color 0.3s;
+
+    &:hover {
+      color: var(--color-text-1);
+    }
+
+    &.activeNav {
+      color: var(--color-text-1);
+    }
+  }
+}
+
+@media screen and (max-width: 1180px) {
+  .#{$prefixCls}-nav {
+    display: none;
+  }
+}

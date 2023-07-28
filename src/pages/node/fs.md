@@ -1,14 +1,20 @@
 ---
-title: '文件系统'
-date: 2023-06-02
+title: node常用第三方库
+date: 2023-7-25
 ---
 
-## fs.existSync
+## commander
 
-> `fs.existSync => bool` 判断文件是否存在
+### 源码地址
 
-```js
-if (fs.existsSync(fileName)) {
-  console.log('file exist')
-}
-```
+[commander docs](https://github.com/tj/commander.js)
+
+## ora
+
+## rimraf
+
+## chalk
+
+## glob
+
+## globby

@@ -9,14 +9,11 @@ import './main.scss'
 import routes from '~pages'
 import { useInitTheme } from './hooks'
 import { __DEV__ } from './configs'
+import LayoutInstance from './layouts/layout'
 useInitTheme()
 
-if (__DEV__) {
-  console.log(routes)
-}
-export const createApp = ViteSSG(App, { routes })
-// Object.entries(import.meta.glob('./modules/*.ts', { eager: true })).forEach(([, Module]) => {
-//   // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-//   // @ts-ignore
-//   Module.setup?.({ app, routes })
-// })
+if (__DEV__) console.log(routes)
+
+export const createApp = ViteSSG(App, { routes }, ({ app }) => {
+  app.use(LayoutInstance)
+})
