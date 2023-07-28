@@ -12,7 +12,7 @@ export default defineComponent({
   name: 'SideNav',
   setup() {
     const route = useRoute()
-    const title = computed(() => (route.meta.frontmatter as any).title)
+    const title = computed(() => (route.meta?.frontmatter as any)?.title)
     const activeCls = ref('')
     const activeIndex = ref(0)
     const threshold = 15
