@@ -12,17 +12,17 @@ export default defineComponent({
   name: 'SideNav',
   setup() {
     const route = useRoute()
+
+    const activeCls = ref('')
+    const activeIndex = ref(0)
+    const threshold = 15
+    const heightObserverList: { attrId: string; height: number }[] = []
     const sideRef = computed(
       () => (route.meta.slug as Array<{ name: string; attrId: string }>) || []
     )
-
-
-    const activeCls = ref('')
-    const threshold = 15
-    const heightObserverList: { attrId: string; height: number }[] = []
     const calcTocHeight = () => {
       heightObserverList.length = 0
-      console.log('sideRef.value',sideRef.value);
+      console.log('sideRef.value', sideRef.value)
       sideRef.value.forEach((side) => {
         const el = document.getElementById(side.attrId)
         if (el) {
@@ -37,18 +37,19 @@ export default defineComponent({
       const scrollY = window.scrollY
       for (let i = 0; i < heightObserverList.length; i++) {
         const height = heightObserverList[i].height - threshold
-        console.log(heightObserverList);
-        if (i === 0 && scrollY <= height) {
+        console.log(heightObserverList)
+        if (
+          (i === 0 && scrollY <= height) ||
+          (i === heightObserverList.length - 1 && scrollY >= height)
+        ) {
           activeCls.value = heightObserverList[i].attrId
-          return
-        }
-        if (i === heightObserverList.length - 1 && scrollY >= height) {
-          activeCls.value = heightObserverList[i].attrId
+          activeIndex.value = i
           return
         }
 
         if (height > scrollY) {
           activeCls.value = heightObserverList[i - 1]?.attrId
+          activeIndex.value = i - 1
           return
         }
       }
@@ -75,16 +76,23 @@ export default defineComponent({
     })
     return () => (
       <nav class={'absolute top-24 right-25 cc-nav'}>
-        <ul>
+        <ul class={'relative'}>
           {sideRef.value.map((item) => (
             <li
               class={`cursor-pointer ${
                 item.attrId === activeCls.value ? 'activeNav' : ''
               }`}
             >
-              {item.name}
+              <a class="block" href={`#${item.attrId}`} title={item.name}>
+                {item.name}
+              </a>
             </li>
           ))}
+
+          <span
+            class="absolute w-1px outline-marker"
+            style={{ '--transform-top': activeIndex.value }}
+          ></span>
         </ul>
       </nav>
     )

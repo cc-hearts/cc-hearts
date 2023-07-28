@@ -6,6 +6,9 @@
   li {
     color: var(--color-text-3);
     transition: color 0.3s;
+    line-height: 1.75rem;
+    padding-left: 1rem;
+    border-left: 1px solid var(--divider-color);
 
     &:hover {
       color: var(--color-text-1);
@@ -17,7 +20,15 @@
   }
 }
 
-@media screen and (max-width: 1180px) {
+.outline-marker {
+  top: 0;
+  background-color: var(--a-link-color);
+  height: 1.75rem;
+
+  transform: translateY(calc(var(--transform-top) * 1.75rem));
+}
+
+@media screen and (max-width: 1200px) {
   .#{$prefixCls}-nav {
     display: none;
   }

@@ -35,8 +35,7 @@ export default defineConfig({
               ...data,
               time: data.date || new Date().toISOString().split('T')[0],
             },
-            slug: generatorRightSide(toc(content, {
-            })),
+            slug: generatorRightSide(toc(content, {})),
           })
         }
         return route

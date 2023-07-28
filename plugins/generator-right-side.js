@@ -6,9 +6,12 @@ export function generatorRightSide(slug) {
   // const attrIdReg = /(?<=\(#).*?(?=\))/g
   return content.reduce((acc, cur) => {
     const name = cur.match(titleReg)?.[0]
-    console.log(decodeURIComponent(name));
+    console.log(decodeURIComponent(name))
     // const attrId = cur.match(attrIdReg)?.[0]
-    acc.push({ name, attrId: encodeURIComponent(new GithubSlugger().slug(name)) })
+    acc.push({
+      name,
+      attrId: encodeURIComponent(new GithubSlugger().slug(name)),
+    })
     return acc
   }, [])
 }
