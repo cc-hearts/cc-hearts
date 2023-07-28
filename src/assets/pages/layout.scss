@@ -17,6 +17,10 @@
     &.activeNav {
       color: var(--color-text-1);
     }
+
+    &.outline-title {
+      color: var(--color-text-1);
+    }
   }
 }
 
@@ -26,6 +30,14 @@
   height: 1.75rem;
 
   transform: translateY(calc(var(--transform-top) * 1.75rem));
+}
+
+.outline-title {
+  line-height: 1.75rem;
+  font-weight: bold;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 @media screen and (max-width: 1200px) {

@@ -1,7 +1,15 @@
 ---
 title: vue-class-component 源码解析
-date: 2023-04-02
+date: 2023-03-03
 ---
+
+## 前言
+
+偶然间看到 vue 中有一个 支持 ts 装饰器的写法，便想看看它到底是如何实现的
+
+> vue2 基于类的 Vue 组件：https://v2.cn.vuejs.org/v2/guide/typescript.html#%E5%9F%BA%E4%BA%8E%E7%B1%BB%E7%9A%84-Vue-%E7%BB%84%E4%BB%B6
+
+## @Component 装饰器
 
 ```ts
 import { componentFactory, $internalHooks } from './component'
@@ -267,7 +275,9 @@ export function collectDataFromConstructor(vm, Component) {
 }
 ```
 
-reflect.js
+## reflect 操作
+
+需要配合 `reflect-metadata` 库一起使用
 
 ```js
 // The rational behind the verbose Reflect-feature check below is the fact that there are polyfills
@@ -309,7 +319,7 @@ function forwardMetadata(to, from, propertyKey) {
 
 # utils
 
-> 内置工具类的函数
+内置工具类的函数
 
 ```js
 import Vue from 'vue'

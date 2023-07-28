@@ -1,6 +1,6 @@
 ---
 title: vue 2 nextTick 源码解析
-date: 2023-04-01
+date: 2023-03-01
 ---
 
 ## 前言
@@ -8,15 +8,11 @@ date: 2023-04-01
 vue DOM 更新采用的是异步的更新策略 每次监听到数据发生变化的时候 不会立即取更新 DOM 而是将这一次更新 DOM 的事件缓存到一个任务队列中
 **这样的好处就是可以将多次更新数据的操作合并成一次 并且减少操作 DOM 的次数**
 
-## 作用
+## nextTick 解析
 
-nextTick 接收一个回调函数作为参数 这个回调函数会在 DOM 更新之后才执行 因此对基于最新的数据生成的 DOM 进行操作的时候 可以将改操作放入 nextTick 中
+nextTick 接收一个回调函数作为参数 这个回调函数会在 DOM 更新之后才执行 因此对基于最新的数据生成的 DOM 进行操作的时候 可以将改操作放入 nextTick 中。
 
-[源码地址](https://github.com/vuejs/vue/blob/main/src/core/util/next-tick.ts)
-
-nextTick 提供了四种异步的方法: `Promise.then` 、 `MutationObserver` 、 `setTimeout` 、 `setImmediate`
-
-前两种是微任务 后两种是宏任务
+nextTick 提供了四种异步的方法: `Promise.then` 、 `MutationObserver` 、 `setTimeout` 、 `setImmediate` 前两种是微任务 后两种是宏任务
 
 ```js
 /* globals MutationObserver */
@@ -179,6 +175,6 @@ export function nextTick(cb ? : (...args: any[]) => any, ctx ? : object) {
 
 ## 参考资料
 
-[nextTick 实现原理](https://juejin.cn/post/7087866362785169416)
+[nextTick 源码地址](https://github.com/vuejs/vue/blob/main/src/core/util/next-tick.ts)
 
 [mdn MutationObserver](https://developer.mozilla.org/zh-CN/docs/Web/API/MutationObserver)

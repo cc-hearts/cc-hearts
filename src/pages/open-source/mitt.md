@@ -3,13 +3,13 @@ title: mitt 源码解析
 date: 2023-06-27
 ---
 
-# mitt 源码解析
+## 前言
 
 `mitt` 是一个轻量级的发布订阅库， 可以在任何 `javaScript runtime` 的环境中运行。
 
 ## 事件句柄的类型声明
 
-在`mitt` 中事件句柄（在源码中名为`handler`）有两种类型声明：
+在 `mitt` 中事件句柄（在源码中名为 `handler` ）有两种类型声明：
 
 ```ts
 // Handler WildcardHandler 都是事件句柄的类型声明
@@ -30,7 +30,7 @@ export type WildCardEventHandlerList<T = Record<string, unknown>> = Array<
 
 ## all 的类型声明
 
-`all` 作为收集事件句柄的容器，使用`Map`来映射`EventType`和事件队列的关系。
+`all` 作为收集事件句柄的容器，使用 `Map` 来映射 `EventType` 和事件队列的关系。
 
 ```ts
 // 事件类型

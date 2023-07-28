@@ -1,6 +1,6 @@
 ---
 title: Visual Studio Code Config
-date: 2023-05-14
+date: 2023-02-14
 ---
 
 ## `settings.json`
@@ -92,7 +92,7 @@ date: 2023-05-14
 }
 ```
 
-在项目中 可以在`.vscode` 的 `settings.json` 中 设置参数配置
+在项目中 可以在 `.vscode` 的 `settings.json` 中 设置参数配置
 
 ```json
 {

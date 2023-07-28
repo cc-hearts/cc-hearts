@@ -12,7 +12,7 @@ export default defineComponent({
   name: 'SideNav',
   setup() {
     const route = useRoute()
-
+    const title = computed(() => (route.meta.frontmatter as any).title)
     const activeCls = ref('')
     const activeIndex = ref(0)
     const threshold = 15
@@ -22,7 +22,6 @@ export default defineComponent({
     )
     const calcTocHeight = () => {
       heightObserverList.length = 0
-      console.log('sideRef.value', sideRef.value)
       sideRef.value.forEach((side) => {
         const el = document.getElementById(side.attrId)
         if (el) {
@@ -37,7 +36,6 @@ export default defineComponent({
       const scrollY = window.scrollY
       for (let i = 0; i < heightObserverList.length; i++) {
         const height = heightObserverList[i].height - threshold
-        console.log(heightObserverList)
         if (
           (i === 0 && scrollY <= height) ||
           (i === heightObserverList.length - 1 && scrollY >= height)
@@ -75,24 +73,31 @@ export default defineComponent({
       window.removeEventListener('scroll', calcActiveCls)
     })
     return () => (
-      <nav class={'absolute top-24 right-25 cc-nav'}>
+      <nav class={'absolute top-24 right-25 cc-nav max-w-50'}>
         <ul class={'relative'}>
+          <li class="outline-title">{title.value}</li>
           {sideRef.value.map((item) => (
             <li
-              class={`cursor-pointer ${
+              class={`cursor-pointer  ${
                 item.attrId === activeCls.value ? 'activeNav' : ''
               }`}
             >
-              <a class="block" href={`#${item.attrId}`} title={item.name}>
+              <a
+                class="block whitespace-nowrap overflow-hidden text-ellipsis"
+                href={`#${item.attrId}`}
+                title={item.name}
+              >
                 {item.name}
               </a>
             </li>
           ))}
 
-          <span
-            class="absolute w-1px outline-marker"
-            style={{ '--transform-top': activeIndex.value }}
-          ></span>
+          {sideRef.value.length > 0 && (
+            <span
+              class="absolute w-1px outline-marker"
+              style={{ '--transform-top': activeIndex.value + 1 }}
+            ></span>
+          )}
         </ul>
       </nav>
     )
