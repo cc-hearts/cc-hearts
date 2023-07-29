@@ -76,7 +76,6 @@ html:not(.dark) .shiki-dark {
   }
 
   & :not(pre) > code {
-    white-space: pre;
     padding: 0.2rem 0.25rem;
     border-radius: 0.3rem;
     background-color: var(--tag-color);

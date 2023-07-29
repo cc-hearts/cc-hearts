@@ -86,6 +86,7 @@ const years = computed(() =>
 }
 
 .year {
+  font-family: 'PingFang SC';
   display: inline-block;
   font-size: 8em;
   color: transparent;
