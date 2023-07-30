@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { onMounted, reactive, ref, onUnmounted } from 'vue'
-import { isNull, isUnder } from '@cc-heart/utils'
+import { isNull, isUndef } from '@cc-heart/utils'
 
 let node: HTMLImageElement | null = null
 let originNode: HTMLImageElement | null = null
@@ -130,7 +130,7 @@ function cloneImageNode(el: Element) {
 function cancel(e?: Event) {
   Object.keys(state.attr).forEach((key) => {
     const attr = Reflect.get(state.attr, key)
-    !isNull(attr) && !isUnder(attr) && node && node.setAttribute(key, attr)
+    !isNull(attr) && !isUndef(attr) && node && node.setAttribute(key, attr)
   })
   if (node && originNode) {
     const { left, top } = calcPreviewImageCancelRect(node, originNode)
