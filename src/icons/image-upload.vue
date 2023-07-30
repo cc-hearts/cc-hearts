@@ -7,13 +7,13 @@
   >
     <path
       fill="currentColor"
-      d="m19 9l-1.25-2.75L15 5l2.75-1.25L19 1l1.25 2.75L23 5l-2.75 1.25L19 9Zm.775 13.6L1.4 4.225L2.8 2.8l4.65 4.65L9 4l2.5 5.5L17 12l-3.45 1.55l4.2 4.2L19 15l1.25 2.75L23 19l-2.75 1.25l.925.95l-1.4 1.4ZM9 20l-2.5-5.5L1 12l3.675-1.675l6 6L9 20Z"
+      d="M8.5 9L7.4 6.6L5 5.5l2.4-1.1L8.5 2l1.1 2.4L12 5.5L9.6 6.6L8.5 9Zm6.5 3l-.95-2.05L12 9l2.05-.95L15 6l.95 2.05L18 9l-2.05.95L15 12ZM4 14l-.95-2.05L1 11l2.05-.95L4 8l.95 2.05L7 11l-2.05.95L4 14Zm.5 6.5L3 19l7.5-7.5l4 4l7.1-7.975l1.4 1.4l-8.5 9.575l-4-4l-6 6Z"
     ></path>
   </svg>
 </template>
 
 <script lang="ts">
 export default {
-  name: 'MaterialSymbolsAstrophotographyOff',
+  name: 'MaterialSymbolsAutoGraph',
 }
 </script>

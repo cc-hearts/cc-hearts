@@ -38,3 +38,23 @@ const path = require('path')
 // https://nodejs.org/api/path.html
 path.isAbsolute('/Users/heart/tet') // true
 ```
+
+## basename
+
+返回 path 最后一部分
+
+## delimiter
+
+返回操作系统路径界定符，Windows 返回 `;` POSIX 返回 `:`
+
+## dirname
+
+返回文件目录名
+
+## extname
+
+返回路径的拓展名（jquery.min.js 拓展名是 .js）
+
+## sep
+
+返回路径分隔符，Windows 返回 `\` POSIX 返回 `/`

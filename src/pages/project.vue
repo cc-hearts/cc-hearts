@@ -11,8 +11,8 @@ import {
 import type { getArraySubitem } from '@cc-heart/utils/helper'
 const projects = [
   {
-    title: 'rename export',
-    link: 'https://github.com/cc-hearts/rename-export.git',
+    title: 'gen-index-export',
+    link: 'https://github.com/cc-hearts/gen-index-export',
     description: 'Generate code to rename exports',
     icon: ExportIcon,
   },

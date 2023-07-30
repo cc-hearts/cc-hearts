@@ -3,20 +3,29 @@
     xmlns="http://www.w3.org/2000/svg"
     width="1em"
     height="1em"
-    viewBox="0 0 24 24"
+    viewBox="0 0 48 48"
   >
+    <circle
+      cx="24"
+      cy="24"
+      r="21.5"
+      fill="none"
+      stroke="currentColor"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    ></circle>
     <path
       fill="none"
       stroke="currentColor"
       strokeLinecap="round"
       strokeLinejoin="round"
-      d="M4 4h2v2H4V4Zm0 14h2v2H4v-2ZM18 4h2v2h-2V4Zm0 7h2v2h-2v-2Zm-7 0h2v2h-2v-2Zm-7 0h2v2H4v-2Zm7-7h2v2h-2V4Zm0 14h2v2h-2v-2Zm7 0h2v2h-2v-2Z"
+      d="M2.7 22.6h13.6c3.2 0 4.9-2.4 3.3-5.3c-1-1.9-1-4.1-1-4.1c0-2.9 2.4-5.2 5.3-5.2h.2c2.9 0 5.3 2.4 5.3 5.3h0s.5 2.3-5.4 10.8c-5.3 7.5-5.4 10.7-5.4 10.7h0c0 2.9 2.4 5.3 5.3 5.3h.2c2.9 0 5.3-2.3 5.3-5.2h0s0-2.2-.9-4.1c-1.3-2.5.4-5.1 3.3-5.1h13.6"
     ></path>
   </svg>
 </template>
 
 <script lang="ts">
 export default {
-  name: 'IconamoonAppsThin',
+  name: 'ArcticonsEndel',
 }
 </script>

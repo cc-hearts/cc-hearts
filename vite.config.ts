@@ -46,14 +46,14 @@ export default defineConfig({
       wrapperComponent: 'CcLayout',
       headEnabled: true,
       markdownItSetup(md) {
-        md.use(codeCopy),
-          // https://prismjs.com/
-          md.use(Shiki, {
-            theme: {
-              light: 'vitesse-light',
-              dark: 'vitesse-dark',
-            },
-          })
+        md.use(codeCopy)
+        // https://prismjs.com/
+        md.use(Shiki, {
+          theme: {
+            light: 'vitesse-light',
+            dark: 'vitesse-dark',
+          },
+        })
         md.use(LinkAttributes, {
           matcher: (link: string) => /^https?:\/\//.test(link),
           attrs: {

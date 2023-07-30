@@ -49,6 +49,9 @@ html:not(.dark) .shiki-dark {
   img {
     width: 100%;
     margin-top: 0.5rem;
+    cursor: zoom-in;
+    transform: scale(1) translate3d(0, 0, 0);
+    transition: transform 0.3s;
   }
 
   table {
