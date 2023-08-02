@@ -33,7 +33,7 @@ function addEventListener(node: MouseEvent) {
   if (!node.target) return
   const el = node.target as HTMLImageElement
   if (isImage(el) && !isCloneImageNode(el) && !state.preview) {
-    // 开启预览模式
+    // preview flag
     state.preview = true
     state.src = el.getAttribute('src') || null
     copyAttr(el)

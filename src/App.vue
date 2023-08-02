@@ -3,16 +3,14 @@ import Headers from '@/components/header/headers.vue'
 import Home from '@/layouts/home'
 import { LogoIcon } from '@/icons/index'
 import { useRouter } from 'vue-router'
-
+import { subTitle } from '@/configs'
 const router = useRouter()
 
-const subTitle = [
-  { title: 'Blog', link: '/blog' },
-  { title: 'Projects', link: '/project' },
-  { title: 'experiment', link: '/experiment' },
-]
-
-const toRoute = (link: string) => {
+const toRoute = (link: string, isToLink: boolean = false) => {
+  if (isToLink) {
+    window.open(link)
+    return
+  }
   router.push(link)
 }
 </script>
@@ -24,7 +22,9 @@ const toRoute = (link: string) => {
     </template>
     <template #right-icon>
       <template v-for="titles in subTitle">
-        <a class="links" @click="toRoute(titles.link)">{{ titles.title }}</a>
+        <a class="links" @click="toRoute(titles.link, titles.isToLink)">{{
+          titles.title
+        }}</a>
       </template>
     </template>
   </Headers>

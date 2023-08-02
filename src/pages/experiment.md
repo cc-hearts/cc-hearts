@@ -21,7 +21,7 @@ This is a sentence
 > This is a quote
 > `quote code`
 
-~~删除线~~
+~~delete line~~
 
 ```js
 function fn() {
