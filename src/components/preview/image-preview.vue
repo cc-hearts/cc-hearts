@@ -52,8 +52,7 @@ onUnmounted(() => {
 })
 
 function calcNodeRect(el: HTMLImageElement) {
-  const rect = el.getBoundingClientRect()
-  const { width } = rect
+  const { width } = el.getBoundingClientRect()
   const left = el.offsetLeft - window.scrollX
   const top = el.offsetTop - window.scrollY
   return { width, left, top }

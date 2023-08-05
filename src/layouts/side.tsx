@@ -6,6 +6,7 @@ import {
   ref,
   onUnmounted,
 } from 'vue'
+import type { Slug } from '@/types/types'
 import { useRoute } from 'vue-router'
 
 export default defineComponent({
@@ -17,9 +18,8 @@ export default defineComponent({
     const activeIndex = ref(0)
     const threshold = 15
     const heightObserverList: { attrId: string; height: number }[] = []
-    const sideRef = computed(
-      () => (route.meta.slug as Array<{ name: string; attrId: string }>) || []
-    )
+    const sideRef = computed(() => (route.meta.slug as Array<Slug>) || [])
+
     const calcTocHeight = () => {
       heightObserverList.length = 0
       sideRef.value.forEach((side) => {
@@ -81,13 +81,14 @@ export default defineComponent({
               class={`cursor-pointer  ${
                 item.attrId === activeCls.value ? 'activeNav' : ''
               }`}
+              style={{ paddingLeft: `${item.lvl * 10}px` }}
             >
               <a
-                class="block whitespace-nowrap overflow-hidden text-ellipsis"
+                class={`block whitespace-nowrap overflow-hidden text-ellipsis`}
                 href={`#${item.attrId}`}
-                title={item.name}
+                title={item.content}
               >
-                {item.name}
+                {item.content}
               </a>
             </li>
           ))}

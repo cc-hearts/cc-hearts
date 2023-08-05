@@ -14,3 +14,12 @@ export interface IPosts {
   date: number
   time: Date
 }
+
+export interface Slug {
+  content: string
+  slug: string
+  lvl: number
+  i: number
+  seen: number
+  attrId: string
+}

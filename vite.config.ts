@@ -13,7 +13,9 @@ import { readFileSync } from 'fs'
 import codeCopy from './plugins/markdown-it-code-copy.cjs'
 import matter from 'gray-matter'
 import toc from 'markdown-toc'
+import type { Slug } from './src/types/types'
 import { generatorRightSide } from './plugins/generator-right-side'
+
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [
@@ -35,7 +37,9 @@ export default defineConfig({
               ...data,
               time: data.date || new Date().toISOString().split('T')[0],
             },
-            slug: generatorRightSide(toc(content, {})),
+            slug: generatorRightSide(
+              (toc(content, {}) as unknown as { json: Slug }).json
+            ),
           })
         }
         return route
