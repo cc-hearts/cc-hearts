@@ -67,9 +67,12 @@ export default defineConfig({
           },
         })
         md.use(anchor, {
-          permalink: true,
-          permalinkBefore: true,
-          permalinkSymbol: '§',
+          permalink: anchor.permalink.linkInsideHeader({
+            symbol: `
+              <span aria-hidden="true">§</span>
+            `,
+            placement: 'before',
+          }),
         })
       },
     }),

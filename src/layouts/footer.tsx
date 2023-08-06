@@ -1,10 +1,10 @@
 import { defineComponent } from 'vue'
-
+import '@/assets/pages/footer.scss'
 const Footer = defineComponent({
   setup() {
     return () => (
       <>
-        <footer class={'cc-footer m-t-4 p-b-4'}>
+        <footer class={'cc-footer m-t-4 p-b-4 shrink-0'}>
           <p class={'text-center'}>
             Released under the{' '}
             <a
