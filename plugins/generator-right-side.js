@@ -1,5 +1,6 @@
-import GithubSlugger from 'github-slugger'
-
+function parseTitle(title) {
+  return title.replace(/\s+/g, '-')
+}
 /**
  * @param {import('../src/types/types').Slug} slug
  * @returns
@@ -8,7 +9,7 @@ export function generatorRightSide(slug) {
   return slug.map((val) => {
     return {
       ...val,
-      attrId: encodeURIComponent(new GithubSlugger().slug(val.content)),
+      attrId: encodeURIComponent(parseTitle(val.content)),
     }
   })
 }

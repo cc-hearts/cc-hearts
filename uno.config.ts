@@ -17,5 +17,12 @@ export default defineConfig({
   rules: [
     ['max-blog-prose', { 'max-width': '70ch' }],
     ['min-blog-prose', { 'min-width': '45ch' }],
+    [
+      'cc-footer',
+      {
+        color: 'var(--color-text-3)',
+        'border-top': '1px solid var(--divider-color)',
+      },
+    ],
   ],
 })

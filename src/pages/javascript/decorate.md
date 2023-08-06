@@ -7,7 +7,7 @@ date: 2023-7-17
 
 最近在使用 `nest` 写一些小应用，在开发过程中也使用了各式各样的装饰器（例如 `@inject` 、 `@UseInterceptors` 等）。并且 decorator 已经进入 ECMA 第三提案阶段，因此准备写一篇小作文，介绍一下 TypeScript 中 decorator 的语法使用。
 
-## class decorator
+## class decorator(类装饰器)
 
 每日疑惑 🤔，为啥是 class decorator 而不是 function decorator ?
 
@@ -220,19 +220,13 @@ console.log(new User())
 User = __decorate([logger(false)('new name')], User)
 ```
 
-### class decorate 小结
-
-`class decorate` 的本质是收集 `decorators` 并对类进行修改（如果 `decorator` 有返回值并且返回值为 truly ， 会替换原有的类）。
-
-无论装饰器有多少次柯里化调用（ `@xxx()()()` ），最后的一次返回值都需要是一个函数。
-
-> 装饰器 `@xxx()()()` 会编译成 `xxx()()()` , 在入参的时候就已经优先调用将结果作为 `decorators` 的子项传入 `__decorate` 中，为了满足 `d(r)` 能够顺利运行， 因此 `xxx()()()` 的返回值必须是一个函数。
-
 ```js
 r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r
 ```
 
-## methods decorator
+> 装饰器 `@xxx()()()` 会编译成 `xxx()()()` , 在入参的时候就已经优先调用将结果作为 `decorators` 的子项传入 `__decorate` 中，为了满足 `d(r)` 能够顺利运行， 因此 `xxx()()()` 的返回值必须是一个函数。
+
+## methods decorator(方法装饰器)
 
 首先拟定一个简单的方法装饰器的模版：
 
@@ -330,13 +324,17 @@ __decorate(
 )
 ```
 
-在 `__metadata` 这打断点调试一下 `Reflect.metadata`
+### reflect-metadata
 
 > `Reflect.metadata` 是 ES7 的提案 现在还没有纳入正式的版本中，因此要使用第三方的库 `reflect-metadata` 提供的 API 设置元数据。
+
+首先安装 `reflect-metadata`
 
 ```shell
  $ pnpm i reflect-metadata
 ```
+
+在 `__metadata` 这打断点调试一下 `Reflect.metadata`
 
 通过断点往下步入 可以看到 `Reflect.metadata` 函数的声明：
 
@@ -396,11 +394,7 @@ function GetOrCreateMetadataMap(O, P, Create) {
 Reflect.getMetadata('design:type', User.prototype, 'getName') === Function // true
 ```
 
-### 总结
-
-属性装饰器主要用于对属性的描述符的修改以及通过使用 `reflect-metadata` 对元数据进行封装。
-
-## 属性装饰器
+## property decorator(属性装饰器)
 
 属性装饰器有两种： `静态属性装饰器` 和 `实例属性装饰器` , 静态属性装饰器主要用于在 `static` 的属性上，而实例属性则作用于普通的属性字段上。🌰 如下所示：
 
@@ -487,11 +481,11 @@ __decorate([logger, __metadata('design:type', Number)], User, 'pi', void 0)
 
 并且属性装饰器接收到的参数的有效部分始终只有 target 和 key（第三个参数始终为 void 0）
 
-## 访问符装饰器
+## accessor decorator(访问符装饰器)
 
 与 方法装饰器的编辑结果相似 这里不多赘述。
 
-## 参数装饰器
+## parameter decorator(参数装饰器)
 
 参数装饰器的行为与 实例属性装饰器的行为相似。
 
@@ -651,3 +645,9 @@ User = User_1 = __decorate([logger], User)
 因此装饰器的执行顺序为：
 
 实例属性装饰器 => 访问器装饰器 => 方法装饰器 => 静态属性装饰器 => 类装饰器
+
+## 小结
+
+- class decorate： `class decorate` 的本质是收集 `decorators` 并对类进行修改（如果 `decorator` 有返回值并且返回值为 truly ， 会替换原有的类）。无论装饰器有多少次柯里化调用（ `@xxx()()()` ），最后的一次返回值都需要是一个函数。
+
+- methods decorate： `methods decorate` 主要用于对属性的描述符的修改以及通过使用 `reflect-metadata` 对元数据进行封装
