@@ -6,7 +6,7 @@ import { useRouter } from 'vue-router'
 import { subTitle } from '@/configs'
 const router = useRouter()
 
-const toRoute = (link: string, isToLink: boolean = false) => {
+const toRoute = (link: string, isToLink = false) => {
   if (isToLink) {
     window.open(link)
     return

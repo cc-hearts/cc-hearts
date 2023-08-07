@@ -17,7 +17,12 @@ onMounted(() => {
 
 <template>
   <div class="appearance">
-    <button role="switch" :aria-checked="checked" @click="handleToggleTheme">
+    <button
+      role="switch"
+      :aria-checked="checked"
+      aria-label="toggle theme"
+      @click="handleToggleTheme"
+    >
       <span class="check">
         <span class="icon">
           <svg
