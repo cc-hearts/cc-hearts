@@ -3,7 +3,7 @@ title: Visual Studio Code Debugger
 date: 2023-02-12
 ---
 
-`launch config`
+## `launch config`
 
 ```json
 {
@@ -40,7 +40,7 @@ date: 2023-02-12
 }
 ```
 
-`attach config`
+## `attach config`
 
 ```json
 {

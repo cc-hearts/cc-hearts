@@ -33,14 +33,11 @@ date: 2023-02-14
   "explorer.confirmDragAndDrop": false,
   // 字体设置
   "window.commandCenter": true,
-  "workbench.colorTheme": "Vitesse Dark",
-  "workbench.preferredDarkColorTheme": "Vitesse Dark",
-  "workbench.preferredLightColorTheme": "Vitesse Light",
   "workbench.fontAliasing": "antialiased",
   "window.autoDetectColorScheme": true,
   "terminal.integrated.enableMultiLinePasteWarning": false,
-  "editor.fontFamily": "Input Mono, Fira Code, monospace",
-  "editor.fontWeight": "500",
+  "editor.fontFamily": "Monaco,Fira Code, monospace",
+  "editor.fontWeight": "600",
   "editor.fontLigatures": false,
   // 保存时使用VSCode 自身格式化程序格式化
   "editor.formatOnSave": true,

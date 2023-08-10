@@ -19,7 +19,6 @@ export default defineComponent({
     const threshold = 15
     const heightObserverList: { attrId: string; height: number }[] = []
     const sideRef = computed(() => (route.meta.slug as Array<Slug>) || [])
-
     const calcTocHeight = () => {
       heightObserverList.length = 0
       sideRef.value.forEach((side) => {
