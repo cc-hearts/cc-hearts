@@ -5,6 +5,7 @@ import {
   NestStarterIcon,
   ObjectToDeclareIcon,
   IconFontIcon,
+  PasswordIcon,
 } from '@/icons'
 
 export const prefixCls = 'cc'
@@ -61,5 +62,11 @@ export const projects = [
     description:
       'nest templates support the basics of databases, swagger, and more',
     icon: NestStarterIcon,
+  },
+  {
+    title: 'electron-password',
+    link: 'https://github.com/cc-hearts/electron-password.git',
+    description: 'A password management tool based on electron',
+    icon: PasswordIcon,
   },
 ]
