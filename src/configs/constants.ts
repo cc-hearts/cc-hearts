@@ -18,7 +18,7 @@ export const subTitle = [
   { title: 'experiment', link: '/experiment' },
   {
     title: 'tutorial',
-    link: 'https://github.com/cc-hearts/tutorial.git',
+    link: 'https://tutorial-five-plum.vercel.app/',
     isToLink: true,
   },
 ]
