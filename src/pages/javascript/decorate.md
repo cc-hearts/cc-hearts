@@ -88,7 +88,7 @@ User = __decorate([logger], User)
 
 ![image-20230717233855978](https://pic.jxwazx.cn/oss/file/WPJTOOANlAvXos4EJeb0m/2023-07-17/image-20230717233855978.png)
 
-`void` - 在上述的编译后的 js 代码可知，js runtime 时 `return falsy` 与 `return void 0` 的结果是一样的。使用 `@ts-ignore` 注释类型错误后， 使用 tsc 编译运行如下：
+在上述的编译后的 js 代码可知，js runtime 时 `return falsy` 与 `return void 0` 的结果是一样的。使用 `@ts-ignore` 注释类型错误后， 使用 tsc 编译运行如下：
 
 ![image-20230718010110575](https://pic.jxwazx.cn/oss/file/WPJTOOANlAvXos4EJeb0m/2023-07-17/image-20230718010110575.png)
 
@@ -326,17 +326,17 @@ __decorate(
 
 ### reflect-metadata
 
-> `Reflect.metadata` 是 ES7 的提案 现在还没有纳入正式的版本中，因此要使用第三方的库 `reflect-metadata` 提供的 API 设置元数据。
+> `Reflect.metadata` 是 ES7 的提案，现在还没有纳入正式的版本中，因此要使用第三方的库 `reflect-metadata` 提供的 API 设置元数据。
 
-首先安装 `reflect-metadata`
+首先安装 `reflect-metadata` :
 
 ```shell
  $ pnpm i reflect-metadata
 ```
 
-在 `__metadata` 这打断点调试一下 `Reflect.metadata`
+在 `__metadata` 这打断点调试一下 `Reflect.metadata` ,
 
-通过断点往下步入 可以看到 `Reflect.metadata` 函数的声明：
+通过断点往下步入, 可以看到 `Reflect.metadata` 函数的声明：
 
 ```js
 // metadata 通过必包存储 key, value
@@ -388,7 +388,7 @@ function GetOrCreateMetadataMap(O, P, Create) {
 
 ![image-20230720223143434](https://pic.jxwazx.cn/oss/file/WPJTOOANlAvXos4EJeb0m/2023-07-20/image-20230720223143434.png)
 
-存储的元数据 可以使用 `Reflect.getMetadata` 获取
+存储的元数据 可以使用 `Reflect.getMetadata` 获取：
 
 ```ts
 Reflect.getMetadata('design:type', User.prototype, 'getName') === Function // true
@@ -479,7 +479,7 @@ __decorate([logger, __metadata('design:type', Number)], User, 'pi', void 0)
 - 实例属性的 target 是 class 的 `prototype`。
 - 静态属性的 target 是 class 本身。
 
-并且属性装饰器接收到的参数的有效部分始终只有 target 和 key（第三个参数始终为 void 0）
+并且属性装饰器接收到的参数的有效部分始终只有 target 和 key（第三个参数始终为 `void 0` ）
 
 ## accessor decorator(访问符装饰器)
 

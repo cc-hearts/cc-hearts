@@ -1,5 +1,5 @@
 function parseTitle(title) {
-  return title.replace(/\s+/g, '-').replace(/`/g, '')
+  return title.replace(/\s+/g, '-').replace(/`/g, '').toLowerCase()
 }
 function parseContent(content) {
   return content.replace(/`/g, '')

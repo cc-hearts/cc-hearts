@@ -11,7 +11,7 @@ date: 2023-8-7
 
 `git hook` 是 sh 脚本，并且存在于 `.git/hook` 目录下。 这会导致一个问题： .git 目录下的文件是不会被提交的。
 
-为了解决这一问题， 便有了用于管理 `git hook`的 npm 工具 `husky`。
+为了解决这一问题， 便有了用于管理 `git hook` 的 npm 工具 `husky` 。
 
 ### husky 安装
 
@@ -21,7 +21,7 @@ pnpm i husky --save-dev
 
 ### husky 的使用
 
-安装完 `husky` 之后 需要运行 husky 的命令行工具，以设置 `git hook` 的路径为 `.husky`。
+安装完 `husky` 之后 需要运行 husky 的命令行工具，以设置 `git hook` 的路径为 `.husky` 。
 
 ```shell
 npx husky install

@@ -5,9 +5,9 @@ date: 2023-05-28
 
 ## element bem 工具类/方法解析
 
-`element-plus` 源码中有一个`useNamespace` 的`hook`， 用于生成`BEM` 规范的 class 类名以及相关的变量名
+`element-plus` 源码中有一个 `useNamespace` 的 `hook` ， 用于生成 `BEM` 规范的 class 类名以及相关的变量名。
 
-`useNamespace`首先调用了 `useGetDerivedNamespace`这个`hook` 来获取命名空间
+`useNamespace` 首先调用了 `useGetDerivedNamespace` 这个 `hook` 来获取命名空间。
 
 ```ts
 export const namespaceContextKey: InjectionKey<Ref<string | undefined>> =
@@ -28,9 +28,9 @@ export const useGetDerivedNamespace = (
 }
 ```
 
-注入的方式覆盖默认的参数命名空间:
+### 注入的方式覆盖默认的参数命名空间
 
-> eg. 在`App.vue` 中`provide` 值
+> e.g. 在 `App.vue` 中 `provide` 值
 
 ```vue
 <script lang="ts" setup>
@@ -42,7 +42,9 @@ provide(namespaceContextKey, ref('cc'))
 </script>
 ```
 
-`useNamespace`的源码如下：
+## useNamespace
+
+`useNamespace` 的源码如下：
 
 ```ts
 export const useNamespace = (
@@ -132,7 +134,7 @@ export const useNamespace = (
 }
 ```
 
-最后的`ts`类型导出
+## useNamespace dts
 
 ```ts
 export type UseNamespaceReturn = ReturnType<typeof useNamespace> // 返回useNamespace的返回值类型

@@ -3,11 +3,13 @@ title: cloneDeep 源码解析
 date: 2023-06-04
 ---
 
-## cloneDeep 源码解析
+## 前言
 
-> `lodash` 的 `deepClone` 涵盖了非常多对不同类型的处理方式。
+本文将详细解析 lodash 库中 `cloneDeep` 方法的实现原理，同时提供示例代码和详细说明，帮助读者更好地理解 `cloneDeep` 的工作原理。
 
-`cloneDeep` 等 其他`clone` 方法 都依赖于 `baseClone` 这个方法
+## cloneDeep
+
+`cloneDeep` 等 其他 clone 方法 都依赖于 `baseClone` 这个方法
 
 ```js
 function cloneDeep(value) {
@@ -17,7 +19,7 @@ function cloneDeep(value) {
 }
 ```
 
-下面将逐步展开对 `baseClone`的解析 首先是 `baseClone` 的参数：
+下面将逐步展开对 `baseClone` 的解析 首先是 `baseClone` 的参数：
 
 ```js
 // value - 需要克隆的数据源
@@ -41,7 +43,7 @@ const isFlat = bitmask & CLONE_FLAT_FLAG // 0
 const isFull = bitmask & CLONE_SYMBOLS_FLAG // CLONE_SYMBOLS_FLAG => 4
 ```
 
-之后 优先运行 传入的`customizer` 自定义的方法
+之后 优先运行 传入的 `customizer` 自定义的方法
 
 ```js
 // 是否存在自定义的函数 存在则使用自定义的函数
@@ -58,7 +60,7 @@ if (!isObject(value)) {
 }
 ```
 
-在 `isObject.js`中
+在 `isObject.js` 中
 
 ```js
 // 判断是否是基本数据类型
@@ -118,9 +120,9 @@ arrayEach(props || value, (subValue, key) => {
 })
 ```
 
-> 对于 函数的 `clone` 返回的都是一个`{}`
+> 对于 函数的 `clone` 返回的都是一个 `{}`
 
-对于对象的`clone`
+对于对象的 `clone`
 
 ```js
 const isFunc = typeof value === 'function'
@@ -146,7 +148,7 @@ if (tag == objectTag || tag == argsTag || (isFunc && !object)) {
 }
 ```
 
-## `clone Function`
+## clone Function
 
 `initCloneObject` 函数如下：
 
@@ -221,7 +223,7 @@ function initCloneByTag(object, tag, isDeep) {
 }
 ```
 
-## `clone Symbol`
+## clone Symbol
 
 ```js
 const symbolValueOf = Symbol.prototype.valueOf
@@ -237,7 +239,7 @@ function cloneSymbol(symbol) {
 // cloneSym.valueOf() === sym.valueOf() // true
 ```
 
-## `clone RegExp`
+## clone RegExp
 
 ```js
 const reFlags = /\w*$/ // 匹配后续 gmi 等标识符
@@ -253,9 +255,10 @@ function cloneRegExp(regexp) {
 // cloneRegExp(/a/gi)
 ```
 
-## `clone Set Map`
+## clone Set Map
 
 ```js
+// 判断是否是 map 还是 set 之后递归设置值
 if (tag == mapTag) {
   value.forEach((subValue, key) => {
     result.set(key, baseClone(subValue, bitmask, customizer, key, value, stack))
