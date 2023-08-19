@@ -3,7 +3,7 @@ title: Visual Studio Code Config
 date: 2023-02-14
 ---
 
-## `settings.json`
+## settings.json
 
 ```json
 {
@@ -97,7 +97,7 @@ date: 2023-02-14
 }
 ```
 
-## `plugins`
+## plugins
 
 ```json
 [
