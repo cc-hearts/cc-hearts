@@ -2,6 +2,7 @@
 import { useRouter } from 'vue-router'
 import { NewIcon, DraftIcon } from '@/icons'
 import { computed } from 'vue'
+import { __DEV__ } from '@/configs'
 import type { IFrontmatter, IPosts } from '@/types/types'
 const router = useRouter()
 const routes = router
@@ -18,6 +19,7 @@ routes.forEach((route) => {
   const month = time.toDateString().split(' ')[1]
   const date = time.getDate()
   const draft = frontmatter.isDraft
+  if (draft && !__DEV__) return
   const postList = Reflect.get(posts, year)
   const config: IPosts = {
     title: frontmatter.title,
@@ -55,10 +57,13 @@ const years = computed(() =>
       <div class="post-list">
         <template v-for="post in posts[year]">
           <a
-            class="post-title text-lg leading-1.2em my-2 inline-block"
+            class="post-title text-lg leading-1.2em my-2 inline-block relative"
             @click="toRoute(post.path)"
           >
-            <DraftIcon v-if="post.draft" class="m-r-2" />
+            <DraftIcon
+              v-if="post.draft"
+              class="m-r-2 absolute left--4 translate-y-50%"
+            />
             <span>
               {{ post.title }}
             </span>
