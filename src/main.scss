@@ -91,12 +91,12 @@ html:not(.dark) .shiki-dark {
     border-radius: 0.5rem;
     margin: 1rem 0;
     overflow: hidden;
-
-    & ul,
-    ol {
-      padding-left: 2em;
-    }
   }
+}
+
+ul,
+ol {
+  padding-left: 2em;
 }
 
 p {

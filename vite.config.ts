@@ -15,6 +15,7 @@ import matter from 'gray-matter'
 import toc from 'markdown-toc'
 import type { Slug } from './src/types/types'
 import { generatorRightSide } from './plugins/generator-right-side'
+import { isDraftPath } from './scripts/draft'
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -25,7 +26,7 @@ export default defineConfig({
     vueJsx(),
     UnoCSS(),
     Pages({
-      dirs: 'src/pages',
+      dirs: ['src/pages', 'draft'],
       extensions: ['vue', 'md'],
       extendRoute(route) {
         const path = resolve(__dirname, route.component.slice(1))
@@ -35,6 +36,7 @@ export default defineConfig({
           route.meta = Object.assign(route.meta || {}, {
             frontmatter: {
               ...data,
+              isDraft: isDraftPath(path),
               time: data.date || new Date().toISOString().split('T')[0],
             },
             slug: generatorRightSide(

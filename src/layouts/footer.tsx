@@ -6,7 +6,7 @@ const Footer = defineComponent({
       <>
         <footer class={'cc-footer m-t-4 p-b-4 shrink-0'}>
           <p class={'text-center'}>
-            Released under the{' '}
+            Released under the
             <a
               class={'cc-footer__link'}
               href="https://creativecommons.org/licenses/by-nc-sa/4.0"

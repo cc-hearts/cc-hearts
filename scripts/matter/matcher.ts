@@ -1,4 +1,4 @@
-import { hasOwnProperty } from '@cc-heart/utils'
+import { hasOwn } from '@cc-heart/utils'
 
 function objectTransformMatter(data: Record<string, string>) {
   let matter = '---\n'
@@ -23,7 +23,7 @@ export function replaceMdMatter(
       acc[key] = value.trim()
       return acc
     }, {})
-    if (hasOwnProperty(matters, 'date')) return
+    if (hasOwn(matters, 'date')) return
     const matter = objectTransformMatter({ ...matters, ...defaultMatters })
     return md.replace(matchMatterRegex, matter)
   }

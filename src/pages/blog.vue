@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { useRouter } from 'vue-router'
-import { NewIcon } from '@/icons'
+import { NewIcon, DraftIcon } from '@/icons'
 import { computed } from 'vue'
 import type { IFrontmatter, IPosts } from '@/types/types'
 const router = useRouter()
@@ -17,11 +17,13 @@ routes.forEach((route) => {
   const year = time.getFullYear()
   const month = time.toDateString().split(' ')[1]
   const date = time.getDate()
+  const draft = frontmatter.isDraft
   const postList = Reflect.get(posts, year)
   const config: IPosts = {
     title: frontmatter.title,
     path: route.path,
     month,
+    draft,
     date,
     time,
   }
@@ -56,6 +58,7 @@ const years = computed(() =>
             class="post-title text-lg leading-1.2em my-2 inline-block"
             @click="toRoute(post.path)"
           >
+            <DraftIcon v-if="post.draft" class="m-r-2" />
             <span>
               {{ post.title }}
             </span>

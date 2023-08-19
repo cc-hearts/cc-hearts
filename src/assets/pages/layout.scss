@@ -4,6 +4,7 @@
   position: fixed;
 
   li {
+    list-style: none;
     color: var(--color-text-3);
     transition: color 0.3s;
     line-height: 1.75rem;

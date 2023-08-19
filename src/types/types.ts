@@ -3,6 +3,7 @@ export interface IFrontmatter {
   description?: string
   time?: string
   _meta?: IMeta
+  isDraft: boolean
 }
 interface IMeta {
   hidden?: boolean
@@ -13,6 +14,7 @@ export interface IPosts {
   month: string
   date: number
   time: Date
+  draft: boolean
 }
 
 export interface Slug {
