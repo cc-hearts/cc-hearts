@@ -19,7 +19,7 @@ routes.forEach((route) => {
   const month = time.toDateString().split(' ')[1]
   const date = time.getDate()
   const draft = frontmatter.isDraft
-  if (draft && !__DEV__) return
+  // if (draft && !__DEV__) return
   const postList = Reflect.get(posts, year)
   const config: IPosts = {
     title: frontmatter.title,
