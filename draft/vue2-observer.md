@@ -263,7 +263,7 @@ export function defineReactive(
 
 从其相关的 API 可以看出，Dep 类的 主要目的是用于收集一些依赖（通过 depend），然后使用 `notify` 去通知依赖。
 
-> 这里一种观察者模式的设计模式。 Dep 就已经相当于是一个 Subject， 可以去通知其他依赖它的对象。
+> 这里一种发布订阅的模式。 `getter/setter` 就已经相当于是一个 发布者（Publisher）， Dep 相当于了一个 事件调度的中心， 而 watcher 就相当于订阅者（Subscriber）。
 >
 > 只不过无论是添加依赖，还是通知依赖变化，都在上述的`defineReactive`中的 `getter/setter`进行。
 
@@ -750,5 +750,9 @@ function flushSchedulerQueue() {
 1. 先将 data 的每个属性进行 `defineReactive` 转化为 `Observer`。
 2. 在`defineReactive` 中对每个属性实现了 一个依赖收集器 Dep，用于存储观察者。
 3. 在 组件挂载的时候，会创建一个 `wacher` ，（这个 watcher 可以理解为渲染 `watcher`，用于观察所依赖的数据改变后，通知视图更新。也可以理解为所依赖的数据改变后，调用的`updateComponent` 的函数）。
-4. 在创建一个用户`watcher`的时候，会调用 `this.getter`（相当于一个 `handler`，依赖项改变之后触发的回调），这个`handler` 会创建出`vnode`，期间如果对进行了`Observer`的属性进行了 `getter` 操作，就会将当前的 `watcher` 加入到该属性的`dep`中。（这整个过程也是一个观察者模式的一种应用）。
+4. 在创建一个用户`watcher`的时候，会调用 `this.getter`（相当于一个 `handler`，依赖项改变之后触发的回调），这个`handler` 会创建出`vNode`，期间如果对进行了`Observer`的属性进行了 `getter` 操作，就会将当前的 `watcher` 加入到该属性的`dep`中。（这整个过程也是一个发布订阅模式的一种应用）。
 5. 如果对进行了`Observer`的属性进行了 `setter` 操作（数据更新操作），则 `dep` 会进行广播通知 `watcher` 进行更新。此时所需要更新的`watcher` 先`handler`加入到一个队列中，之后在`nextTick` 进行统一的调度。
+
+## 参考文章
+
+- [发布订阅模式与观察者模式的区别](https://segmentfault.com/a/1190000038881989)
