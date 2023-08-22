@@ -1,5 +1,6 @@
 ---
 title: vue2 observer 流程
+date: 2023-08-20
 ---
 
 ## 前言
@@ -41,9 +42,9 @@ export default {
 </script>
 ```
 
-之后在 `main.js` 中打下 `debugger`，并且通过 `vscode debugger` 进行调试。
+之后在 `main.js` 中打下 `debugger` ，并且通过 `vscode debugger` 进行调试。
 
-> 需要先将项目启动，之后运行 Launch Chrome
+> 需要先将项目启动，之后运行 `Launch Chrome`
 
 ![image-20230820221359984](https://pic.jxwazx.cn/oss/file/WPJTOOANlAvXos4EJeb0m/2023-08-20/image-20230820221359984.png)
 
@@ -92,7 +93,7 @@ export function observe(
 }
 ```
 
-`Observer`类也如下：
+`Observer` 类也如下：
 
 > src/core/observer/index.ts
 
@@ -150,12 +151,12 @@ export class Observer {
 }
 ```
 
-`defineReactive` 这个函数就是将对象的属性使用`Object.defineProperty` 去重写了 `getter` 和 `setter`
+`defineReactive` 这个函数就是将对象的属性使用 `Object.defineProperty` 去重写了 `getter` 和 `setter`
 
 1. 在 `getter` 的时候， 调用 `dep.depend` 。
 2. 在 `setter` 的时候， 调用了 `dep.notify` 。
 
-> 如果直接看这里可能会有疑惑， `dep.depend` 以及 `dep.notify` 的作用可以根据后续讲的 `Dep` 类去理解。这里主要需要关注`getter/ setter` 做了什么即可。
+> 如果直接看这里可能会有疑惑， `dep.depend` 以及 `dep.notify` 的作用可以根据后续讲的 `Dep` 类去理解。这里主要需要关注 `getter/ setter` 做了什么即可。
 
 ```ts
 export function defineReactive(
@@ -257,15 +258,9 @@ export function defineReactive(
 
 ## Dep
 
-从上文可以看出， `defineReactive` 里面不仅初始化了一个 `Dep`， 而且还使用了其相关的实例化对象的 API。
+从上文可以看出， `defineReactive` 里面不仅初始化了一个 `Dep` ，而且还使用了其相关的实例化对象的 API。
 
-下面先看看 `Dep`类的函数定义。
-
-从其相关的 API 可以看出，Dep 类的 主要目的是用于收集一些依赖（通过 depend），然后使用 `notify` 去通知依赖。
-
-> 这里一种发布订阅的模式。 `getter/setter` 就已经相当于是一个 发布者（Publisher）， Dep 相当于了一个 事件调度的中心， 而 watcher 就相当于订阅者（Subscriber）。
->
-> 只不过无论是添加依赖，还是通知依赖变化，都在上述的`defineReactive`中的 `getter/setter`进行。
+下面先看看 `Dep` 类的函数定义。
 
 ```ts
 // 在 getter 的时候 会调用 depend
@@ -352,13 +347,19 @@ export function popTarget() {
 }
 ```
 
+从其相关的 API 可以看出，Dep 类的 主要目的是用于收集一些依赖（通过 `depend` ），然后使用 `notify` 去通知依赖。
+
+> 这里一种发布订阅的模式。 `getter/setter` 就已经相当于是一个 发布者（Publisher）， Dep 相当于了一个 事件调度的中心， 而 watcher 就相当于订阅者（Subscriber）。
+>
+> 只不过无论是添加依赖，还是通知依赖变化，都在上述的 `defineReactive` 中的 `getter/setter` 进行。
+
 ## Dep 的观察者的是谁?
 
-从源码(`ts`)的角度查找，可以很快找到结果。
+从源码( `ts` )的角度查找，可以很快找到结果。
 
-上述的`depend` 可知， `Dep.target.addDep(this)` 这里的观察者的类型就是与 `Dep.target` 同类型的。
+上述的 `depend` 可知， `Dep.target.addDep(this)` 这里的观察者的类型就是与 `Dep.target` 同类型的。
 
-而 `Dep`的`static target?: DepTarget | null` 也可以看出，观察者的类型得是`DepTarget`。
+而 `Dep` 的 `static target?: DepTarget | null` 也可以看出，观察者的类型得是 `DepTarget` 。
 
 从上下文检索可得，只有 `watcher` 实现了 `DepTarger`
 
@@ -368,7 +369,7 @@ export default class Watcher implements DepTarget {
 }
 ```
 
-因此 `Dep.target` 可以是一个`Watcher`。
+因此 `Dep.target` 可以是一个 `Watcher` 。
 
 ## watcher 什么时候创建？
 
@@ -442,7 +443,7 @@ export function mountComponent(
 
 此时的 `Watcher` 又做了什么呢？
 
-将断点逐步步入，可以看到在经过一系列的初始化后，调用了 `this.get`
+将断点逐步步入，可以看到在经过一系列的初始化后，调用了 `this.get()`
 
 ![image-20230821004840631](https://pic.jxwazx.cn/oss/file/WPJTOOANlAvXos4EJeb0m/2023-08-20/image-20230821004840631.png)
 
@@ -667,15 +668,15 @@ export default class Watcher implements DepTarget {
 }
 ```
 
-此后，如果数据更新，就会通过`defineReactive` 中 `setter` 去通知所有的 `watcher`进行 `update`。
+此后，如果数据更新，就会通过 `defineReactive` 中 `setter` 去通知所有的 `watcher` 进行 `update` 。
 
 ![image-20230821010332737](https://pic.jxwazx.cn/oss/file/WPJTOOANlAvXos4EJeb0m/2023-08-20/image-20230821010332737.png)
 
-这时是先将需要更新的`watcher` 加入到一个队列中。
+这时是先将需要更新的 `watcher` 加入到一个队列中。
 
 ![image-20230821010433457](https://pic.jxwazx.cn/oss/file/WPJTOOANlAvXos4EJeb0m/2023-08-20/image-20230821010433457.png)
 
-之后将消费队列的函数放入到 `nextTick`中，以便下一次`macro/micro` 执行
+之后将消费队列的函数放入到 `nextTick` 中，以便下一次 `macro/micro` 执行
 
 ![image-20230821010515399](https://pic.jxwazx.cn/oss/file/WPJTOOANlAvXos4EJeb0m/2023-08-20/image-20230821010515399.png)
 
@@ -748,10 +749,10 @@ function flushSchedulerQueue() {
 **整个 vue2 的响应式流程为**：
 
 1. 先将 data 的每个属性进行 `defineReactive` 转化为 `Observer`。
-2. 在`defineReactive` 中对每个属性实现了 一个依赖收集器 Dep，用于存储观察者。
-3. 在 组件挂载的时候，会创建一个 `wacher` ，（这个 watcher 可以理解为渲染 `watcher`，用于观察所依赖的数据改变后，通知视图更新。也可以理解为所依赖的数据改变后，调用的`updateComponent` 的函数）。
-4. 在创建一个用户`watcher`的时候，会调用 `this.getter`（相当于一个 `handler`，依赖项改变之后触发的回调），这个`handler` 会创建出`vNode`，期间如果对进行了`Observer`的属性进行了 `getter` 操作，就会将当前的 `watcher` 加入到该属性的`dep`中。（这整个过程也是一个发布订阅模式的一种应用）。
-5. 如果对进行了`Observer`的属性进行了 `setter` 操作（数据更新操作），则 `dep` 会进行广播通知 `watcher` 进行更新。此时所需要更新的`watcher` 先`handler`加入到一个队列中，之后在`nextTick` 进行统一的调度。
+2. 在 `defineReactive` 中对每个属性实现了 一个依赖收集器 Dep，用于存储观察者。
+3. 在 组件挂载的时候，会创建一个 `wacher`。（这个 watcher 可以理解为渲染 `watcher`，用于观察所依赖的数据改变后，通知视图更新。也可以理解为所依赖的数据改变后，调用的 `updateComponent` 的函数）
+4. 在创建一个用户 `watcher` 的时候，会调用 `this.getter`（相当于一个 `handler`，依赖项改变之后触发的回调），这个 `handler` 会创建出 `vNode`，期间如果对进行了 `Observer` 的属性进行了 `getter` 操作，就会将当前的 `watcher` 加入到该属性的 `dep` 中。（这整个过程也是一个发布订阅模式的一种应用）
+5. 如果对进行了 `Observer` 的属性进行了 `setter` 操作（数据更新操作），则 `dep` 会进行广播通知 `watcher` 进行更新。此时所需要更新的 `watcher` 先 `handler` 加入到一个队列中，之后在 `nextTick` 进行统一的调度。
 
 ## 参考文章
 

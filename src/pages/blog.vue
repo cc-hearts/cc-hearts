@@ -62,7 +62,7 @@ const years = computed(() =>
           >
             <DraftIcon
               v-if="post.draft"
-              class="m-r-2 absolute left--4 translate-y-50%"
+              class="m-r-2 absolute left--4 translate-y50%"
             />
             <span>
               {{ post.title }}
@@ -70,7 +70,7 @@ const years = computed(() =>
             <span class="mx-2"> {{ post.month }} {{ post.date }} </span>
             <NewIcon
               v-if="isShowNewTag(post.time)"
-              class="text-3xl align-sub leading-none"
+              class="text-3xl top--50% leading-none absolute"
             />
           </a>
         </template>
