@@ -57,7 +57,7 @@ Node 的循环机制十分复杂，宏任务和微任务队列的调用也有优
 
 简易的执行顺序分别是：
 
-- timer 阶段 (执行注册的 setTimeout 、setInterval 的一些回调,)
+- timer 阶段 (执行注册的 setTimeout 、setInterval 的一些回调, )
 - Pending 态的 I/O 事件；（在大多数情况下，所有的 I/O 回调函数都会在 Poll I/O 后立即调用。但是，还存在一些情况，需要将这样的回调函数推迟到下一次循环迭代中调用。如果上一次循环延迟了任何 I/O 回调函数，则会在此时调用它。tcp 连接失败发送错误信息的 🌰）
 - 空转事件；（ `setImmediate` 使用了空转事件）如果有空转事件 `timeout` 会设置为 0， 后续的 Poll I/O 将不会阻塞
 - 准备事件； Node 内部执行
@@ -73,6 +73,13 @@ node 端微任务也有优先级先后：
 2. promise.then 等;
 
 先执行 nextTick , 后续在执行其他的微任务。
+
+## 补充： timer
+
+对于 `setInterval` 和 `setTimeout` ：
+
+- `setTimeout` 在计时结束后会将对应的 `handler` 推入到任务队列中。
+- `setInterval` 则是根据计时的时间每隔一段时间往队列中添加一次。**如果队列中存在之前由其添加的回调函数，就会放弃本次的添加（不会影响之后的计时）**
 
 ## 参考文章
 
