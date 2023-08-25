@@ -4,7 +4,7 @@ export default defineComponent({
   setup() {
     return () => (
       <>
-        <main class="max-blog-prose min-blog-prose m-auto">
+        <main class="max-blog-prose m-auto ">
           <router-view />
         </main>
         <Footer />

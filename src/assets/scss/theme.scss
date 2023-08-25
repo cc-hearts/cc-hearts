@@ -45,3 +45,10 @@ h5,
 h6 {
   color: var(--color-text-1);
 }
+
+
+@media screen and (max-width: 414px) {
+  .max-blog-prose {
+    width: 100%;
+  }
+}
