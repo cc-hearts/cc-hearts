@@ -48,14 +48,19 @@
 }
 
 .cc-back {
-  color: var(--color-text-3);
-  transition: all 0.3s;
-  &:hover {
-    color: var(--color-text-1);
-  }
 
-  & > div {
-    cursor: pointer;
+  &>span {
     display: inline-block;
+    color: var(--color-text-3);
+
+    &:nth-child(2) {
+      cursor: pointer;
+      border-bottom: 1px solid currentColor;
+      transition: all 0.3s;
+
+      &:hover {
+        color: var(--color-text-1);
+      }
+    }
   }
 }
