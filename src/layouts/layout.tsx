@@ -1,6 +1,7 @@
 import { App, defineComponent } from 'vue'
 import SideNav from './side'
 import ImagePreviewVue from '@/components/preview/image-preview.vue'
+import Back from './back'
 import '@/assets/pages/layout.scss'
 const CcLayout = defineComponent({
   props: {
@@ -13,6 +14,7 @@ const CcLayout = defineComponent({
     return () => (
       <>
         {slots.default?.()}
+        <Back />
         <SideNav />
         <ImagePreviewVue />
       </>

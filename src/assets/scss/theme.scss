@@ -12,6 +12,8 @@
 
   --divider-color: rgba(60, 60, 67, 0.12);
   --project-bgc: rgba(245, 245, 245, 0.8);
+
+  --shadow-1: rgb(229, 230, 235);
 }
 
 :root.dark {
@@ -26,6 +28,8 @@
 
   --divider-color: rgba(82, 82, 89, 0.32);
   --project-bgc: rgba(43, 43, 45, 0.8);
+
+  --shadow-1: rgb(72, 72, 73);
 }
 
 html {
@@ -45,7 +49,6 @@ h5,
 h6 {
   color: var(--color-text-1);
 }
-
 
 @media screen and (max-width: 414px) {
   .max-blog-prose {

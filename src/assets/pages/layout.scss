@@ -46,3 +46,16 @@
     display: none;
   }
 }
+
+.cc-back {
+  color: var(--color-text-3);
+  transition: all 0.3s;
+  &:hover {
+    color: var(--color-text-1);
+  }
+
+  & > div {
+    cursor: pointer;
+    display: inline-block;
+  }
+}
