@@ -24,7 +24,7 @@ async function readMdPath() {
       if (replacedMd) {
         replacedMd = replaceMdMatterUniqueId(replacedMd)
       }
-      if (replacedMd) writeFile(path, replacedMd)
+      if (replacedMd !== md) writeFile(path, replacedMd)
     })
   }
 })()
