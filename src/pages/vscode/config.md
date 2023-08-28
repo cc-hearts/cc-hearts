@@ -1,6 +1,7 @@
 ---
 title: Visual Studio Code Config
 date: 2023-02-14
+articleId: 25467224-dfe6-4b88-a854-e54ab1a48ddb
 ---
 
 ## settings.json

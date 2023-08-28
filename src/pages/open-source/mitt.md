@@ -1,6 +1,7 @@
 ---
 title: mitt 源码解析
 date: 2023-06-27
+articleId: 7f838935-5c07-4656-9b7e-30dd8686dc72
 ---
 
 ## 前言

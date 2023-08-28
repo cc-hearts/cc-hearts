@@ -1,6 +1,7 @@
 ---
 title: vue-class-component 源码解析
 date: 2023-03-03
+articleId: cec41d34-f349-46c3-bc53-2f4f8478f588
 ---
 
 ## 前言

@@ -1,6 +1,7 @@
 ---
 title: jest、vitest 单元测试 与 assert 原生断言
 date: 2023-06-12
+articleId: c35c9fb5-4eed-4514-ad46-19d3a6a25e77
 ---
 
 ## node 原生断言

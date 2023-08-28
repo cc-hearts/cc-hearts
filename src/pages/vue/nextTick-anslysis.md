@@ -1,6 +1,7 @@
 ---
 title: Vue 2 nextTick 源码解析
 date: 2023-03-01
+articleId: 253d74c7-6c26-4561-a1e2-84d3ab6b850f
 ---
 
 ## 前言

@@ -1,6 +1,7 @@
 ---
 title: immutable
 date: 2023-06-13
+articleId: ebb9656b-04fe-4184-b15e-7b4e92ee0777
 ---
 
 ## 前言

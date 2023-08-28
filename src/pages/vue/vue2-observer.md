@@ -1,6 +1,7 @@
 ---
 title: vue2 observer 流程
 date: 2023-08-20
+articleId: 83c483b7-a991-46bb-ac3f-e5035e5fe0df
 ---
 
 ## 前言

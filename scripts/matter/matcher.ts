@@ -1,30 +1,30 @@
 import { hasOwn } from '@cc-heart/utils'
+import {
+  objectTransformMatter,
+  matterTransformObject,
+  replaceMatter,
+} from './shard.js'
+import { randomUUID } from 'crypto'
 
-function objectTransformMatter(data: Record<string, string>) {
-  let matter = '---\n'
-  Object.entries(data).forEach(([key, value]) => {
-    matter += `${key}: ${value}\n`
-  })
-  return `${matter}---`
-}
-
-export function replaceMdMatter(
+export function replaceMdMatterDate(
   md: string,
   defaultMatters: Record<string, string>
 ) {
-  const matchMatterRegex = /^---[\w\W]*?---/gm
-  const [matcher] = md.trim().match(matchMatterRegex) || []
-  if (typeof matcher === 'string') {
-    let matterList = matcher.split('\n')
-    const len = matterList.length
-    matterList = matterList.slice(1, len - 1)
-    const matters = matterList.reduce<Record<string, string>>((acc, matter) => {
-      const [key, value] = matter.split(':')
-      acc[key] = value.trim()
-      return acc
-    }, {})
-    if (hasOwn(matters, 'date')) return
-    const matter = objectTransformMatter({ ...matters, ...defaultMatters })
-    return md.replace(matchMatterRegex, matter)
+  const metaVal = matterTransformObject(md)
+  if (hasOwn(metaVal, 'date')) return md
+  const matter = objectTransformMatter({ ...metaVal, ...defaultMatters })
+  return replaceMatter(md, matter)
+}
+
+// unique ids are generated for each post
+const ids = new Set<string>()
+export function replaceMdMatterUniqueId(md: string) {
+  const matter = matterTransformObject(md)
+  if (hasOwn(matter, 'articleId')) return md
+  let articleId = randomUUID()
+  while (ids.has(articleId)) {
+    articleId = randomUUID()
   }
+  const matterStr = objectTransformMatter({ ...matter, articleId })
+  return replaceMatter(md, matterStr)
 }

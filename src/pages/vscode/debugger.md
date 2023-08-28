@@ -1,6 +1,7 @@
 ---
 title: Visual Studio Code Debugger
 date: 2023-02-12
+articleId: dde81b30-1d84-4918-a63a-9cf89612a936
 ---
 
 ## launch config

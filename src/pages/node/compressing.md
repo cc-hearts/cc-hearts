@@ -1,6 +1,7 @@
 ---
 title: node 实现文件压缩
 date: 2023-06-08
+articleId: 3180baa3-2250-4dcc-8aa3-8d7f6f22207a
 ---
 
 ## 前言

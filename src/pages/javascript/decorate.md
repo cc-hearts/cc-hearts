@@ -1,6 +1,7 @@
 ---
 title: 装饰器（decorator）在ts的使用
 date: 2023-07-17
+articleId: 31632bcb-4700-48d9-b0a4-ad544cb35e41
 ---
 
 ## 前言

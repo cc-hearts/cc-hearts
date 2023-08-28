@@ -1,6 +1,7 @@
 ---
 title: Element plus BEM 工具类/方法解析
 date: 2023-05-28
+articleId: 9f3a9267-2cbf-4456-88b6-cddce90ffe40
 ---
 
 ## element bem 工具类/方法解析

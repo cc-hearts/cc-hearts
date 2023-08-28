@@ -2,6 +2,8 @@
 title: experiment pages
 _meta:
   hidden: true
+date: 2023-07-20
+articleId: b06c4cd4-a65e-4bf2-952a-1124c0112551
 ---
 
 # h1 title
