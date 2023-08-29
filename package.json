@@ -8,7 +8,7 @@
     "dev": "vite --host",
     "build": "vite-ssg build",
     "preview": "vite preview",
-    "test": "vitest",
+    "test": "vitest run --coverage",
     "matter": "ts-node-esm scripts/matter/index",
     "fix": "eslint --fix --ext .js,.ts,.vue .",
     "prettier": "prettier --write ."
@@ -33,6 +33,7 @@
     "@types/vue-i18n": "^7.0.0",
     "@vitejs/plugin-vue": "^4.3.3",
     "@vitejs/plugin-vue-jsx": "^3.0.2",
+    "@vitest/coverage-v8": "^0.34.3",
     "@vueuse/head": "^1.3.1",
     "eslint-plugin-vue": "^9.17.0",
     "husky": "^8.0.3",

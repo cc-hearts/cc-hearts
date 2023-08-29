@@ -18,6 +18,10 @@ export function replaceMdMatterDate(
 
 // unique ids are generated for each post
 const ids = new Set<string>()
+
+export function clearIds() {
+  ids.clear()
+}
 export function replaceMdMatterUniqueId(md: string) {
   const matter = matterTransformObject(md)
   if (hasOwn(matter, 'articleId')) return md
@@ -25,6 +29,7 @@ export function replaceMdMatterUniqueId(md: string) {
   while (ids.has(articleId)) {
     articleId = randomUUID()
   }
+  ids.add(articleId)
   const matterStr = objectTransformMatter({ ...matter, articleId })
   return replaceMatter(md, matterStr)
 }
