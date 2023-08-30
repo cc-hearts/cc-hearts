@@ -11,7 +11,8 @@
     "test": "vitest run --coverage",
     "matter": "ts-node-esm scripts/matter/index",
     "fix": "eslint --fix --ext .js,.ts,.vue .",
-    "prettier": "prettier --write ."
+    "prettier": "prettier --write .",
+    "push": "node bin/push.js"
   },
   "dependencies": {
     "@cc-heart/utils": "^4.0.1",
