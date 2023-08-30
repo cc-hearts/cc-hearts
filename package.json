@@ -12,7 +12,7 @@
     "matter": "ts-node-esm scripts/matter/index",
     "fix": "eslint --fix --ext .js,.ts,.vue .",
     "prettier": "prettier --write .",
-    "push": "node bin/push.js"
+    "push": "node bin/push.cjs"
   },
   "dependencies": {
     "@cc-heart/utils": "^4.0.1",
