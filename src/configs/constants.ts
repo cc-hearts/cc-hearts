@@ -6,6 +6,7 @@ import {
   ObjectToDeclareIcon,
   IconFontIcon,
   PasswordIcon,
+  SwaggerIcon,
 } from '@/icons'
 
 export const prefixCls = 'cc'
@@ -68,5 +69,11 @@ export const projects = [
     link: 'https://github.com/cc-hearts/electron-password.git',
     description: 'A password management tool based on electron',
     icon: PasswordIcon,
+  },
+  {
+    title: 'swagger-request',
+    link: 'https://github.com/cc-hearts/swagger-request.git',
+    description: 'A tool for generating request methods based on swagger',
+    icon: SwaggerIcon,
   },
 ]
