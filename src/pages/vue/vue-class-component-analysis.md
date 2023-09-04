@@ -8,7 +8,7 @@ articleId: cec41d34-f349-46c3-bc53-2f4f8478f588
 
 偶然间看到 vue 中有一个 支持 ts 装饰器的写法，便想看看它到底是如何实现的
 
-> vue2 基于类的 Vue 组件：https://v2.cn.vuejs.org/v2/guide/typescript.html#%E5%9F%BA%E4%BA%8E%E7%B1%BB%E7%9A%84-Vue-%E7%BB%84%E4%BB%B6
+> vue2 基于类的 Vue 组件：<https://v2.cn.vuejs.org/v2/guide/typescript.html#%E5%9F%BA%E4%BA%8E%E7%B1%BB%E7%9A%84-Vue-%E7%BB%84%E4%BB%B6>
 
 ## @Component 装饰器
 
@@ -24,7 +24,7 @@ function Component(options) {
     return componentFactory(options)
   }
   // 如果是Component({
-  //	// 所有的组件选项都可以放在这里
+  // 所有的组件选项都可以放在这里
   //  template: `<div></div>`
   // })
   // 这种结构 则闭包配置参数 此时的配置参数就是options 接收到的类是Component
@@ -329,6 +329,7 @@ const fakeArray = {
   __proto__: [],
 }
 export const hasProto = fakeArray instanceof Array
+// 创建自定义的工具函数
 export function createDecorator(factory) {
   return (target, key, index) => {
     const Ctor = typeof target === 'function' ? target : target.constructor
@@ -338,6 +339,7 @@ export function createDecorator(factory) {
     if (typeof index !== 'number') {
       index = undefined
     }
+    // 闭包当前的options
     Ctor.__decorators__.push((options) => factory(options, key, index))
   }
 }
