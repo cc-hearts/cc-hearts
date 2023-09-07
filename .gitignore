@@ -29,3 +29,4 @@ app.development.yaml
 # vercel ci error
 pnpm-lock.yaml
 coverage
+.obsidian

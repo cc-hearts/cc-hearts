@@ -45,7 +45,7 @@ export default class Post extends Vue {
 
 ## createDecorator
 
-在此之前，先介绍一下 `createDecorator` 这个函数。它会将所有的装饰器 存储到 构造函数的 `__decorators__` 属性中。 在实例化的时候，在进行统一调度从而对 `options` 的值进行修饰。
+在此之前，先介绍一下 `createDecorator` 这个函数。它会将所有的装饰器存储到构造函数的 `__decorators__` 属性中。 在实例化的时候，在进行统一调度从而对 `options` 的值进行修饰。
 
 以下是 `createDecorator` 的实现源码：
 
