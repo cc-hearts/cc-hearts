@@ -20,6 +20,13 @@ import { isDraftPath } from './scripts/draft'
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [
+    {
+      name: 'remove-upgrade-insecure-requests',
+      transformIndexHtml(html: string) {
+        const reg = /<meta\b[^>]*content="upgrade-insecure-requests"[^>]*>/gm
+        return html.replace(reg, '')
+      },
+    },
     vue({
       include: [/\.vue$/, /\.md$/],
     }),
