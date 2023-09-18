@@ -71,3 +71,9 @@ module.exports = {
   },
 }
 ```
+
+## husky 取消检验
+
+```shell
+git commit -m "test" --no-verify
+```
