@@ -5,7 +5,7 @@ function parseContent(content) {
   return content.replace(/`/g, '')
 }
 /**
- * @param {import('../src/types/types').Slug} slug
+ * @param {import('../../src/types/types').Slug} slug
  * @returns
  */
 export function generatorRightSide(slug) {

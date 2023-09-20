@@ -10,12 +10,13 @@ import Shiki from 'markdown-it-shiki'
 import generateSitemap from 'vite-ssg-sitemap'
 import { resolve } from 'path'
 import { readFileSync } from 'fs'
-import codeCopy from './plugins/markdown-it-code-copy.cjs'
+import codeCopy from './plugins/markdownCopy/markdown-it-code-copy.cjs'
 import matter from 'gray-matter'
 import toc from 'markdown-toc'
 import type { Slug } from './src/types/types'
-import { generatorRightSide } from './plugins/generator-right-side'
+import { generatorRightSide } from './plugins/rightSide/generator-right-side'
 import { isDraftPath } from './scripts/draft'
+import { defineReadTime } from './plugins/readTime/readTime'
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -49,6 +50,7 @@ export default defineConfig({
             slug: generatorRightSide(
               (toc(content, {}) as unknown as { json: Slug }).json
             ),
+            readTime: defineReadTime(content),
           })
         }
         return route

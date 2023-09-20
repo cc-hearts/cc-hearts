@@ -4,9 +4,16 @@ export interface IFrontmatter {
   time?: string
   _meta?: IMeta
   isDraft: boolean
+  articleId: string
 }
 interface IMeta {
   hidden?: boolean
+}
+
+export interface IReadTIme {
+  minutes: number
+  time: number
+  words: number
 }
 export interface IPosts {
   title?: string

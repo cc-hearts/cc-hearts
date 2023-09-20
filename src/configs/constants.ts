@@ -17,7 +17,7 @@ export const GITHUB_URL = 'https://github.com/cc-hearts'
 export const subTitle = [
   { title: 'Blog', link: '/blog' },
   { title: 'Projects', link: '/project' },
-  { title: 'experiment', link: '/experiment' },
+  // { title: 'experiment', link: '/experiment' },
   {
     title: 'tutorial',
     link: 'https://tutorial-five-plum.vercel.app/',

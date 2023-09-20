@@ -23,6 +23,7 @@
     "markdown-it-anchor": "^8.6.7",
     "markdown-toc": "^1.2.0",
     "nprogress": "^0.2.0",
+    "reading-time": "^1.5.0",
     "typed.js": "^2.0.16",
     "unocss": "^0.51.13",
     "vue": "^3.3.4",
