@@ -1,10 +1,8 @@
 ---
-title: path 模块
+title: fs module
 date: 2023-03-01
 articleId: c11a08ff-9f8c-4f70-a70a-e379a61e15ed
 ---
-
-## path 模块
 
 ## resolve 和 join 的区别
 
