@@ -72,8 +72,70 @@ module.exports = {
 }
 ```
 
-## husky 取消检验
+### husky 取消检验
 
 ```shell
 git commit -m "test" --no-verify
 ```
+
+## commitizen
+
+commitizen 可以用于规范 git commit 的格式，在 `git log` 、`code review` 、` changlog` 等情况时， 良好的 commit 规范就会显得尤为重要
+
+```shell
+pnpm i commitizen --save-dev
+```
+
+### 适配器
+
+根据项目的构建方式的不同，commitizen 可以支持不同适配器的扩展。本文会使用 `cz-conventional-changelog` 作为构建标准
+
+安装命令如下：
+
+```shell
+npx commitizen init cz-conventional-changelog --save-dev --save-exact
+```
+
+> 如果使用 pnpm 下载的 node_module 可能会构建失败，此时可以使用 `pnpx commitizen init cz-conventional-changelog --pnpm -D` 初始化 (通过在 `commitizen init` 命令中使用 `--pnpm` 标志，你告诉 Commitizen 使用 PNPM 来安装和管理相关的依赖项)
+
+运行命令后会在 package.json 中生成：
+
+```json
+"config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  }
+```
+
+之后便可以使用 `git cz` 来规范化 commit 格式
+
+![image-20230924115343805](https://pic.jxwazx.cn/oss/file/WPJTOOANlAvXos4EJeb0m/2023-09-24/image-20230924115343805.png)
+
+## conventional-changelog-cli
+
+`conventional-changelog-cli` 是一个命令行工具，它用于生成符合约定式提交（Conventional Commits）规范的变更日志（changelog）。
+
+```shell
+pnpm i conventional-changelog --save-dev
+```
+
+之后便可以使用命令生成 `CHANGELOG`
+
+```shell
+npx conventional-changelog -p angular -i CHANGELOG.md -s -r 0
+```
+
+`-p angular` 指的是使用 angular 的 git commit 标准，除此之外相关的还有 `conventional-changelog-gitmoji-config`
+
+`-i CHANGELOG.md` 表示从 `CHANGELOG.md` 读取 changelog
+
+`-s` 表示读写 changelog 为同一文件
+
+`-r` 表示生成 changelog 所需要使用的 release 版本数量，默认为 1，全部则是 0
+
+## 参考文章
+
+- <https://juejin.cn/post/6844903700574502919?searchId=20230924001247E159AFC70A328BA2BC0C#heading-8>
+
+- <https://zhuanlan.zhihu.com/p/51894196>
