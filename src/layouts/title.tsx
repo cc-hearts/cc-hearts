@@ -11,11 +11,9 @@ export default defineComponent({
     const title = computed(
       () => (route?.meta?.frontmatter as IFrontmatter)?.title
     )
-    console.log(route)
     watch(
       () => (route.meta?.frontmatter as IFrontmatter)?.articleId,
       (val) => {
-        console.log('123', !!val)
         flag.value = !!val
       },
       { immediate: true }
@@ -24,8 +22,8 @@ export default defineComponent({
     const readTime = computed(() => route?.meta?.readTime as IReadTIme)
     return () =>
       (flag.value && (
-        <>
-          <h1 class="m-b-2.5">{title.value}</h1>
+        <div class="m-b-8">
+          <h1>{title.value}</h1>
           <div class="cc-info-box">
             <span class="m-r-3">{frontmatter.value?.time?.split('T')[0]}</span>
             <span class="m-r-3">
@@ -41,7 +39,7 @@ export default defineComponent({
               {readTime.value?.words}字
             </span>
           </div>
-        </>
+        </div>
       )) ||
       null
   },

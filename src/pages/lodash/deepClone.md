@@ -4,8 +4,6 @@ date: 2023-06-04
 articleId: 5d41348c-b434-4544-afaf-ac2c925197bb
 ---
 
-## 前言
-
 本文将详细解析 lodash 库中 `cloneDeep` 方法的实现原理，同时提供示例代码和详细说明，帮助读者更好地理解 `cloneDeep` 的工作原理。
 
 ## cloneDeep

@@ -10,7 +10,6 @@ html {
 }
 
 html.dark {
-  background: var(--bg-color);
   color-scheme: dark;
 }
 
@@ -30,9 +29,7 @@ html:not(.dark) .shiki-dark {
   display: none;
 }
 
-.prose {
-  letter-spacing: 2px;
-
+.cc {
   pre {
     &:not(.shiki) {
       padding: 0;
@@ -80,18 +77,27 @@ html:not(.dark) .shiki-dark {
   }
 
   & :not(pre) > code {
-    padding: 0.2rem 0.25rem;
-    border-radius: 0.3rem;
-    background-color: var(--tag-color);
-    border: 1px solid var(--tag-color);
+    color: var(--color-text-1);
+    &::after,
+    &::before {
+      content: '`';
+    }
+    // padding: 0.1em;
+    // border-radius: 0.3rem;
+    // background-color: var(--tag-color);
+    // border: 1px solid var(--tag-color);
   }
 
   blockquote {
     background-color: var(--tag-color);
-    padding: 0.5rem 1rem 1rem;
+    padding: 1em;
     border-radius: 0.5rem;
-    margin: 1rem 0;
+    margin: 1em 0;
     overflow: hidden;
+
+    & > p {
+      margin: 0;
+    }
   }
 }
 
@@ -99,11 +105,15 @@ ul,
 ol {
   padding-left: 2em;
   line-height: 2rem;
+
+  li > p {
+    margin: 0;
+  }
 }
 
 p {
-  margin: 0.5em 0 0;
-  line-height: 2rem;
+  margin: 1.25em 0;
+  line-height: 1.75;
 
   & + p {
     margin: 0;

@@ -4,6 +4,8 @@ import Home from '@/layouts/home'
 import { LogoIcon } from '@/icons/index'
 import { useRouter } from 'vue-router'
 import { subTitle } from '@/configs'
+import Plum from '@/components/plum/index.vue'
+
 const router = useRouter()
 
 const toRoute = (link: string, isToLink = false) => {
@@ -16,6 +18,7 @@ const toRoute = (link: string, isToLink = false) => {
 </script>
 
 <template>
+  <Plum />
   <Headers>
     <template #left>
       <LogoIcon />

@@ -1,8 +1,8 @@
 :root {
   --bg-color: #fff;
   // text color
-  --color-text-1: rgb(15, 23, 42);
-  --color-text-2: rgb(51, 65, 85);
+  --color-text-1: #191919;
+  --color-text-2: #6d6c6c;
   --color-text-3: #909399;
 
   --color-white: #fff;
@@ -20,7 +20,8 @@
   --bg-color: rgba(17, 17, 17, 1);
   // text color dark
   --color-text-1: rgb(241, 245, 249); // 强调色
-  --color-text-2: rgb(226, 232, 240); // 普通文本色
+  // --color-text-2: rgb(226, 232, 240); // 普通文本色
+  --color-text-2: rgb(180, 187, 187);
   --color-text-3: rgba(255, 255, 255, 0.5);
   --tag-bgc-color: #313136;
   --tag-color: rgba(255, 255, 255, 0.1); // code 背景颜色
@@ -34,6 +35,7 @@
 
 html {
   color: var(--color-text-2);
+  scroll-behavior: smooth;
 }
 
 body {
@@ -48,6 +50,10 @@ h4,
 h5,
 h6 {
   color: var(--color-text-1);
+}
+
+.cc h1 {
+  margin-bottom: 0.8em;
 }
 
 @media screen and (max-width: 414px) {

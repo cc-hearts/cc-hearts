@@ -4,8 +4,6 @@ date: 2023-07-17
 articleId: 31632bcb-4700-48d9-b0a4-ad544cb35e41
 ---
 
-## 前言
-
 最近在使用 `nest` 写一些小应用，在开发过程中也使用了各式各样的装饰器（例如 `@inject` 、 `@UseInterceptors` 等）。并且 decorator 已经进入 ECMA 第三提案阶段，因此准备写一篇小作文，介绍一下 TypeScript 中 decorator 的语法使用。
 
 ## class decorator(类装饰器)

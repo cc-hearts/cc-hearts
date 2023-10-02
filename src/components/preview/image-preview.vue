@@ -181,7 +181,11 @@ function hideMask() {
 </script>
 <template>
   <div class="image-preview">
-    <div ref="maskRef" class="mask" @click="cancel"></div>
+    <div
+      ref="maskRef"
+      :class="['mask', state.preview ? 'mask-active' : '']"
+      @click="cancel"
+    ></div>
   </div>
 </template>
 <style lang="scss">
@@ -201,7 +205,10 @@ function hideMask() {
   background-color: rgba(0, 0, 0);
   opacity: 0;
   transition: all 0.28s;
-  z-index: -1;
-  cursor: zoom-out;
+  z-index: -2;
+
+  &.mask-active {
+    cursor: zoom-out;
+  }
 }
 </style>

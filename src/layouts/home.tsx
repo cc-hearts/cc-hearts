@@ -5,7 +5,7 @@ export default defineComponent({
   setup() {
     return () => (
       <>
-        <main class="max-blog-prose m-auto ">
+        <main class="max-blog-prose m-auto w-full cc">
           <Title />
           <router-view />
         </main>

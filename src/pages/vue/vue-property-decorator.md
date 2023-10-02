@@ -4,8 +4,6 @@ date: 2023-09-04
 articleId: 685f62c6-9c62-4f90-9849-07619866b5b3
 ---
 
-## 前言
-
 在使用 `vue-class-components` 构建 Vue 组件时，像 `watch` 、`props` 等属性还是需要写在 `@Component` 中。
 
 ```ts

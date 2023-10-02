@@ -1,9 +1,18 @@
+:root {
+  --change-color: #ff847c;
+  --change-color-2: #ff6666;
+}
 .introduce-text {
   text-align: center;
   font-size: 1.2rem;
   line-height: 2;
-  background: linear-gradient(to right, #ff847c, #ff6666);
+  background: linear-gradient(
+    to right,
+    var(--change-color),
+    var(--change-color-2)
+  );
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+  transition: background-color 0.3s;
 }
