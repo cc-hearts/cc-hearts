@@ -78,10 +78,12 @@ html:not(.dark) .shiki-dark {
 
   & :not(pre) > code {
     color: var(--color-text-1);
+
     &::after,
     &::before {
       content: '`';
     }
+
     // padding: 0.1em;
     // border-radius: 0.3rem;
     // background-color: var(--tag-color);
@@ -114,17 +116,17 @@ ol {
 p {
   margin: 1.25em 0;
   line-height: 1.75;
+  text-align: justify;
 
   & + p {
     margin: 0;
   }
+}
 
-  a {
-    transition: border 0.3s;
-
-    &:hover {
-      border-color: var(--color-text-1);
-    }
+a {
+  transition: color 0.3s;
+  &:hover {
+    color: var(--color-text-1);
   }
 }
 

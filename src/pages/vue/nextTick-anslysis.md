@@ -167,6 +167,6 @@ export function nextTick(cb?: (...args: any[]) => any, ctx?: object) {
 
 ## 参考资料
 
-[nextTick 源码地址](https://github.com/vuejs/vue/blob/main/src/core/util/next-tick.ts)
+- <https://github.com/vuejs/vue/blob/main/src/core/util/next-tick.ts>
 
-[mdn MutationObserver](https://developer.mozilla.org/zh-CN/docs/Web/API/MutationObserver)
+- <https://developer.mozilla.org/zh-CN/docs/Web/API/MutationObserver>
