@@ -105,7 +105,7 @@ onMounted(() => {
     ref="canvasRef"
     width="100%"
     height="100%"
-    class="fixed top-0 left-0 z--1"
+    class="fixed top-0 left-0 z--1 pointer-events-none"
   />
 </template>
 <style lang="scss"></style>
