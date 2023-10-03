@@ -1,9 +1,9 @@
 <script setup lang="ts">
 import { markRaw } from 'vue'
 import { projects } from '@/configs'
-import type { getArraySubitem } from '@cc-heart/utils/helper'
+import type { getArrayChildItem } from '@cc-heart/utils/helper'
 
-const toLink = (project: getArraySubitem<typeof projects>) =>
+const toLink = (project: getArrayChildItem<typeof projects>) =>
   window.open(project.link)
 </script>
 
@@ -36,6 +36,11 @@ const toLink = (project: getArraySubitem<typeof projects>) =>
 
 .cc-heart-projects {
   color: var(--color-text-3);
+
+  p {
+    text-align: left;
+    margin: 8px 0;
+  }
 
   svg {
     box-sizing: content-box;
