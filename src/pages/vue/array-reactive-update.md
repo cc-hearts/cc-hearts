@@ -254,4 +254,4 @@ Vue.prototype.$delete = del
 
 ## 参考资料
 
-- [vue2 observer](./vue2-observer.md)
+- [vue2 observer](./vue2-observer)
