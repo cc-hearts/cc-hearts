@@ -9,7 +9,7 @@
     "build": "vite-ssg build",
     "preview": "vite preview",
     "test": "vitest run --coverage",
-    "matter": "ts-node-esm scripts/matter/index",
+    "matter": "ts-node-esm scripts/matter/index.ts",
     "fix": "eslint --fix --ext .js,.ts,.vue .",
     "prettier": "prettier --write .",
     "push": "node bin/push.cjs"

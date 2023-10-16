@@ -1,5 +1,7 @@
 ---
 title: Vue.observer API
+date: 2023-10-16
+articleId: 3738ec45-c3a6-4d0f-9781-0b9db5e41b9c
 ---
 
 在对一些第三方库进行查看时偶然发现有 `Vue.observer` 的使用
