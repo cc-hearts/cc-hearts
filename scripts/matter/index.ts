@@ -7,9 +7,12 @@ function _resolve(path: string) {
   return resolve(process.cwd(), path)
 }
 async function readMdPath() {
-  return await glob(_resolve('./src/pages/**/*.md'), {
-    ignore: _resolve('./src/pages/index.md'),
-  })
+  return await glob(
+    [_resolve('./src/pages/**/*.md'), _resolve('./draft/**/*.md')],
+    {
+      ignore: _resolve('./src/pages/index.md'),
+    }
+  )
 }
 
 ;(async () => {
