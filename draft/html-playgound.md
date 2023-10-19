@@ -4,7 +4,7 @@ date: 2023-10-18
 articleId: c3891dd9-a412-4d14-8bf5-1797f8549a6f
 ---
 
-简易研究了一下 `webpack` 的打包机制后发现，`webpack` 在 `eval` 下会将模块打包成 `IIFE` + 类似`Commonjs` 的形式运行，又受到 `vue playground` 的启发，便想实现一个简易的`html playground`
+探究了一下 `webpack` 的打包机制后发现，`webpack` 在 `eval` 下会将模块打包成 `IIFE` + 类似`Commonjs` 的形式运行，又受到 `vue playground` 的启发，便想实现一个简易的`html playground`
 
 ## webpack 编译代码分析
 
@@ -301,13 +301,13 @@ babel.transformFromAstSync(ast)?.code
 
 在上述中已经实现了 对 `__require`、`__exports` 的编译，接下来，我们将对 `__require`、`__exports` 函数的具体实现
 
-首先是 `__require` API ，他通过解析 import xxx from`path` 中的 `path` 参数来导入值的，
+首先是 `__require` API ，它接收一个 `path` 参数，用于加载对应的模块
 
 先定义函数类型
 
 ```js
 function __require(path) {
-  // 有了path 之后 path的作用就是 从一大堆模块中找到对应的模块 然后加载
+  // path的作用就是 从一大堆模块中找到对应的模块 然后加载
   // ...
   // 判断是否存在缓存 ，如果有缓存 直接读取缓存
   if (__exports._map[keys]) {
