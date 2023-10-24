@@ -44,10 +44,12 @@ const calcPoint = (point: Point, initVal: Branch) => {
   return { x, y }
 }
 
+const MIN_COUNT = 3
+
 const startDraw = (startPoint: Point, angle: number, depth = 0) => {
-  if (depth < 4 || Math.random() < 0.5)
+  if (depth < MIN_COUNT || Math.random() < 0.5)
     taskPending.push(() => step(startPoint, angle + 0.2, depth))
-  if (depth < 4 || Math.random() < 0.5)
+  if (depth < MIN_COUNT || Math.random() < 0.5)
     taskPending.push(() => step(startPoint, angle - 0.2, depth))
 }
 

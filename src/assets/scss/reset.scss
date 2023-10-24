@@ -1,5 +1,6 @@
 ul li {
   list-style: disc;
+  word-break: break-all;
 }
 
 html,
@@ -8,4 +9,13 @@ body,
   height: 100%;
   margin: 0;
   padding: 0;
+}
+
+
+@media (max-width: 768px) {
+  // app
+  .max-blog-prose {
+    max-width: inherit;
+    padding: 0 1rem;
+  }
 }
