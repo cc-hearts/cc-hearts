@@ -30,3 +30,6 @@ app.development.yaml
 pnpm-lock.yaml
 coverage
 .obsidian
+
+ssl.key
+ssl.pem
