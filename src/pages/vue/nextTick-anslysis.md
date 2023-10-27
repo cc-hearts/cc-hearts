@@ -5,8 +5,7 @@ articleId: 253d74c7-6c26-4561-a1e2-84d3ab6b850f
 ---
 
 Vue DOM 更新采用的是异步的更新策略, 每次监听到数据发生变化的时候不会立即去更新 DOM 而是将这一次更新 DOM 的事件缓存到一个任务队列中。
-
-**这样的好处就是可以将多次更新数据的操作合并成一次，减少了 DOM 重绘的次数**，本文将从将从 nextTick 源码角度去分析内部实现原理（这里不做 `issue` 的分析）。
+这样的好处就是**通过异步任务队列的方式将多次更新数据的操作合并为一个调度，从而有效地减少 DOM 重绘的次数**，本文将从将从 `nextTick` 源码角度去分析内部实现原理（这里不做 `issue` 的分析）。
 
 ## nextTick 解析
 
@@ -47,18 +46,6 @@ function flushCallbacks() {
   }
 }
 
-// Here we have async deferring wrappers using microtasks.
-// In 2.5 we used (macro) tasks (in combination with microtasks).
-// However, it has subtle problems when state is changed right before repaint
-// (e.g. #6813, out-in transitions).
-// Also, using (macro) tasks in event handler would cause some weird behaviors
-// that cannot be circumvented (e.g. #7109, #7153, #7546, #7834, #8109).
-// So we now use microtasks everywhere, again.
-// A major drawback of this tradeoff is that there are some scenarios
-// where microtasks have too high a priority and fire in between supposedly
-// sequential events (e.g. #4521, #6690, which have workarounds)
-// or even between bubbling of the same event (#6566).
-
 // 异步支持的方法：
 let timerFunc
 
@@ -67,25 +54,12 @@ let timerFunc
 // setTimeout 可能产生一个 4ms 的延迟，而 setImmediate 会在主线程执行完后立刻执行
 // setImmediate 在 IE10 和 node 中支持
 
-// The nextTick behavior leverages the microtask queue, which can be accessed
-// via either native Promise.then or MutationObserver.
-// MutationObserver has wider support, however it is seriously bugged in
-// UIWebView in iOS >= 9.3.3 when triggered in touch event handlers. It
-// completely stops working after triggering a few times... so, if native
-// Promise is available, we will use it:
-/* istanbul ignore next, $flow-disable-line */
-
 // 判断是否支持Promise
 if (typeof Promise !== 'undefined' && isNative(Promise)) {
   const p = Promise.resolve()
   timerFunc = () => {
     // 利用then 将 flushCallbacks 包裹成一个异步的微任务
     p.then(flushCallbacks)
-    // In problematic UIWebViews, Promise.then doesn't completely break, but
-    // it can get stuck in a weird state where callbacks are pushed into the
-    // microtask queue but the queue isn't being flushed, until the browser
-    // needs to do some other work, e.g. handle a timer. Therefore we can
-    // "force" the microtask queue to be flushed by adding an empty timer.
     if (isIOS) setTimeout(noop)
   }
   // 标志为微任务
@@ -98,9 +72,6 @@ if (typeof Promise !== 'undefined' && isNative(Promise)) {
     // PhantomJS and iOS 7.x
     MutationObserver.toString() === '[object MutationObserverConstructor]')
 ) {
-  // Use MutationObserver where native Promise is not available,
-  // e.g. PhantomJS, iOS7, Android 4.4
-  // (#6466 MutationObserver is unreliable in IE11)
   // 利用 MutationObserver 改变 textNode的文本内容 触发flushCallbacks回调
   let counter = 1
   const observer = new MutationObserver(flushCallbacks)
@@ -149,7 +120,10 @@ export function nextTick(cb?: (...args: any[]) => any, ctx?: object) {
       _resolve(ctx)
     }
   })
-  // pending 为一个标识符 只有在上一次的timerFunc执行 才能将下一次的任务队列推入到 event loop 中
+  // pending 实现了一个调度周期，只有第一次调用nextTick的时候，会将调度函数(flushCallback)压入到事件队列等待执行中
+  // 在周期之内在调用nextTick添加cb时，只会将cb加入到调度队列中，不会新开一个调度任务
+  // 当调度任务开始执行时，恢复 pending 状态，进行加载下一个调度周期
+  // (这里的 timerFunc 每调用一次就相当于一次调度周期)
   if (!pending) {
     pending = true
     timerFunc()

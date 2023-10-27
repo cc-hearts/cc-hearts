@@ -23,7 +23,7 @@ let ctx: CanvasRenderingContext2D | null = null
 
 const drawBranch = (startPoint: Point, endPoint: Point) => {
   if (!ctx) return
-  ctx.strokeStyle = 'rgba(128, 128, 128, 0.3)'
+  ctx.strokeStyle = 'rgba(128, 128, 128, 0.15)'
   ctx.beginPath()
   ctx.moveTo(startPoint.x, startPoint.y)
   ctx.lineTo(endPoint.x, endPoint.y)

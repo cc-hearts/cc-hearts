@@ -11,6 +11,10 @@
       pointer-events: all;
     }
   }
+
+  & + p {
+    margin: 1em 0 0;
+  }
 }
 
 .dark .code-container {
