@@ -117,7 +117,7 @@ npx commitizen init cz-conventional-changelog --save-dev --save-exact
 `conventional-changelog-cli` 是一个命令行工具，它用于生成符合约定式提交（Conventional Commits）规范的变更日志（changelog）。
 
 ```shell
-pnpm i conventional-changelog --save-dev
+pnpm i conventional-changelog conventional-changelog-cli --save-dev
 ```
 
 之后便可以使用命令生成 `CHANGELOG`
