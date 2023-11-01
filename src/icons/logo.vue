@@ -9,46 +9,68 @@ const toHome = () => {
 </script>
 
 <template>
-  <svg
-    xmlns="http://www.w3.org/2000/svg"
-    viewBox="0 0 135.71 100"
-    class="logo"
-    @click="toHome"
-  >
-    <g fill-rule="evenodd">
+  <div class="relative">
+    <svg
+      class="logo"
+      @click="toHome"
+      width="48"
+      height="48"
+      viewBox="0 0 48 48"
+      xmlns="http://www.w3.org/2000/svg"
+    >
       <path
-        d="M129.5 36.21a24.23 24.23 0 1 1-36.06 32.38c-14.28-15.9 2.14-30.53-5.75-39.32-8.06-9-14.66-1.54-21.41-9.06A12.12 12.12 0 0 1 84.31 4C91.07 11.54 83 17.3 91 26.27c7.88 8.79 24.2-6 38.47 9.94z"
-        fill="#36353a"
-      />
-      <path
-        d="M62 31.23a13.4 13.4 0 1 1 18 19.95c-8.79 7.9-16.9-1.17-21.75 3.19s-.85 8.1-5 11.84a6.7 6.7 0 0 1-9-10c4.15-3.74 7.35.73 12.31-3.72S53.24 39.13 62 31.23z"
-        fill="#e4e5e7"
-      />
-      <path
-        d="M50.29 32.17a10.62 10.62 0 1 1-15.81 14.19c-6.26-7 .93-13.39-2.52-17.24s-6.43-.68-9.39-4a5.31 5.31 0 0 1 7.9-7.1c3 3.3-.58 5.82 3 9.76S44 25.19 50.29 32.17zM60.81 71.89a8.79 8.79 0 0 1 13.08-11.74c5.17 5.77-.78 11.08 2.08 14.26s5.32.56 7.77 3.29a4.39 4.39 0 0 1-6.54 5.87c-2.45-2.73.48-4.82-2.44-8.07s-8.78 2.16-14-3.61z"
-        fill="#36353a"
-      />
-      <path
-        d="M97.23 78.71a10.65 10.65 0 1 1-10.65 10.64 10.64 10.64 0 0 1 10.65-10.64z"
-        fill="#e4e5e7"
-      />
-      <path
-        d="M84.07 63.68a4.82 4.82 0 1 1-4.82 4.81 4.81 4.81 0 0 1 4.82-4.81z"
-        fill="#36353a"
-      />
-      <path
-        d="M99.53 9.17a7.34 7.34 0 1 1-7.33 7.33 7.34 7.34 0 0 1 7.33-7.33zM47.47 8A8.49 8.49 0 1 1 39 16.5 8.48 8.48 0 0 1 47.47 8zM12.23 31.75A12.23 12.23 0 1 1 0 44a12.23 12.23 0 0 1 12.23-12.25z"
-        fill="#e4e5e7"
-      />
-      <path d="M30.28 52a6 6 0 1 1-6 6 6 6 0 0 1 6-6z" fill="#36353a" />
-    </g>
-  </svg>
+        id="path"
+        d="M5 21.7693C11.8669 28.4181 50.7271 9.05878 38.7101 1.43222C26.2334 -4.23772 6.59434 47.7641 22.0111 46.9915C37.4279 46.2188 44.5197 21.2813 36.6812 18.9906C28.8428 16.6999 22.0111 29.0543 22.6354 36.7316C23.2596 44.4089 33.5446 34.064 31.6872 30.1055"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+      ></path>
+    </svg>
+  </div>
 </template>
 
 <style lang="scss">
 .logo {
-  width: 40px;
-  height: 40px;
+  position: fixed;
+  top: 6px;
+  left: 3rem;
+  width: 48px;
+  height: 48px;
+  stroke-dashoffset: 1px;
+  stroke-dasharray: 250px 0;
   cursor: pointer;
+  animation: logo-animation 6s ease forwards infinite;
+  transform-origin: center;
+}
+
+@media (prefers-reduced-motion) {
+  path {
+    animation: none !important;
+    stroke-dasharray: unset !important;
+  }
+}
+
+@keyframes logo-animation {
+  0% {
+    stroke-dasharray: 0 250px;
+    opacity: 0;
+  }
+
+  10% {
+    opacity: 1;
+  }
+
+  40% {
+    stroke-dasharray: 250px 0;
+  }
+
+  65% {
+    stroke-dasharray: 250px 0;
+  }
+
+  85%,
+  to {
+    stroke-dasharray: 0 250px;
+  }
 }
 </style>

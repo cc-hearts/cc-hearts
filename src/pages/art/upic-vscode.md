@@ -42,6 +42,8 @@ yo code # 填写信息后生成一个能快速开发的项目
       command: 'upic-vscode.pasteCommand',
       key: 'ctrl+v',
       mac: 'cmd+v',
+      // 当扩展名是 md 时 触发快捷键
+      when: 'resourceExtname == .md',
     },
   },
 }
@@ -202,3 +204,4 @@ vsce publish 1.0.0
 - <https://juejin.cn/post/7276065587938508859#heading-2>
 - <https://juejin.cn/post/6979776894954799118>
 - <https://blog.svend.cc/upic/>
+- <https://code.visualstudio.com/api/references/when-clause-contexts>

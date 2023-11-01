@@ -16,6 +16,7 @@ export default defineConfig({
   ],
   rules: [
     ['max-blog-prose', { 'max-width': '65ch' }],
+    ['max-full-blog-prose', { 'max-width': '100ch' }],
     [
       'cc-footer',
       {

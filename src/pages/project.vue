@@ -8,11 +8,11 @@ const toLink = (project: getArrayChildItem<typeof projects>) =>
 </script>
 
 <template>
-  <div class="grid grid-cols-2 gap-4 cc-heart-projects">
+  <div class="grid grid-cols-3 gap-4 cc-heart-projects">
     <div
       v-for="project in projects"
       :key="project.title"
-      class="flex"
+      class="flex gap-2"
       @click="toLink(project)"
     >
       <template v-if="project.icon">
