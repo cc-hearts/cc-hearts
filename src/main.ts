@@ -10,7 +10,7 @@ import routes from '~pages'
 import { useInitTheme } from './hooks'
 import { __DEV__ } from './configs'
 import LayoutInstance from './layouts/layout'
-import Card from '@/components//card/card.vue'
+import Card from '@/components/card/card.vue'
 
 useInitTheme()
 
