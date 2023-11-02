@@ -1,6 +1,6 @@
 import { App, defineComponent } from 'vue'
 import SideNav from './side'
-import BackTop from '@/components/backtop/Backtop.vue'
+import BackTop from '@/components/back-top/back-top.vue'
 import ImagePreviewVue from '@/components/preview/image-preview.vue'
 import '@/assets/pages/layout.scss'
 const CcLayout = defineComponent({

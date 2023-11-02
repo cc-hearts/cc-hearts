@@ -1,8 +1,8 @@
+import '@/assets/pages/title.scss'
+import { TextIcon, TimeIcon } from '@/icons'
 import { IFrontmatter, IReadTIme } from '@/types/types'
 import { computed, defineComponent, ref, watch } from 'vue'
 import { useRoute } from 'vue-router'
-import '@/assets/pages/title.scss'
-import { TextIcon, TimeIcon } from '@/icons'
 export default defineComponent({
   name: 'Title',
   setup() {

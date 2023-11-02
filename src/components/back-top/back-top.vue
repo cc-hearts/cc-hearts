@@ -1,13 +1,14 @@
 <script setup lang="ts">
-import { usePrefixCls } from '@/hooks'
-import BackTopIcon from '@/icons/BackTopIcon.vue'
+import { useCssNamespace } from '@/hooks'
+import BackTopIcon from '@/icons/back-top-icon.vue'
 import { useDebounce } from '@cc-heart/utils'
 import { onMounted, onUnmounted, ref } from 'vue'
-const ns = usePrefixCls('back-top')
+const ns = useCssNamespace('back-top')
 
-const isShow = ref(true)
+const isShowBackTop = ref(true)
 
 const threshold = 64
+
 const backTop = () => {
   window.scrollTo({
     top: 0,
@@ -16,9 +17,11 @@ const backTop = () => {
 }
 
 const onScroll = () => {
-  isShow.value = document.documentElement.scrollTop < threshold
+  isShowBackTop.value = document.documentElement.scrollTop < threshold
 }
+
 const listenerScroll = useDebounce(onScroll, 100)
+
 onMounted(() => {
   window.addEventListener('scroll', listenerScroll, false)
 })
@@ -30,7 +33,7 @@ onUnmounted(() => {
 <template>
   <div
     class="flex p-3 rounded-full"
-    :class="[ns, isShow ? `${ns}__show` : '']"
+    :class="[ns.cls, isShowBackTop ? ns.e('show') : '']"
     @click="backTop"
   >
     <BackTopIcon />
@@ -39,7 +42,7 @@ onUnmounted(() => {
 <style lang="scss">
 @use '@/assets/scss/var/variable.scss' as *;
 
-.#{$prefixCls}-back-top {
+.#{$namespace}-back-top {
   --back-top-background: #fff;
   cursor: pointer;
   box-sizing: border-box;
@@ -62,7 +65,7 @@ onUnmounted(() => {
 }
 
 .dark {
-  .#{$prefixCls}-back-top {
+  .#{$namespace}-back-top {
     --back-top-background: rgb(72, 72, 77);
   }
 }

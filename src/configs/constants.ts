@@ -9,13 +9,19 @@ import {
   SwaggerIcon,
 } from '@/icons'
 
-export const prefixCls = 'cc'
+export enum THEME {
+  LIGHT = 'light',
+  DARK = 'dark',
+}
+
+export const THEME_KEY = 'theme'
+export const defaultNamespace = 'cc'
 
 export const __DEV__ = import.meta.env.MODE === 'development'
 export const GITHUB_URL = 'https://github.com/cc-hearts'
 
 export const subTitle = [
-  { title: 'Blog', link: '/blog' },
+  { title: 'Blog', link: '/blog', isToLink: false },
   { title: 'Projects', link: '/project' },
   // {
   //   title: 'tutorial',

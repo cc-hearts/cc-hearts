@@ -1,9 +1,8 @@
 <script setup lang="ts">
-import { useRouter } from 'vue-router'
-import { NewIcon, DraftIcon } from '@/icons'
-import { computed } from 'vue'
-import { __DEV__ } from '@/configs'
+import { DraftIcon, NewIcon } from '@/icons'
 import type { IFrontmatter, IPosts } from '@/types/types'
+import { computed } from 'vue'
+import { useRouter } from 'vue-router'
 const router = useRouter()
 const routes = router
   .getRoutes()
@@ -19,7 +18,6 @@ routes.forEach((route) => {
   const month = time.toDateString().split(' ')[1]
   const date = time.getDate()
   const draft = frontmatter.isDraft
-  // if (draft && !__DEV__) return
   const postList = Reflect.get(posts, year)
   const config: IPosts = {
     title: frontmatter.title,

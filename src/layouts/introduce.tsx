@@ -4,7 +4,7 @@ import '@/assets/pages/introduce.scss'
 export default defineComponent({
   setup() {
     const el = ref(null)
-    const introduce = ["Hi, I'm cc heart 👋"].join('<br />')
+    const introduce = ["Hi, I'm cc heart"].join('<br />')
     onMounted(() => {
       new Typed(el.value, {
         strings: [introduce],

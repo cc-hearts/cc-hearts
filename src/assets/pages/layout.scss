@@ -1,6 +1,6 @@
 @use '../scss/var/variable.scss' as *;
 
-.#{$prefixCls}-nav {
+.#{$namespace}-nav {
   position: fixed;
 
   li {
@@ -42,7 +42,7 @@
 }
 
 @media screen and (max-width: 1200px) {
-  .#{$prefixCls}-nav {
+  .#{$namespace}-nav {
     display: none;
   }
 }

@@ -1,12 +1,12 @@
-import {
-  watch,
-  defineComponent,
-  computed,
-  onMounted,
-  ref,
-  onUnmounted,
-} from 'vue'
 import type { Slug } from '@/types/types'
+import {
+  computed,
+  defineComponent,
+  onMounted,
+  onUnmounted,
+  ref,
+  watch,
+} from 'vue'
 import { useRoute } from 'vue-router'
 
 export default defineComponent({

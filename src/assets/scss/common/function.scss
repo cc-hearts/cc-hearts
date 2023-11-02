@@ -1,0 +1,23 @@
+@use '../var/variable.scss' as *;
+
+@function joinVar($args...) {
+  $namespaces: --#{$namespace};
+
+  @each $item in $args {
+    $namespaces: #{$namespaces}-#{$item};
+  }
+
+  @return $namespaces;
+}
+
+@function getCssVarName($args...) {
+  @return joinVar($args...);
+}
+
+@function getCssVar($args...) {
+  @return var(#{joinVar($args...)});
+}
+
+@function getCssVarWithDefault($args, $default) {
+  @return var(#{joinVar($args)}, $default);
+}

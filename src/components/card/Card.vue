@@ -3,7 +3,7 @@
 </template>
 
 <script setup>
-import { useScriptTag } from '@/hooks/scriptTag'
+import { useScriptTag } from '@/hooks/use-script-tag'
 import { onMounted, ref } from 'vue'
 const twitter = ref(null)
 const props = defineProps({

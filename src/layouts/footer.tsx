@@ -1,5 +1,5 @@
-import { defineComponent } from 'vue'
 import '@/assets/pages/footer.scss'
+import { defineComponent } from 'vue'
 import { useRoute } from 'vue-router'
 const Footer = defineComponent({
   setup() {

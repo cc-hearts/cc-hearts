@@ -1,22 +1,22 @@
 <script setup lang="ts">
-import { usePrefixCls } from '@/hooks'
+import { useCssNamespace } from '@/hooks'
 import { GithubIcon } from '@/icons'
-import ToggleDark from '@/components/switch/toggleDark.vue'
-const headerCls = usePrefixCls('header')
+import SwitchTheme from '@/components/switch/switch-theme.vue'
+const cssNs = useCssNamespace('header')
 </script>
 
 <template>
   <header
     class="flex justify-between items-center px-10 flex-shrink-0"
-    :class="[headerCls]"
+    :class="[cssNs.cls]"
   >
     <slot name="left">
       <div></div>
     </slot>
-    <div class="flex items-center" :class="[`${headerCls}__icon`]">
+    <div class="flex items-center" :class="[cssNs.e('icon')]">
       <slot name="right-icon"></slot>
       <GithubIcon />
-      <ToggleDark />
+      <SwitchTheme />
     </div>
   </header>
 </template>
@@ -24,7 +24,7 @@ const headerCls = usePrefixCls('header')
 <style lang="scss">
 @use '@/assets/scss/var/variable.scss' as var;
 
-.#{var.$prefixCls}-header {
+.#{var.$namespace}-header {
   height: 60px;
 
   &__icon {
@@ -50,7 +50,7 @@ const headerCls = usePrefixCls('header')
   }
 }
 
-.dark .#{var.$prefixCls}-header {
+.dark .#{var.$namespace}-header {
   --header-shadow: rgb(72, 72, 73);
 }
 </style>
