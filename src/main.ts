@@ -1,6 +1,6 @@
 import '@/assets/scss/reset.scss'
 import '@/assets/scss/theme.scss'
-import Card from '@/components/card/card.vue'
+import Card from './components/card/card.vue'
 import 'uno.css'
 import { ViteSSG } from 'vite-ssg'
 import routes from '~pages'
