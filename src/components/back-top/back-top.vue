@@ -52,7 +52,7 @@ onUnmounted(() => {
   background: var(--back-top-background);
   box-shadow: 0 0 12px var(--shadow-1);
   transition: all 0.18s;
-  opacity: 1;
+  opacity: 0.6;
   pointer-events: all;
   &:hover {
     box-shadow: 0 0 16px var(--shadow-1-active);
