@@ -8,7 +8,7 @@ const toLink = (project: getArrayChildItem<typeof projects>) =>
 </script>
 
 <template>
-  <div class="grid grid-cols-3 gap-4 cc-heart-projects">
+  <div class="grid gap-4 cc-heart-projects">
     <div
       v-for="project in projects"
       :key="project.title"
@@ -36,6 +36,7 @@ const toLink = (project: getArrayChildItem<typeof projects>) =>
 
 .cc-heart-projects {
   color: var(--color-text-3);
+  grid-template-columns: repeat(3, minmax(0, 1fr));
 
   p {
     text-align: left;
@@ -71,6 +72,18 @@ const toLink = (project: getArrayChildItem<typeof projects>) =>
     & > div {
       flex: 1;
     }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .cc-heart-projects {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .cc-heart-projects {
+    grid-template-columns: repeat(1, minmax(0, 1fr));
   }
 }
 </style>
