@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { DraftIcon, NewIcon } from '@/icons'
+import { DraftIcon, New } from '@/icons'
 import type { IFrontmatter, IPosts } from '@/types/types'
 import { computed } from 'vue'
 import { useRouter } from 'vue-router'
@@ -66,7 +66,7 @@ const years = computed(() =>
               {{ post.title }}
             </span>
             <span class="mx-2"> {{ post.month }} {{ post.date }} </span>
-            <NewIcon
+            <New
               v-if="isShowNewTag(post.time)"
               class="text-3xl top--50% leading-none absolute"
             />

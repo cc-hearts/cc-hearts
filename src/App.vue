@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import Headers from '@/components/header/headers.vue'
 import Home from '@/layouts/home'
-import { LogoIcon } from '@/icons/index'
+import { Logo } from '@/icons/index'
 import { useRouter } from 'vue-router'
 import { subTitle } from '@/configs'
 import Plum from '@/components/plum/index.vue'
@@ -21,7 +21,7 @@ const toRoute = (link: string, isToLink = false) => {
   <Plum />
   <Headers>
     <template #left>
-      <LogoIcon />
+      <Logo />
     </template>
     <template #right-icon>
       <template v-for="titles in subTitle">

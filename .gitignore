@@ -34,3 +34,4 @@ coverage
 ssl.key
 ssl.pem
 .upic-vscode
+gen-export.config.js

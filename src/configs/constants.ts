@@ -1,10 +1,10 @@
 import {
   ExportIcon,
-  VueStarterIcon,
-  ImageUploadIcon,
-  NestStarterIcon,
-  ObjectToDeclareIcon,
-  IconFontIcon,
+  VueStarter as VueStarterIcon,
+  ImageUpload as ImageUploadIcon,
+  NestStarter as NestStarterIcon,
+  ObjectToDeclare as ObjectToDeclareIcon,
+  IconfontIcon as IconFontIcon,
   PasswordIcon,
   SwaggerIcon,
 } from '@/icons'

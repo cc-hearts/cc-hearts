@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { THEME } from '@/configs'
 import { useCssNamespace, useTheme, useToggleTheme } from '@/hooks'
-import { MoonIcon, SunIcon } from '@/icons'
+import { Moon, Sun } from '@/icons'
 import { computed } from 'vue'
 
 const cssNs = useCssNamespace('appearance')
@@ -28,8 +28,8 @@ const checked = computed(() => {
           class="relative block overflow-hidden rounded-full"
           :class="[cssNs.e('icon')]"
         >
-          <SunIcon />
-          <MoonIcon />
+          <Sun />
+          <Moon />
         </span>
       </span>
     </button>

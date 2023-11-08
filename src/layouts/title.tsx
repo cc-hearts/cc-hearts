@@ -1,5 +1,5 @@
 import '@/assets/pages/title.scss'
-import { TextIcon, TimeIcon } from '@/icons'
+import { Text, Time } from '@/icons'
 import { IFrontmatter, IReadTIme } from '@/types/types'
 import { computed, defineComponent, ref, watch } from 'vue'
 import { useRoute } from 'vue-router'
@@ -28,13 +28,13 @@ export default defineComponent({
             <span class="m-r-3">{frontmatter.value?.time?.split('T')[0]}</span>
             <span class="m-r-3">
               <span class="align-middle	m-r-0.5">
-                <TimeIcon />
+                <Time />
               </span>
               阅读 {readTime.value?.minutes} 分钟
             </span>
             <span class="m-r-3">
               <span class="align-middle mr-0.5">
-                <TextIcon />
+                <Text />
               </span>
               {readTime.value?.words}字
             </span>

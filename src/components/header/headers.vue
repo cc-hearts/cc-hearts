@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { useCssNamespace } from '@/hooks'
-import { GithubIcon } from '@/icons'
+import { Github } from '@/icons'
 import SwitchTheme from '@/components/switch/switch-theme.vue'
 const cssNs = useCssNamespace('header')
 </script>
@@ -15,7 +15,7 @@ const cssNs = useCssNamespace('header')
     </slot>
     <div class="flex items-center" :class="[cssNs.e('icon')]">
       <slot name="right-icon"></slot>
-      <GithubIcon />
+      <Github />
       <SwitchTheme />
     </div>
   </header>

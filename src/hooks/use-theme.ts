@@ -30,5 +30,3 @@ export const useTheme = useOnce(() => {
 
   return [themeRef, setTheme, toggleTheme] as const
 })
-
-export default useTheme
