@@ -36,3 +36,4 @@ ssl.pem
 .upic-vscode
 gen-export.config.
 bin/deploy.mjs
+dist.tar
