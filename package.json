@@ -10,6 +10,7 @@
     "preview": "vite preview",
     "test": "vitest run --coverage",
     "matter": "ts-node-esm scripts/matter/index.ts",
+    "zhlint:fix": "ts-node-esm scripts/lint/zh-lint.ts",
     "fix": "eslint --fix --ext .js,.ts,.vue .",
     "prettier": "prettier --write .",
     "push": "node bin/push.cjs",
@@ -61,6 +62,9 @@
       "eslint --fix",
       "prettier --write"
     ],
-    "*.{md}": "prettier --write"
+    "*.{md}": [
+      "npm run zhlint:fix",
+      "prettier --write"
+    ]
   }
 }

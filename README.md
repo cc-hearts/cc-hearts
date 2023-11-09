@@ -2,7 +2,7 @@
 
 ### 🔭 Tech stack
 
-![Tech stack](https://skillicons.dev/icons?i=nodejs,react,vue,typescript,rust,nest,tailwind)
+![Tech stack](https://skillicons.dev/icons?i=nodejs,react,vue,typescript,rust,go,nest,tailwind)
 
 ### 🛠 Tools I use
 
