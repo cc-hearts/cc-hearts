@@ -39,7 +39,7 @@ export default {
 
 ## 数组响应式更新
 
-通过 `vscode debugger` 在 `mounted` 中进行断点， 并且逐步步入查看 `push` 进行的操作。
+通过 `vscode debugger` 在 `mounted` 中进行断点，并且逐步步入查看 `push` 进行的操作。
 
 ![image-20231003210318906](https://pic.jxwazx.cn/oss/file/WPJTOOANlAvXos4EJeb0m/2023-10-03/image-20231003210318906.png)
 
@@ -105,7 +105,7 @@ methodsToPatch.forEach(function (method) {
 
 这里或许会有疑问，为什么会有 `ob.dep.notify` 这样的操作，之前 `defineReactive` 中进行广播的操作不是 `dep.notify`？
 
-再次深入 `defineReactive` 一探究竟，可以看到在 `Object.defineProperty` 之前，先对数据进行了 响应式初始化的操作。
+再次深入 `defineReactive` 一探究竟，可以看到在 `Object.defineProperty` 之前，先对数据进行了响应式初始化的操作。
 
 ```ts
   let childOb = !shallow && observe(val, false, mock)
@@ -185,7 +185,7 @@ export class Observer {
 }
 ```
 
-此时在看`defineProperty` 之前的 `let childOb = !shallow && observe(val, false, mock)` 可知，当 `val` 不是基本的数据类型的话，会创建一个 `__ob__` 的属性挂载在自身身上，而这个 `__ob__` 指向 `Observer` 的实例（也是这里的 `childOb`）。之后在 `defineProperty` 的 `getter` 中对 `childOb` 又进行处理。
+此时在看 `defineProperty` 之前的 `let childOb = !shallow && observe(val, false, mock)` 可知，当 `val` 不是基本的数据类型的话，会创建一个 `__ob__` 的属性挂载在自身身上，而这个 `__ob__` 指向 `Observer` 的实例 (也是这里的 `childOb`)。之后在 `defineProperty` 的 `getter` 中对 `childOb` 又进行处理。
 
 ```ts
 // 如果 childOb
@@ -214,7 +214,7 @@ function dependArray(value) {
 }
 ```
 
-回到刚开始的`mutator` 函数，先获取的 `this.__ob__` 就是绑定这个数组的 `Observer` 实例。`在通过 ob.dep.notify`去发布消息给 在`defineProperty` 中通过调用`childOb.dep.depend();` 收集的 `watcher`。
+回到刚开始的 `mutator` 函数，先获取的 `this.__ob__` 就是绑定这个数组的 `Observer` 实例。`在通过 ob.dep.notify` 去发布消息给在 `defineProperty` 中通过调用 `childOb.dep.depend();` 收集的 `watcher`。
 
 ```ts
 function mutator() {
@@ -233,11 +233,11 @@ function mutator() {
 
 ## 对象的 childOb
 
-上述已经讲完数组如何进行响应式更新，接下来在解析对象的`childOb`是如何进行响应式更新的。
+上述已经讲完数组如何进行响应式更新，接下来在解析对象的 `childOb` 是如何进行响应式更新的。
 
-通过上述的分析，对象的响应式更新也可以大致猜测为 `xxx.dep.notify`，因为通过全文检索，找到了两个方法进行了`ob.dep.notify`(得益于 `vue` 的源码规范 )，分别是 `set` 和 `del` 方法。（这两个方法的逻辑比较简单，这里不多赘述）
+通过上述的分析，对象的响应式更新也可以大致猜测为 `xxx.dep.notify`，因为通过全文检索，找到了两个方法进行了 `ob.dep.notify` (得益于 `vue` 的源码规范)，分别是 `set` 和 `del` 方法。(这两个方法的逻辑比较简单，这里不多赘述)
 
-> `set` 和 `del` 方法在: src/core/observer/index.ts
+> `set` 和 `del` 方法在：src/core/observer/index.ts
 
 ```ts
 // 这两个方法会挂载到 `Vue` 的原型链上
@@ -248,9 +248,9 @@ Vue.prototype.$delete = del
 
 ## 总结
 
-- 对于基本的数据类型，在 `defineProperty` 中通过闭包`dep`实现对数据的响应式更新。
-- 对于数组类型，通过重写 `push` 等 API，并且对每个数组绑定一个 `Observer` 的实例对象（`__ob__`），通过 `__ob__` 的 `dep` 实现依赖收集以及广播视图更新。
-- 对于对象类型，也是对每个对象绑定一个 `Observer` 的实例对象，之后对对象的每个属性进行递归响应式处理，如果属性的值是基本的数据类型，则还是使用闭包 `dep` 实现响应式更新。如果使用`$set` 、`$del` 则会通过 `__ob__` 的 `dep` 实现响应式更新。
+- 对于基本的数据类型，在 `defineProperty` 中通过闭包 `dep` 实现对数据的响应式更新。
+- 对于数组类型，通过重写 `push` 等 API，并且对每个数组绑定一个 `Observer` 的实例对象 (`__ob__`)，通过 `__ob__` 的 `dep` 实现依赖收集以及广播视图更新。
+- 对于对象类型，也是对每个对象绑定一个 `Observer` 的实例对象，之后对对象的每个属性进行递归响应式处理，如果属性的值是基本的数据类型，则还是使用闭包 `dep` 实现响应式更新。如果使用 `$set`、`$del` 则会通过 `__ob__` 的 `dep` 实现响应式更新。
 
 ## 参考资料
 

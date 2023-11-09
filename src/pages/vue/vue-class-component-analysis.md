@@ -4,7 +4,7 @@ date: 2023-03-03
 articleId: cec41d34-f349-46c3-bc53-2f4f8478f588
 ---
 
-偶然间看到 vue 中有一个 支持 ts 装饰器的写法，便想看看它到底是如何实现的
+偶然间看到 vue 中有一个支持 ts 装饰器的写法，便想看看它到底是如何实现的
 
 > vue2 基于类的 Vue 组件：<https://v2.cn.vuejs.org/v2/guide/typescript.html#%E5%9F%BA%E4%BA%8E%E7%B1%BB%E7%9A%84-Vue-%E7%BB%84%E4%BB%B6>
 

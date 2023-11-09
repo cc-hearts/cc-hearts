@@ -8,7 +8,7 @@ articleId: 5d41348c-b434-4544-afaf-ac2c925197bb
 
 ## cloneDeep
 
-`cloneDeep` 等 其他 clone 方法 都依赖于 `baseClone` 这个方法
+`cloneDeep` 等其他 clone 方法都依赖于 `baseClone` 这个方法
 
 ```js
 function cloneDeep(value) {
@@ -18,7 +18,7 @@ function cloneDeep(value) {
 }
 ```
 
-下面将逐步展开对 `baseClone` 的解析 首先是 `baseClone` 的参数：
+下面将逐步展开对 `baseClone` 的解析首先是 `baseClone` 的参数：
 
 ```js
 // value - 需要克隆的数据源
@@ -42,7 +42,7 @@ const isFlat = bitmask & CLONE_FLAT_FLAG // 0
 const isFull = bitmask & CLONE_SYMBOLS_FLAG // CLONE_SYMBOLS_FLAG => 4
 ```
 
-之后 优先运行 传入的 `customizer` 自定义的方法
+之后优先运行传入的 `customizer` 自定义的方法
 
 ```js
 // 是否存在自定义的函数 存在则使用自定义的函数
@@ -119,7 +119,7 @@ arrayEach(props || value, (subValue, key) => {
 })
 ```
 
-> 对于 函数的 `clone` 返回的都是一个 `{}`
+> 对于函数的 `clone` 返回的都是一个 `{}`
 
 对于对象的 `clone`
 

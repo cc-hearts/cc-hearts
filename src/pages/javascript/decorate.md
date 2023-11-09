@@ -4,13 +4,13 @@ date: 2023-07-17
 articleId: 31632bcb-4700-48d9-b0a4-ad544cb35e41
 ---
 
-最近在使用 `nest` 写一些小应用，在开发过程中也使用了各式各样的装饰器（例如 `@inject` 、 `@UseInterceptors` 等）。并且 decorator 已经进入 ECMA 第三提案阶段，因此准备写一篇小作文，介绍一下 TypeScript 中 decorator 的语法使用。
+最近在使用 `nest` 写一些小应用，在开发过程中也使用了各式各样的装饰器 (例如 `@inject`、`@UseInterceptors` 等)。并且 decorator 已经进入 ECMA 第三提案阶段，因此准备写一篇小作文，介绍一下 TypeScript 中 decorator 的语法使用。
 
-## class decorator(类装饰器)
+## class decorator (类装饰器)
 
-每日疑惑 🤔，为啥是 class decorator 而不是 function decorator ?
+每日疑惑 🤔，为啥是 class decorator 而不是 function decorator？
 
-本着试一试的态度准备进行编码进行测试，然而还没写完就 ts 已经报出了错误： `Decorators are not valid here`
+本着试一试的态度准备进行编码进行测试，然而还没写完就 ts 已经报出了错误：`Decorators are not valid here`
 
 ![image-20230718012101981](https://pic.jxwazx.cn/oss/file/WPJTOOANlAvXos4EJeb0m/2023-07-17/image-20230718012101981.png)
 
@@ -28,7 +28,7 @@ function User() {
 }
 ```
 
-可以看出 在 function 上 使用 decorator 根本不会正确编译，于是只能在 class 上 使用 decorator，基本使用方法如下：
+可以看出在 function 上使用 decorator 根本不会正确编译，于是只能在 class 上使用 decorator，基本使用方法如下：
 
 ```ts
 function logger(target: User) {
@@ -79,21 +79,21 @@ let User = class User {}
 User = __decorate([logger], User)
 ```
 
-从上述的运行结果来看 class decorator 的返回值可以是 falsy 或者是 class 。
+从上述的运行结果来看 class decorator 的返回值可以是 falsy 或者是 class。
 
 那 ts 对 class decorator 的类型约束是 `falsy | class` 吗？
 
-通过调试可知， ts 的类型约束装饰器的返回值必须为 `void | typeof User` 。
+通过调试可知，ts 的类型约束装饰器的返回值必须为 `void | typeof User`。
 
 ![image-20230717233855978](https://pic.jxwazx.cn/oss/file/WPJTOOANlAvXos4EJeb0m/2023-07-17/image-20230717233855978.png)
 
-在上述的编译后的 js 代码可知，js runtime 时 `return falsy` 与 `return void 0` 的结果是一样的。使用 `@ts-ignore` 注释类型错误后， 使用 tsc 编译运行如下：
+在上述的编译后的 js 代码可知，js runtime 时 `return falsy` 与 `return void 0` 的结果是一样的。使用 `@ts-ignore` 注释类型错误后，使用 tsc 编译运行如下：
 
 ![image-20230718010110575](https://pic.jxwazx.cn/oss/file/WPJTOOANlAvXos4EJeb0m/2023-07-17/image-20230718010110575.png)
 
 可以看到运行的结果依旧是 User 类本身的实例化对象。
 
-`typeof User` - 说明返回值的类型需要是这个类本身或者是子类，一般而言返回的都是子类（返回类本身 和 返回 `void` 的结果一致 ），因为只有子类才能继承和扩展原始的类，在不改变原有的类的属性的基础上进行添加或修改属性和方法。
+`typeof User` - 说明返回值的类型需要是这个类本身或者是子类，一般而言返回的都是子类 (返回类本身和返回 `void` 的结果一致)，因为只有子类才能继承和扩展原始的类，在不改变原有的类的属性的基础上进行添加或修改属性和方法。
 
 ```ts
 function logger(target: User) {
@@ -132,7 +132,7 @@ class User {
 }
 ```
 
-将此 ts 代码使用 tsc 编译之后:
+将此 ts 代码使用 tsc 编译之后：
 
 ```js
 var __decorate =
@@ -223,9 +223,9 @@ User = __decorate([logger(false)('new name')], User)
 r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r
 ```
 
-> 装饰器 `@xxx()()()` 会编译成 `xxx()()()` , 在入参的时候就已经优先调用将结果作为 `decorators` 的子项传入 `__decorate` 中，为了满足 `d(r)` 能够顺利运行， 因此 `xxx()()()` 的返回值必须是一个函数。
+> 装饰器 `@xxx()()()` 会编译成 `xxx()()()`，在入参的时候就已经优先调用将结果作为 `decorators` 的子项传入 `__decorate` 中，为了满足 `d(r)` 能够顺利运行，因此 `xxx()()()` 的返回值必须是一个函数。
 
-## methods decorator(方法装饰器)
+## methods decorator (方法装饰器)
 
 首先拟定一个简单的方法装饰器的模版：
 
@@ -327,15 +327,15 @@ __decorate(
 
 > `Reflect.metadata` 是 ES7 的提案，现在还没有纳入正式的版本中，因此要使用第三方的库 `reflect-metadata` 提供的 API 设置元数据。
 
-首先安装 `reflect-metadata` :
+首先安装 `reflect-metadata`：
 
 ```shell
  $ pnpm i reflect-metadata
 ```
 
-在 `__metadata` 这打断点调试一下 `Reflect.metadata` ,
+在 `__metadata` 这打断点调试一下 `Reflect.metadata`，
 
-通过断点往下步入, 可以看到 `Reflect.metadata` 函数的声明：
+通过断点往下步入，可以看到 `Reflect.metadata` 函数的声明：
 
 ```js
 // metadata 通过必包存储 key, value
@@ -387,17 +387,17 @@ function GetOrCreateMetadataMap(O, P, Create) {
 
 ![image-20230720223143434](https://pic.jxwazx.cn/oss/file/WPJTOOANlAvXos4EJeb0m/2023-07-20/image-20230720223143434.png)
 
-存储的元数据 可以使用 `Reflect.getMetadata` 获取：
+存储的元数据可以使用 `Reflect.getMetadata` 获取：
 
 ```ts
 Reflect.getMetadata('design:type', User.prototype, 'getName') === Function // true
 ```
 
-## property decorator(属性装饰器)
+## property decorator (属性装饰器)
 
-属性装饰器有两种： `静态属性装饰器` 和 `实例属性装饰器` , 静态属性装饰器主要用于在 `static` 的属性上，而实例属性则作用于普通的属性字段上。🌰 如下所示：
+属性装饰器有两种：`静态属性装饰器` 和 `实例属性装饰器`，静态属性装饰器主要用于在 `static` 的属性上，而实例属性则作用于普通的属性字段上。🌰 如下所示：
 
-> [typescript 中文文档 decorator](https://www.tslang.cn/docs/handbook/decorators.html): 属性描述符不会做为参数传入属性装饰器，这与 TypeScript 是如何初始化属性装饰器的有关。 因为目前没有办法在定义一个原型对象的成员时描述一个实例属性，并且没办法监视或修改一个属性的初始化方法。返回值也会被忽略。因此，属性描述符只能用来监视类中是否声明了某个名字的属性。
+> [typescript 中文文档 decorator](https://www.tslang.cn/docs/handbook/decorators.html)：属性描述符不会做为参数传入属性装饰器，这与 TypeScript 是如何初始化属性装饰器的有关。因为目前没有办法在定义一个原型对象的成员时描述一个实例属性，并且没办法监视或修改一个属性的初始化方法。返回值也会被忽略。因此，属性描述符只能用来监视类中是否声明了某个名字的属性。
 
 ```ts
 function logger() {
@@ -473,20 +473,20 @@ __decorate(
 __decorate([logger, __metadata('design:type', Number)], User, 'pi', void 0)
 ```
 
-从代码分析可知， 不同之处在于：
+从代码分析可知，不同之处在于：
 
 - 实例属性的 target 是 class 的 `prototype`。
 - 静态属性的 target 是 class 本身。
 
-并且属性装饰器接收到的参数的有效部分始终只有 target 和 key（第三个参数始终为 `void 0` ）
+并且属性装饰器接收到的参数的有效部分始终只有 target 和 key (第三个参数始终为 `void 0`)
 
-## accessor decorator(访问符装饰器)
+## accessor decorator (访问符装饰器)
 
-与 方法装饰器的编辑结果相似 这里不多赘述。
+与方法装饰器的编辑结果相似这里不多赘述。
 
-## parameter decorator(参数装饰器)
+## parameter decorator (参数装饰器)
 
-参数装饰器的行为与 实例属性装饰器的行为相似。
+参数装饰器的行为与实例属性装饰器的行为相似。
 
 举个 🌰：
 
@@ -506,7 +506,7 @@ class User {
 }
 ```
 
-编译后为:
+编译后为：
 
 ```js
 var __decorate =
@@ -564,7 +564,7 @@ __decorate(
 )
 ```
 
-对比源码可以看出 首先调用了 `__param` 的方法，用于缓存当前的参数的下标值。之后通过 `d(target, key, r)` 的调用会将 class 的 prototype 和 方法名传入装饰器函数中。
+对比源码可以看出首先调用了 `__param` 的方法，用于缓存当前的参数的下标值。之后通过 `d(target, key, r)` 的调用会将 class 的 prototype 和方法名传入装饰器函数中。
 
 > 虽然这里的 `desc` 为 null 可以拿到 getData 的描述符，但是 `__param` 并没有接收这个参数，而是使用了参数的 `index` 下表替代这个参数传给了装饰器函数。
 
@@ -647,6 +647,6 @@ User = User_1 = __decorate([logger], User)
 
 ## 小结
 
-- class decorate： `class decorate` 的本质是收集 `decorators` 并对类进行修改（如果 `decorator` 有返回值并且返回值为 truly ， 会替换原有的类）。无论装饰器有多少次柯里化调用（ `@xxx()()()` ），最后的一次返回值都需要是一个函数。
+- class decorate：`class decorate` 的本质是收集 `decorators` 并对类进行修改 (如果 `decorator` 有返回值并且返回值为 truly，会替换原有的类)。无论装饰器有多少次柯里化调用 (`@xxx()()()`)，最后的一次返回值都需要是一个函数。
 
-- methods decorate： `methods decorate` 主要用于对属性的描述符的修改以及通过使用 `reflect-metadata` 对元数据进行封装
+- methods decorate：`methods decorate` 主要用于对属性的描述符的修改以及通过使用 `reflect-metadata` 对元数据进行封装

@@ -4,14 +4,14 @@ date: 2023-03-01
 articleId: 253d74c7-6c26-4561-a1e2-84d3ab6b850f
 ---
 
-Vue DOM 更新采用的是异步的更新策略, 每次监听到数据发生变化的时候不会立即去更新 DOM 而是将这一次更新 DOM 的事件缓存到一个任务队列中。
-这样的好处就是**通过异步任务队列的方式将多次更新数据的操作合并为一个调度，从而有效地减少 DOM 重绘的次数**，本文将从将从 `nextTick` 源码角度去分析内部实现原理（这里不做 `issue` 的分析）。
+Vue DOM 更新采用的是异步的更新策略，每次监听到数据发生变化的时候不会立即去更新 DOM 而是将这一次更新 DOM 的事件缓存到一个任务队列中。
+这样的好处就是**通过异步任务队列的方式将多次更新数据的操作合并为一个调度，从而有效地减少 DOM 重绘的次数**，本文将从将从 `nextTick` 源码角度去分析内部实现原理 (这里不做 `issue` 的分析)。
 
 ## nextTick 解析
 
 nextTick 接收一个回调函数作为参数。该回调函数将在 DOM 更新之后执行，因此可以使用 nextTick 来延迟对基于最新数据生成的 DOM 进行操作。
 
-nextTick 提供了四种异步的方法: `Promise.then` 、 `MutationObserver` 、 `setTimeout` 、 `setImmediate` 前两种是微任务 后两种是宏任务
+nextTick 提供了四种异步的方法：`Promise.then`、`MutationObserver`、`setTimeout`、`setImmediate` 前两种是微任务后两种是宏任务
 
 ```ts
 /* globals MutationObserver */

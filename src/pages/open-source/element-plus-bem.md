@@ -6,7 +6,7 @@ articleId: 9f3a9267-2cbf-4456-88b6-cddce90ffe40
 
 ## element bem 工具类/方法解析
 
-`element-plus` 源码中有一个 `useNamespace` 的 `hook` ， 用于生成 `BEM` 规范的 class 类名以及相关的变量名。
+`element-plus` 源码中有一个 `useNamespace` 的 `hook`，用于生成 `BEM` 规范的 class 类名以及相关的变量名。
 
 `useNamespace` 首先调用了 `useGetDerivedNamespace` 这个 `hook` 来获取命名空间。
 

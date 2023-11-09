@@ -4,11 +4,11 @@ date: 2023-06-08
 articleId: 3180baa3-2250-4dcc-8aa3-8d7f6f22207a
 ---
 
-> `tar` 是一种归档格式 它默认不会压缩。通常会结合 `gzip` 将最终的 `tar` 文件以 `gzip` 格式压缩称为一个 `tar.gz` 的文件 （通常缩写为 `tgz` ）。
+> `tar` 是一种归档格式它默认不会压缩。通常会结合 `gzip` 将最终的 `tar` 文件以 `gzip` 格式压缩称为一个 `tar.gz` 的文件 (通常缩写为 `tgz`)。
 
 ## gzip 压缩
 
-安装 `compressing` :
+安装 `compressing`：
 
 ```shell
 npm i compressing
@@ -79,15 +79,15 @@ pipeline(
 
 ### 常规方式实现解压缩
 
-`ls -al .` 会出现的字符串是:
+`ls -al .` 会出现的字符串是：
 
 `drwxrwxr-x@ 26 heart  staff     832 Jun  8 22:09 .`
 
-> `drwxrwxr-x` 由四部分组成:
+> `drwxrwxr-x` 由四部分组成：
 >
 > 1. `d` 文件类型
 >
-> 2. `rwx` 文件所有者对该文件所拥有的权限( `r 读` `w 写` `x 执行` )
+> 2. `rwx` 文件所有者对该文件所拥有的权限 (`r 读` `w 写` `x 执行`)
 >
 > 3. 第二个 `rwx` 表示文件所属组对该文件所拥有的权限
 >

@@ -8,11 +8,11 @@ articleId: 810dee2e-1457-41cc-869e-1fa454095690
 
 ## git hook 和 husky
 
-`git hook` 可以让我们在 git 命令执行的前后运行脚本。 例如 `pre-commit` 这个 hook，可以在 `git commit` 执行前进行一段脚本，如果脚本运行失败（exit 1），则 `git commit` 不会提交。
+`git hook` 可以让我们在 git 命令执行的前后运行脚本。例如 `pre-commit` 这个 hook，可以在 `git commit` 执行前进行一段脚本，如果脚本运行失败 (exit 1)，则 `git commit` 不会提交。
 
-`git hook` 是 sh 脚本，并且存在于 `.git/hook` 目录下。 这会导致一个问题： .git 目录下的文件是不会被提交的。
+`git hook` 是 sh 脚本，并且存在于 `.git/hook` 目录下。这会导致一个问题：`.git` 目录下的文件是不会被提交的。
 
-为了解决这一问题， 便有了用于管理 `git hook` 的 npm 工具 `husky` 。
+为了解决这一问题，便有了用于管理 `git hook` 的 npm 工具 `husky`。
 
 ### husky 安装
 
@@ -22,7 +22,7 @@ pnpm i husky --save-dev
 
 ### husky 的使用
 
-安装完 `husky` 之后 需要运行 husky 的命令行工具，以设置 `git hook` 的路径为 `.husky` 。
+安装完 `husky` 之后需要运行 husky 的命令行工具，以设置 `git hook` 的路径为 `.husky`。
 
 ```shell
 npx husky install
@@ -80,7 +80,7 @@ git commit -m "test" --no-verify
 
 ## commitizen
 
-commitizen 可以用于规范 git commit 的格式，在 `git log` 、`code review` 、` changlog` 等情况时， 良好的 commit 规范就会显得尤为重要
+commitizen 可以用于规范 git commit 的格式，在 `git log`、`code review`、`changlog` 等情况时，良好的 commit 规范就会显得尤为重要
 
 ```shell
 pnpm i commitizen --save-dev
@@ -114,7 +114,7 @@ npx commitizen init cz-conventional-changelog --save-dev --save-exact
 
 ## conventional-changelog-cli
 
-`conventional-changelog-cli` 是一个命令行工具，它用于生成符合约定式提交（Conventional Commits）规范的变更日志（changelog）。
+`conventional-changelog-cli` 是一个命令行工具，它用于生成符合约定式提交 (Conventional Commits) 规范的变更日志 (changelog)。
 
 ```shell
 pnpm i conventional-changelog conventional-changelog-cli --save-dev

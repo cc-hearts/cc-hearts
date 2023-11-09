@@ -74,11 +74,11 @@ export class UserModule {}
 
 ```
 
-对于每一个新的模块，基本都要这样去修改文件，十分繁琐。下面，我们将逐步实现一个 `Entity Provider CLI` 。
+对于每一个新的模块，基本都要这样去修改文件，十分繁琐。下面，我们将逐步实现一个 `Entity Provider CLI`。
 
 ## command 的实现
 
-依据 `nest res user` 的命令，会在 `src` 下生成 `user` 目录并且生成 `user.module.ts` 等文件。 现在，我们实现一个 `pnpm provider user` 命令，使其也能在 `src` 目录下生成 `user/provider` 目录，并且生成 `user.provider.ts` 。
+依据 `nest res user` 的命令，会在 `src` 下生成 `user` 目录并且生成 `user.module.ts` 等文件。现在，我们实现一个 `pnpm provider user` 命令，使其也能在 `src` 目录下生成 `user/provider` 目录，并且生成 `user.provider.ts`。
 
 首先，需要获取 `pnpm provider <module_name>` 中的模块名。
 
@@ -197,11 +197,11 @@ if (dryRun) {
 
 使用 `pnpm provider dep` 创建一个模版文件试试：
 
-> 1. 需要先使用 `nest g res dep` 生成对应的 `entities` 。
-> 2. 在运行 `pnpm provider dep`之前需要在`package.json` 中的 `script` 指定 `provider` 运行 `provider.script.ts` 文件。
+> 1. 需要先使用 `nest g res dep` 生成对应的 `entities`。
+> 2. 在运行 `pnpm provider dep` 之前需要在 `package.json` 中的 `script` 指定 `provider` 运行 `provider.script.ts` 文件。
 
 ![image-20230907120200526](https://pic.jxwazx.cn/oss/file/WPJTOOANlAvXos4EJeb0m/2023-09-07/image-20230907120200526.png)
-运行完成后，对应的 `dep` 模块下会生成一个 `provider` 文件夹，里面会有一个`dep.provider.ts` 文件。
+运行完成后，对应的 `dep` 模块下会生成一个 `provider` 文件夹，里面会有一个 `dep.provider.ts` 文件。
 ![image-20230907120227168](https://pic.jxwazx.cn/oss/file/WPJTOOANlAvXos4EJeb0m/2023-09-07/image-20230907120227168.png)
 ![image-20230907120302316](https://pic.jxwazx.cn/oss/file/WPJTOOANlAvXos4EJeb0m/2023-09-07/image-20230907120302316.png)
 
@@ -325,10 +325,10 @@ function isExistsImportProviderName(elements, providerName) {
 console.log(`generator file path: ${filePath} success`)
 ```
 
-删除 `provider` 文件夹 再次使用 `pnpm provider dep` 生成，即可看到会 `module` 会导入此生成的 `provider`。
+删除 `provider` 文件夹再次使用 `pnpm provider dep` 生成，即可看到会 `module` 会导入此生成的 `provider`。
 
 ![image-20230907120620224](https://pic.jxwazx.cn/oss/file/WPJTOOANlAvXos4EJeb0m/2023-09-07/image-20230907120620224.png)
 
 ## 结语
 
-本文实现了一个简易的 Nest Entity Provider CLI。通过 使用`handlebars` 模版引擎实现 `provider` 模版的输出，并且使用 `babel` 对 `module` 进行改造 ，实现生成`provider` 的同时自动在 `module` 中引入。
+本文实现了一个简易的 Nest Entity Provider CLI。通过使用 `handlebars` 模版引擎实现 `provider` 模版的输出，并且使用 `babel` 对 `module` 进行改造，实现生成 `provider` 的同时自动在 `module` 中引入。

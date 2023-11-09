@@ -6,7 +6,7 @@ articleId: c11a08ff-9f8c-4f70-a70a-e379a61e15ed
 
 ## resolve 和 join 的区别
 
-`resolve` 方法会把一个路径或路径片段的序列解析为一个绝对路径，生成的路径是规范化后的，且末尾的斜杠会被删除，除非路径被解析为根目录。 `join` 只是简单的将路径片段进行拼接。
+`resolve` 方法会把一个路径或路径片段的序列解析为一个绝对路径，生成的路径是规范化后的，且末尾的斜杠会被删除，除非路径被解析为根目录。`join` 只是简单的将路径片段进行拼接。
 
 ```js
 const { resolve, join } = require('path')
@@ -49,7 +49,7 @@ path.isAbsolute('/Users/heart/tet') // true
 
 ## extname
 
-返回路径的拓展名（jquery.min.js 拓展名是 .js）
+返回路径的拓展名 (jquery.min.js 拓展名是。js)
 
 ```Javascript
 const { extname } = require('path')
@@ -66,7 +66,7 @@ extname() // returns ''
 
 ## 判断文件存在
 
-判断文件存在 推荐使用 `fs.access` 代替 `fs.exists`
+判断文件存在推荐使用 `fs.access` 代替 `fs.exists`
 
 对于 `fs.exists`，他的设计没有遵循 `nodejs` 的 `错误优先的回调函数`
 

@@ -4,7 +4,7 @@ date: 2023-09-04
 articleId: 685f62c6-9c62-4f90-9849-07619866b5b3
 ---
 
-在使用 `vue-class-components` 构建 Vue 组件时，像 `watch` 、`props` 等属性还是需要写在 `@Component` 中。
+在使用 `vue-class-components` 构建 Vue 组件时，像 `watch`、`props` 等属性还是需要写在 `@Component` 中。
 
 ```ts
 @Component({
@@ -24,7 +24,7 @@ class Post extends Vue {
 }
 ```
 
-这相当于还是 `options api`的写法。为了风格统一，一般会配合 `vue-property-decorator` 使用装饰器去实现 `watch` 等功能。
+这相当于还是 `options api` 的写法。为了风格统一，一般会配合 `vue-property-decorator` 使用装饰器去实现 `watch` 等功能。
 
 ```ts
 @Component
@@ -45,7 +45,7 @@ export default class Post extends Vue {
 
 ## createDecorator
 
-在此之前，先介绍一下 `createDecorator` 这个函数。它会将所有的装饰器存储到构造函数的 `__decorators__` 属性中。 在实例化的时候，在进行统一调度从而对 `options` 的值进行修饰。
+在此之前，先介绍一下 `createDecorator` 这个函数。它会将所有的装饰器存储到构造函数的 `__decorators__` 属性中。在实例化的时候，在进行统一调度从而对 `options` 的值进行修饰。
 
 以下是 `createDecorator` 的实现源码：
 
@@ -87,7 +87,7 @@ if (decorators) {
 
 ## VModel
 
-`VModel` 装饰器主要用于在 `props` 中声明 `value`，并且在 `value` 改变的时候 `emit` 一个 `input` 事件。（参考 `v-model`）
+`VModel` 装饰器主要用于在 `props` 中声明 `value`，并且在 `value` 改变的时候 `emit` 一个 `input` 事件。(参考 `v-model`)
 
 🌰 如下：
 
@@ -238,7 +238,7 @@ class Test extends Vue {
 
 实现原理：
 
-> 通过 `createDecorator` 将修改的函数注册到`Ctor.__decorators__` 中，通过修饰的 `key` 的属性 将他设置到 `props` 上。
+> 通过 `createDecorator` 将修改的函数注册到 `Ctor.__decorators__` 中，通过修饰的 `key` 的属性将他设置到 `props` 上。
 
 ```ts
 // 简略实现过程如下
@@ -341,7 +341,7 @@ export function Provide(key?: string | symbol) {
 }
 ```
 
-而 `ProvideReactive` 与 `provide` 的实现基本一摸一样，只是将 存储的属性从`managed` 改成了 `managedReactive`
+而 `ProvideReactive` 与 `provide` 的实现基本一摸一样，只是将存储的属性从 `managed` 改成了 `managedReactive`
 
 ```diff
 export function ProvideReactive(key?: string | symbol) {
@@ -358,7 +358,7 @@ export function ProvideReactive(key?: string | symbol) {
 
 ```
 
-这里的写法与 provide 的初始化有关， 在 vue 源码中，`provide` 支持 `Function` 初始化
+这里的写法与 provide 的初始化有关，在 vue 源码中，`provide` 支持 `Function` 初始化
 
 > 源代码在 vue 仓库的 src/core/instance/inject.ts
 
@@ -388,7 +388,7 @@ export function initProvide(vm: Component) {
 
 `provideOption` 实际就是 `produceProvide(provide)` 所产生的返回值。
 
-接下来看下 `produceProvide` 的函数的执行过程:
+接下来看下 `produceProvide` 的函数的执行过程：
 
 > 源代码在 vue-property-decorator 的 src/helpers/provideInject.ts
 
@@ -425,7 +425,7 @@ export function produceProvide(original: any) {
 }
 ```
 
-因此总体的执行顺序就是:
+因此总体的执行顺序就是：
 
 1. 使用装饰器改变 vue 实例化的时 provide 的属性时，替换 `options.provider` 为一个函数，并且设置 `managed`、`managedReactive` 两个静态属性以供装饰器实现 provide
 2. 在 vue `initProvider` 的过程中，调用了 `options.provider` 函数，将装饰器设置的 `provider` 与原有写法的 `provider` 进行一个整合实现最终的 `provider`。
@@ -445,7 +445,7 @@ export function Inject(options?: InjectOptions | InjectKey) {
 }
 ```
 
-而 `InjectReactive` 的代码会比较多一点，因为 `Provide`装饰器在执行时还调用了 `inheritInjected` 这个方法。
+而 `InjectReactive` 的代码会比较多一点，因为 `Provide` 装饰器在执行时还调用了 `inheritInjected` 这个方法。
 
 ```ts
 // 这里进行了
@@ -463,7 +463,7 @@ export function inheritInjected(componentOptions: ComponentOptions<Vue>) {
 }
 ```
 
-因此相较于 `inject`，`injectReactive`的实现：
+因此相较于 `inject`，`injectReactive` 的实现：
 
 > 关于 `inject` 的 `from` 以及 `default` 属性，文档中有介绍：<https://v2.cn.vuejs.org/v2/api/#provide-inject>
 

@@ -4,7 +4,7 @@ date: 2023-10-18
 articleId: c3891dd9-a412-4d14-8bf5-1797f8549a6f
 ---
 
-探究了一下 `webpack` 的打包机制后发现，`webpack` 在 `eval` 下会将模块打包成 `IIFE` + 类似`Commonjs` 的形式运行，又受到 `vue playground` 的启发，便想实现一个简易的`html playground`
+探究了一下 `webpack` 的打包机制后发现，`webpack` 在 `eval` 下会将模块打包成 `IIFE` + 类似 `Commonjs` 的形式运行，又受到 `vue playground` 的启发，便想实现一个简易的 `html playground`
 
 ## webpack 编译代码分析
 
@@ -89,7 +89,7 @@ console.log(add(1, 2))
 ```
 
 从上述的代码可以看出最后会将模块的路径编译成 `key`，而对应的 `value` 则是一个包含了模块逻辑的函数
-下面我们将实现一个简易的 `playground` 并且可以使用 `javascript module`的功能
+下面我们将实现一个简易的 `playground` 并且可以使用 `javascript module` 的功能
 
 ## 编译模块
 
@@ -108,7 +108,7 @@ import { add } from './utils.js'
 add(1, 2) // 3
 ```
 
-经过编译之后的代码为:
+经过编译之后的代码为：
 
 ```js
 // utils.js
@@ -124,9 +124,9 @@ add(1, 2) // 3
 
 可以看到 `__exports` 主要实现导出的功能，而 `__require` 则实现的是导入的功能
 
-如何将 `import` 、`export` 这些关键字转换成 `__exports` 这些变量名呢？
+如何将 `import`、`export` 这些关键字转换成 `__exports` 这些变量名呢？
 
-这里将使用 `babel` 对 源代码转换成 `AST` ，并在 `traverse` 时对代码进行一定程度的改造，基本的代码模版如下：
+这里将使用 `babel` 对源代码转换成 `AST`，并在 `traverse` 时对代码进行一定程度的改造，基本的代码模版如下：
 
 ```js
 function transform(code: string, fileName = '') {
@@ -144,7 +144,7 @@ function transform(code: string, fileName = '') {
 
 ### ImportDeclaration
 
-首先是 `ImportDeclaration`阶段的操作
+首先是 `ImportDeclaration` 阶段的操作
 
 ```js
 {
@@ -212,9 +212,9 @@ function transform(code: string, fileName = '') {
 }
 ```
 
-在这一阶段，完成了对 `导入默认值`，`命名导入`，`整体模块导入（命名空间导入）` 进行了一个统一的处理，使其导入的结果为 `__require` 函数的返回值，完成 `import`的处理后，接下来便是对 `export` 进行处理
+在这一阶段，完成了对 `导入默认值`，`命名导入`，`整体模块导入（命名空间导入）` 进行了一个统一的处理，使其导入的结果为 `__require` 函数的返回值，完成 `import` 的处理后，接下来便是对 `export` 进行处理
 
-这里我们将 `export` 的处理分为两个不同的阶段，分别是 `ExportDefaultDeclaration`（对默认导出的处理）、`ExportNamedDeclaration`（对命名导出的处理）
+这里我们将 `export` 的处理分为两个不同的阶段，分别是 `ExportDefaultDeclaration` (对默认导出的处理)、`ExportNamedDeclaration` (对命名导出的处理)
 
 ### ExportNamedDeclaration
 
@@ -299,9 +299,9 @@ babel.transformFromAstSync(ast)?.code
 
 ## API 实现
 
-在上述中已经实现了 对 `__require`、`__exports` 的编译，接下来，我们将对 `__require`、`__exports` 函数的具体实现
+在上述中已经实现了对 `__require`、`__exports` 的编译，接下来，我们将对 `__require`、`__exports` 函数的具体实现
 
-首先是 `__require` API ，它接收一个 `path` 参数，用于加载对应的模块
+首先是 `__require` API，它接收一个 `path` 参数，用于加载对应的模块
 
 先定义函数类型
 
@@ -326,9 +326,9 @@ function __require(path) {
 }
 ```
 
-这里可以考虑之前的 `webpack` 的流程 他会将模块编译成对象的形式，之后通过 `path` 映射对应的 `key` 进行加载
+这里可以考虑之前的 `webpack` 的流程他会将模块编译成对象的形式，之后通过 `path` 映射对应的 `key` 进行加载
 
-因此我们会在定一个存储所有模块的变量，这里将这个存储模块的变量定义在了`__require`的 `_map`属性 中
+因此我们会在定一个存储所有模块的变量，这里将这个存储模块的变量定义在了 `__require` 的 `_map` 属性中
 
 ```js
 __require.map = {}
@@ -342,7 +342,7 @@ __require.map[keys] = new Function(
 )
 ```
 
-而`__exports` 实现的逻辑则比较简单
+而 `__exports` 实现的逻辑则比较简单
 
 ```js
 function __exports(fileName, type, value) {
@@ -367,7 +367,7 @@ __require._map[entry]?.(__require, __exports) // 从入口进行加载模块
 
 ## Import Map
 
-`Import Map` 的可以添加第三方的导入映射功能，举个 🌰:
+`Import Map` 的可以添加第三方的导入映射功能，举个 🌰：
 
 ```html
 <script type="importmap">
@@ -493,7 +493,7 @@ export default defineComponent({
 
 ## 结语
 
-本文通过分析 `webpack` 的打包流程，实现了一个简易的 `html playground`中的 `js module`流程，在此之上添加了`importmap` 的特性，使 `playground` 能够支持引入第三方库。
+本文通过分析 `webpack` 的打包流程，实现了一个简易的 `html playground` 中的 `js module` 流程，在此之上添加了 `importmap` 的特性，使 `playground` 能够支持引入第三方库。
 
 > 本文完整的代码在 [github 仓库](https://github.com/cc-hearts/html-playground.git)，感兴趣可以给个 star 支持一下
 

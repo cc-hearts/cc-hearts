@@ -34,7 +34,6 @@
     "@cc-heart/eslint-config": "^0.0.5",
     "@cc-heart/gen-index-export": "^1.0.1",
     "@types/node": "^20.9.0",
-    "@types/vue-i18n": "^7.0.0",
     "@vitejs/plugin-vue": "^4.4.0",
     "@vitejs/plugin-vue-jsx": "^3.0.2",
     "@vitest/coverage-v8": "^0.34.6",
@@ -54,7 +53,8 @@
     "vite-ssg": "^0.22.2",
     "vite-ssg-sitemap": "^0.5.1",
     "vitest": "^0.34.6",
-    "vue-tsc": "^1.8.22"
+    "vue-tsc": "^1.8.22",
+    "zhlint": "^0.7.1"
   },
   "lint-staged": {
     "*.{vue,js,ts,jsx,tsx,json}": [

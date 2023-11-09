@@ -38,7 +38,7 @@ yo code # 填写信息后生成一个能快速开发的项目
 {
   contributes: {
     keybindings: {
-      // ctrl/command + v 触发 upic-vscode.pasteCommand 命令
+      //ctrl/command + v 触发 upic-vscode.pasteCommand 命令
       command: 'upic-vscode.pasteCommand',
       key: 'ctrl+v',
       mac: 'cmd+v',
@@ -67,7 +67,7 @@ export function activate(context: vscode.ExtensionContext) {
   const disposable = vscode.commands.registerCommand(
     'upic-vscode.pasteCommand',
     async () => {
-      // ...
+      //...
     }
   )
 
@@ -83,14 +83,14 @@ export function activate(context: vscode.ExtensionContext) {
 
 现在，将正式进入插件的开发阶段，首先，理清需求：
 
-- 在 markdown 中粘贴图片， 先执行 `vscode` 的 `paste` 命令。
+- 在 markdown 中粘贴图片，先执行 `vscode` 的 `paste` 命令。
 - 根据本地生成的图片，获取图片路径，通过 upic 发送到 OSS 保存。
 
-因此 `upic-vscode.pasteCommand` 的 回调函数核心代码可以写成：
+因此 `upic-vscode.pasteCommand` 的回调函数核心代码可以写成：
 
 ```ts
 ;async () => {
-  // 执行vscode原本的粘贴操作
+  // 执行 vscode 原本的粘贴操作
   await vscode.commands.executeCommand('editor.action.clipboardPasteAction')
 
   const text = await vscode.env.clipboard.readText()
@@ -98,7 +98,7 @@ export function activate(context: vscode.ExtensionContext) {
   if (text) {
     return
   }
-  // ...
+  //...
   const editor = vscode.window.activeTextEditor
   if (editor) {
     const selection = editor.selection
@@ -119,7 +119,7 @@ export function activate(context: vscode.ExtensionContext) {
         replaceImage.push({ originStr, name, imageName })
       }
     })
-    // ....
+    //....
     // 上传文件至 uPic
     const imageToken = await uploadWithUPic(replaceImage, fileDirectory)
     // 获取上传之后的 OSS 图片路径 替换本地的图片路径
@@ -196,7 +196,7 @@ vsce publish major|minor|patch
 vsce publish 1.0.0
 ```
 
-插件代码已同步至 [Github](https://github.com/cc-hearts/upic-vscode.git), 感兴趣可以点个 `star`
+插件代码已同步至 [Github](https://github.com/cc-hearts/upic-vscode.git)，感兴趣可以点个 `star`
 
 ## 参考资料
 

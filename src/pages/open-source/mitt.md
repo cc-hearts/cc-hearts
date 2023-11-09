@@ -4,11 +4,11 @@ date: 2023-06-27
 articleId: 7f838935-5c07-4656-9b7e-30dd8686dc72
 ---
 
-`mitt` 是一个轻量级的发布订阅库， 可以在任何 `javaScript runtime` 的环境中运行。
+`mitt` 是一个轻量级的发布订阅库，可以在任何 `javaScript runtime` 的环境中运行。
 
 ## 事件句柄的类型声明
 
-在 `mitt` 中事件句柄（在源码中名为 `handler` ）有两种类型声明：
+在 `mitt` 中事件句柄 (在源码中名为 `handler`) 有两种类型声明：
 
 ```ts
 // Handler WildcardHandler 都是事件句柄的类型声明

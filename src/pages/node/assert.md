@@ -6,7 +6,7 @@ articleId: c35c9fb5-4eed-4514-ad46-19d3a6a25e77
 
 ## node 原生断言
 
-> 建议都使用严格模式下的断言保证断言的严谨 （严格模式下 例如: `deepStrictEqual` 使用的是 `===` 判断，而 `deepEqual` 使用的是 `==` 判断）
+> 建议都使用严格模式下的断言保证断言的严谨 (严格模式下例如：`deepStrictEqual` 使用的是 `===` 判断，而 `deepEqual` 使用的是 `==` 判断)
 
 ```js
 const assert = require('node:assert/strict')
@@ -45,7 +45,7 @@ pnpm i @babel/core @babel/preset-env --save-dev
 pnpm i @babel/preset-typescript
 ```
 
-`.babelrc` :
+`.babelrc`：
 
 ```js
 {
@@ -89,7 +89,7 @@ type FakeableAPI =
   | 'clearTimeout'
 ```
 
-简易的定时器函数的测试:
+简易的定时器函数的测试：
 
 ```js
 describe('test', () => {
@@ -141,9 +141,9 @@ describe('test', () => {
 })
 ```
 
-> `jest.runAllTimers` 用来调用 `setTimeout` 中添加的 `callback` ，再结合 `event loop` 结果可知, `await act()` 之后的代码会等待 `sleep` 进行 `resolve` 操作。 `jest.runAllTimers` 没有调用， `setTimeout` 的 `callback(也就是promise 的 resolve)` 也不会调用。 `await act()` 后续的代码也不会执行... （这里就造成了死锁，最终造成了执行超时。）
+> `jest.runAllTimers` 用来调用 `setTimeout` 中添加的 `callback`，再结合 `event loop` 结果可知，`await act()` 之后的代码会等待 `sleep` 进行 `resolve` 操作。`jest.runAllTimers` 没有调用，`setTimeout` 的 `callback(也就是promise 的 resolve)` 也不会调用。`await act()` 后续的代码也不会执行... (这里就造成了死锁，最终造成了执行超时。)
 
-**解决方式：** 需要先运行 `runAllTimers` 在等待 `await sleep` 之后的任务执行完毕之后 在调用 `expect`
+**解决方式：**需要先运行 `runAllTimers` 在等待 `await sleep` 之后的任务执行完毕之后在调用 `expect`
 
 ```diff
 describe('test', () => {
@@ -175,7 +175,7 @@ describe('test', () => {
 
 ### css 等引入失败问题
 
-jest 如果引用了 css 或者其他等字体文件 jest 在解析模块的时候会报错， `jest` 提供了
+jest 如果引用了 css 或者其他等字体文件 jest 在解析模块的时候会报错，`jest` 提供了
 
 `moduleNameMapper` 属性，可以 `mock` 导入的文件，使其能正确运行。
 
@@ -248,21 +248,21 @@ describe('callback', () => {
 
 #### jest 中的 4 个钩子函数
 
-`beforeAll` ：所有测试之前执行
+`beforeAll`：所有测试之前执行
 
-`afterAll` ：所有测试执行完之后
+`afterAll`：所有测试执行完之后
 
-`beforeEach` ：每个测试实例之前执行
+`beforeEach`：每个测试实例之前执行
 
-`afterEach` ：每个测试实例完成之后执行
+`afterEach`：每个测试实例完成之后执行
 
-运行顺序:
+运行顺序：
 
 ```text
 beforeAll => beforeEach => afterEach => afterAll
 ```
 
-默认情况下， `before` 和 `after` 块中的代码将应用于文件中的每个测试，而不管它们属于哪个 `describe` 块。这意味着在同一个文件中的所有测试都将受到这些代码的影响。
+默认情况下，`before` 和 `after` 块中的代码将应用于文件中的每个测试，而不管它们属于哪个 `describe` 块。这意味着在同一个文件中的所有测试都将受到这些代码的影响。
 
 但是，如果将 `before` 和 `after` 块放置在 `describe` 块内部，它们将仅适用于该 `describe` 块内的测试。这意味着在同一个文件中的其他 `describe` 块中的测试将不会受到这些代码的影响。
 
@@ -365,7 +365,7 @@ describe('mock', () => {
 
 [jest setup teardown](https://jestjs.io/docs/setup-teardown)
 
-[Jest: Timer and Promise don't work well. (setTimeout and async function)](https://stackoverflow.com/questions/52177631/jest-timer-and-promise-dont-work-well-settimeout-and-async-function)
+[Jest：Timer and Promise don't work well。(setTimeout and async function)](https://stackoverflow.com/questions/52177631/jest-timer-and-promise-dont-work-well-settimeout-and-async-function)
 
 [再谈 babel 7.18.0 引发的问题](https://developer.aliyun.com/article/982111)
 
