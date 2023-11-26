@@ -24,7 +24,6 @@ export async function genHeader() {
       const replaceFile = mdFile.replace(
         /^---[\w\W]*?---(\s)/gm,
         function (matcher) {
-          console.log(matcher)
           return matcher + headerStr
         }
       )
