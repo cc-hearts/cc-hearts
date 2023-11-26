@@ -17,6 +17,7 @@ import codeCopy from './plugins/markdown-copy/markdown-it-code-copy.cjs'
 import { defineReadTime } from './plugins/read-time/read-time'
 import { isDraftPath } from './scripts/draft'
 import type { Slug } from './src/types/types'
+import { removeH1Header } from './plugins/header/remove-h1-header'
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -85,6 +86,8 @@ export default defineConfig({
             placement: 'before',
           }),
         })
+
+        md.use(removeH1Header)
       },
     }),
   ],

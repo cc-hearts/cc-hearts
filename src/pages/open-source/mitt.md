@@ -4,6 +4,8 @@ date: 2023-06-27
 articleId: 7f838935-5c07-4656-9b7e-30dd8686dc72
 ---
 
+# mitt 源码解析
+
 `mitt` 是一个轻量级的发布订阅库，可以在任何 `javaScript runtime` 的环境中运行。
 
 ## 事件句柄的类型声明

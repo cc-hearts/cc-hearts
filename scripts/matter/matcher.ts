@@ -22,6 +22,7 @@ const ids = new Set<string>()
 export function clearIds() {
   ids.clear()
 }
+
 export function replaceMdMatterUniqueId(md: string) {
   const matter = matterTransformObject(md)
   if (hasOwn(matter, 'articleId')) return md

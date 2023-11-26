@@ -5,7 +5,7 @@ export function objectTransformMatter(data: Record<string, string>) {
   })
   return `${matter}---`
 }
-const matchMatterRegex = /^---[\w\W]*?---/gm
+export const matchMatterRegex = /^---[\w\W]*?---/gm
 
 export function matterTransformObject(md: string) {
   const [matcher] = md.trim().match(matchMatterRegex) || []

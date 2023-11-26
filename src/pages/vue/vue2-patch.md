@@ -4,6 +4,8 @@ date: 2023-10-04
 articleId: 0d2781aa-9675-4fd0-b774-40470d328420
 ---
 
+# vue2 patch
+
 前面的文章已经阐述过数据是如何在改变的时候通知 watcher 进行 update，但对于 update 中的操作却还是一个黑盒，因此本文将深入探究 update 后的操作，去挖掘 vue2 是如何进行更新 DOM 以及 `virtual DOM` 是如何进行 Diff 对比来优化视图更新的。
 
 ## init

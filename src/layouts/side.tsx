@@ -13,18 +13,27 @@ export default defineComponent({
   name: 'SideNav',
   setup() {
     const route = useRoute()
-    const title = computed(() => (route.meta?.frontmatter as any)?.title)
+    const title = computed(
+      () =>
+        (route.meta.slug as Array<Slug>)?.find((target) => target.lvl === 1)
+          ?.content || ''
+    )
     const activeCls = ref('')
     const activeIndex = ref(0)
     const threshold = 15
     const heightObserverList: { attrId: string; height: number }[] = []
-    const sideRef = computed(() => (route.meta.slug as Array<Slug>) || [])
+    const sideRef = computed(
+      () =>
+        ((route.meta.slug as Array<Slug>)?.filter(
+          (target) => target.lvl !== 1
+        ) as Array<Slug>) || []
+    )
     const calcTocHeight = () => {
       heightObserverList.length = 0
       sideRef.value.forEach((side) => {
         const el = document.getElementById(side.attrId)
         if (el) {
-          const height = el.getBoundingClientRect()?.top
+          const height = el.getBoundingClientRect().top + window.scrollY
           const attrId = el.getAttribute('id') || ''
           heightObserverList.push({ attrId, height })
         }
@@ -94,7 +103,7 @@ export default defineComponent({
 
           {sideRef.value.length > 0 && (
             <span
-              class="absolute w-1px outline-marker"
+              class="absolute w-4px rounded outline-marker"
               style={{ '--transform-top': activeIndex.value + 1 }}
             ></span>
           )}

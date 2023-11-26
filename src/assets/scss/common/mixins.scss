@@ -1,24 +1,21 @@
 @use '../var/variable.scss' as *;
-
+@use '../functions/string.scss' as *;
 $b: null;
 $e: null;
 $m: null;
 
 @mixin isAtRoot() {
-
   @if ($is-at-root) {
     @at-root {
       @content;
     }
-  }
-
-  @else {
+  } @else {
     @content;
   }
 }
 
 @mixin b($block) {
-  $b: #{$namespace}#{$common-separator}#{$block} !global; // 局部变量
+  $b: join($namespace, $common-separator, $block) !global; // 局部变量
 
   .#{$b} {
     @content;
@@ -27,52 +24,49 @@ $m: null;
 
 @mixin e($element...) {
   $e: #{$b};
-  $currentSelector: (
-  );
+  $currentSelector: ();
 
-
-@each $item in $element {
-  $currentSelector: append($currentSelector, $e+#{$element-separator}+#{$item}, comma);
-}
-
-$e: $currentSelector !global;
-
-@include isAtRoot {
-  .#{$currentSelector} {
-    @content;
+  @each $item in $element {
+    $currentSelector: append(
+      $currentSelector,
+      join($e, $element-separator, $item),
+      comma
+    );
   }
-}
+
+  $e: $currentSelector !global;
+
+  @include isAtRoot {
+    .#{$currentSelector} {
+      @content;
+    }
+  }
 }
 
 @mixin m($modify...) {
-  $m: (
-  );
-$currentSelector: (
-);
+  $m: ();
+  $currentSelector: ();
 
-@each $_b in $e {
-  $current: (
-  );
-$m: append($m, $_b, comma);
-}
-
-@debug $m;
-
-@each $_e in $m {
-  $current: (
-  );
-
-@each $unit in $modify {
-  $current: append($current, $_e+#{$modifier-separator}+#{$unit}, comma);
-}
-
-$currentSelector: append($currentSelector, $current, comma);
-}
-
-
-@include isAtRoot {
-  .#{$currentSelector} {
-    @content;
+  @each $_b in $e {
+    $current: ();
+    $m: append($m, $_b, comma);
   }
-}
+
+  @debug $m;
+
+  @each $_e in $m {
+    $current: ();
+
+    @each $unit in $modify {
+      $current: append($current, join($_e, $modifier-separator, $unit), comma);
+    }
+
+    $currentSelector: append($currentSelector, $current, comma);
+  }
+
+  @include isAtRoot {
+    .#{$currentSelector} {
+      @content;
+    }
+  }
 }

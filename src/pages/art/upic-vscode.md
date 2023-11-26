@@ -4,6 +4,8 @@ date: 2023-10-27
 articleId: b91191df-2f8a-418a-bc9d-d33d4119b2ed
 ---
 
+# upic-vscode 插件开发
+
 在使用 vscode 编写 markdown 时，没有像 `typora` 的图片上传服务，如果想要将图片上传到 OSS 并且应用在 markdown 中，需要经过：
 
 1. 通过 `ctrl/command + v` 粘贴图片到本地

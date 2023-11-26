@@ -1,0 +1,15 @@
+@use 'sass:string';
+
+@function join($el...) {
+  $temp_var_length: 0;
+  $temp_var: '';
+  $len: 0;
+
+  @each $item in $el {
+    $len: string.length($temp_var);
+    $temp_var: string.insert($temp_var, $item, $len + 1);
+    $temp_var_length: $temp_var_length + $len;
+  }
+
+  @return $temp_var;
+}

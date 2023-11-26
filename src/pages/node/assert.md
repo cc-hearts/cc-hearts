@@ -4,6 +4,8 @@ date: 2023-06-12
 articleId: c35c9fb5-4eed-4514-ad46-19d3a6a25e77
 ---
 
+# jest、vitest 单元测试与 assert 原生断言
+
 ## node 原生断言
 
 > 建议都使用严格模式下的断言保证断言的严谨 (严格模式下例如：`deepStrictEqual` 使用的是 `===` 判断，而 `deepEqual` 使用的是 `==` 判断)

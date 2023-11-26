@@ -1,6 +1,6 @@
 import '@/assets/pages/title.scss'
 import { Text, Time } from '@/icons'
-import { IFrontmatter, IReadTIme } from '@/types/types'
+import { IFrontmatter, IReadTIme, Slug } from '@/types/types'
 import { computed, defineComponent, ref, watch } from 'vue'
 import { useRoute } from 'vue-router'
 export default defineComponent({
@@ -9,7 +9,9 @@ export default defineComponent({
     const flag = ref(false)
     const route = useRoute()
     const title = computed(
-      () => (route?.meta?.frontmatter as IFrontmatter)?.title
+      () =>
+        (route.meta.slug as Array<Slug>)?.find((target) => target.lvl === 1)
+          ?.content
     )
     watch(
       () => (route.meta?.frontmatter as IFrontmatter)?.articleId,

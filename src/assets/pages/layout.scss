@@ -9,7 +9,7 @@
     transition: color 0.3s;
     line-height: 1.75rem;
     padding-left: 0.625rem;
-    border-left: 1px solid var(--divider-color);
+    // border-left: 1px solid var(--divider-color);
 
     &:hover {
       color: var(--color-text-1);
@@ -30,7 +30,8 @@
   background-color: var(--a-link-color);
   height: 1.75rem;
 
-  transform: translateY(calc(var(--transform-top) * 1.75rem));
+  transform: translateX(-20%) translateY(calc(var(--transform-top) * 1.75rem));
+  transition: transform 0.3s;
 }
 
 .outline-title {

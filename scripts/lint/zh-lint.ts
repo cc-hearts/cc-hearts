@@ -1,34 +1,8 @@
 import { exec } from 'child_process'
-import { readdir } from 'fs/promises'
-import { resolve as _resolve } from 'path'
-
-const resolve = (...args: string[]) => _resolve(process.cwd(), ...args)
-
-async function searchMdFilePath(path: string) {
-  const dirs = await readdir(resolve(path), { withFileTypes: true })
-  const filePaths: string[] = []
-
-  await Promise.all(
-    dirs.map(async (dir) => {
-      if (dir.isDirectory()) {
-        filePaths.push(...(await searchMdFilePath(resolve(path, dir.name))))
-      } else {
-        if (dir.name.endsWith('.md')) filePaths.push(resolve(path, dir.name))
-      }
-    })
-  )
-
-  return filePaths
-}
+import { getMarkdownPath } from '../utils/path.js'
 
 async function lintAnfFix() {
-  const markdownPath = await Promise.all(
-    ['src', 'draft'].map(async (pathName) => {
-      return searchMdFilePath(pathName)
-    })
-  ).then((filePathList) => {
-    return filePathList.flat()
-  })
+  const markdownPath = await getMarkdownPath()
 
   await Promise.all(
     markdownPath.map(async (path) => {

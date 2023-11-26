@@ -4,6 +4,8 @@ date: 2023-10-18
 articleId: c3891dd9-a412-4d14-8bf5-1797f8549a6f
 ---
 
+# 简易实现 html playground
+
 探究了一下 `webpack` 的打包机制后发现，`webpack` 在 `eval` 下会将模块打包成 `IIFE` + 类似 `Commonjs` 的形式运行，又受到 `vue playground` 的启发，便想实现一个简易的 `html playground`
 
 ## webpack 编译代码分析

@@ -4,6 +4,8 @@ date: 2023-06-08
 articleId: 3180baa3-2250-4dcc-8aa3-8d7f6f22207a
 ---
 
+# node 实现文件压缩
+
 > `tar` 是一种归档格式它默认不会压缩。通常会结合 `gzip` 将最终的 `tar` 文件以 `gzip` 格式压缩称为一个 `tar.gz` 的文件 (通常缩写为 `tgz`)。
 
 ## gzip 压缩

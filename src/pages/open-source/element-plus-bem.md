@@ -4,6 +4,8 @@ date: 2023-05-28
 articleId: 9f3a9267-2cbf-4456-88b6-cddce90ffe40
 ---
 
+# Element plus BEM 工具类/方法解析
+
 ## element bem 工具类/方法解析
 
 `element-plus` 源码中有一个 `useNamespace` 的 `hook`，用于生成 `BEM` 规范的 class 类名以及相关的变量名。

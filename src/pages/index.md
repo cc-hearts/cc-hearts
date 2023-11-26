@@ -1,5 +1,6 @@
 ---
 title: cc-hearts
+genHeader: false
 ---
 
 <script setup>
