@@ -4,7 +4,7 @@ date: 2023-11-26
 articleId: 89626945-b69a-4f98-88c2-d08e73b1efc5
 ---
 
-# 简易实现
+# 简易实现 vue3 message 组件
 
 在绝大多数 UI 库中，`message` 组件都支持函数的调用方式，因此 `message` 组件的实现会与普通组件有所不同。
 本文将展示如何简易实现一个 vue3 的 `message` 组件。
