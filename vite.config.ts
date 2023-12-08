@@ -35,7 +35,7 @@ export default defineConfig({
     vueJsx(),
     UnoCSS(),
     Pages({
-      dirs: ['src/pages', 'draft'],
+      dirs: ['src/pages', 'draft', 'src/techs'],
       extensions: ['vue', 'md'],
       extendRoute(route) {
         const path = resolve(__dirname, route.component.slice(1))
