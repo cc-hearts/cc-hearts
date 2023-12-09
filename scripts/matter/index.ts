@@ -10,7 +10,7 @@ async function readMdPath() {
   return await glob(
     [
       _resolve('./src/pages/**/*.md'),
-      _resolve('./draft/**/*.md'),
+      _resolve('./src/draft/**/*.md'),
       _resolve('./src/techs/**/*.md'),
     ],
     {

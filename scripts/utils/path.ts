@@ -21,7 +21,7 @@ export async function searchMdFilePath(path: string) {
 
 export async function getMarkdownPath() {
   return await Promise.all(
-    ['src', 'draft'].map(async (pathName) => {
+    ['src'].map(async (pathName) => {
       return searchMdFilePath(pathName)
     })
   ).then((filePathList) => {

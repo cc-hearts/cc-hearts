@@ -19,6 +19,7 @@ import { isDraftPath } from './scripts/draft'
 import type { Slug } from './src/types/types'
 import { removeH1Header } from './plugins/header/remove-h1-header'
 import { removeMarkdownSuffix } from './plugins/remove-md-suffix/remove-markdown-suffix'
+import { genMarkdownPathConfig } from './plugins/gen-markdown-path-config/gen-markdown-path-config'
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -33,10 +34,17 @@ export default defineConfig({
     vue({
       include: [/\.vue$/, /\.md$/],
     }),
+    genMarkdownPathConfig({
+      config: [{ dir: 'src/techs/base', output: 'src/techs/base/index.md' }],
+    }),
     vueJsx(),
     UnoCSS(),
     Pages({
-      dirs: ['src/pages', 'draft', { dir: 'src/techs', baseRoute: '/techs' }],
+      dirs: [
+        'src/pages',
+        { dir: 'src/draft', baseRoute: '/draft' },
+        { dir: 'src/techs', baseRoute: '/techs' },
+      ],
       extensions: ['vue', 'md'],
       extendRoute(route) {
         const path = resolve(__dirname, route.component.slice(1))
@@ -46,6 +54,7 @@ export default defineConfig({
         ) {
           route.path = route.path + '/index'
         }
+
         if (route.path !== '/' && path.endsWith('.md')) {
           const md = readFileSync(path)
           const { data, content } = matter(md.toString())

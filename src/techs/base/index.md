@@ -1,10 +1,8 @@
 ---
-title: 基础知识
-date: 2023-12-08
+title: '基础知识'
 home: true
-articleId: b3920cfe-9798-4075-8e8a-7e492beb98ba
+date: 2023-12-08
+articleId: c579bba0-d338-4531-a536-6525543a522d
 ---
 
-# 基础知识
-
-- [字节与字符](./chars.md)
+- [字符编码](chars.md)

@@ -6,6 +6,7 @@ import matter from 'gray-matter'
 // @ts-ignore
 import toc from 'markdown-toc'
 import { Slug } from '../../src/types/types.js'
+
 export async function genHeader() {
   const markdownPath = await getMarkdownPath()
   await Promise.all(
@@ -21,13 +22,13 @@ export async function genHeader() {
       }
       // 在matter后面插入标题
       const headerStr = `\n# ${matterObj.title}\n`
-      const replaceFile = mdFile.replace(
+      const mdReplacedFile = mdFile.replace(
         /^---[\w\W]*?---(\s)/gm,
         function (matcher) {
           return matcher + headerStr
         }
       )
-      writeFileSync(path, replaceFile)
+      writeFileSync(path, mdReplacedFile)
       console.log(`gen header ${path} success`)
     })
   )
