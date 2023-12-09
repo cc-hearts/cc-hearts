@@ -22,7 +22,7 @@ export const GITHUB_URL = 'https://github.com/cc-hearts'
 
 export const subTitle = [
   { title: 'Blog', link: '/blog', isToLink: false },
-  { title: 'techs', link: '/techs' },
+  { title: 'Techs', link: '/techs' },
   { title: 'Projects', link: '/project' },
 ]
 

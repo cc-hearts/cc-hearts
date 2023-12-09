@@ -18,6 +18,7 @@ import { defineReadTime } from './plugins/read-time/read-time'
 import { isDraftPath } from './scripts/draft'
 import type { Slug } from './src/types/types'
 import { removeH1Header } from './plugins/header/remove-h1-header'
+import { removeMarkdownSuffix } from './plugins/remove-md-suffix/remove-markdown-suffix'
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -35,10 +36,16 @@ export default defineConfig({
     vueJsx(),
     UnoCSS(),
     Pages({
-      dirs: ['src/pages', 'draft', 'src/techs'],
+      dirs: ['src/pages', 'draft', { dir: 'src/techs', baseRoute: '/techs' }],
       extensions: ['vue', 'md'],
       extendRoute(route) {
         const path = resolve(__dirname, route.component.slice(1))
+        if (
+          /index\.md$/.test(route.component) &&
+          /^\/src\/techs/.test(route.component)
+        ) {
+          route.path = route.path + '/index'
+        }
         if (route.path !== '/' && path.endsWith('.md')) {
           const md = readFileSync(path)
           const { data, content } = matter(md.toString())
@@ -88,6 +95,7 @@ export default defineConfig({
         })
 
         md.use(removeH1Header)
+        md.use(removeMarkdownSuffix)
       },
     }),
   ],

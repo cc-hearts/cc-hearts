@@ -8,7 +8,11 @@ function _resolve(path: string) {
 }
 async function readMdPath() {
   return await glob(
-    [_resolve('./src/pages/**/*.md'), _resolve('./draft/**/*.md')],
+    [
+      _resolve('./src/pages/**/*.md'),
+      _resolve('./draft/**/*.md'),
+      _resolve('./src/techs/**/*.md'),
+    ],
     {
       ignore: _resolve('./src/pages/index.md'),
     }

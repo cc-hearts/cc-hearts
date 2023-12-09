@@ -3,6 +3,7 @@ export interface IFrontmatter {
   description?: string
   time?: string
   _meta?: IMeta
+  home?: boolean
   isDraft: boolean
   articleId: string
 }

@@ -13,11 +13,9 @@ export default defineComponent({
     })
 
     return () => (
-      <div>
-        <p class="introduce-text h-70vh flex items-center justify-center">
-          <span ref={el}></span>
-        </p>
-      </div>
+      <p class="introduce-text h-70vh flex items-center justify-center">
+        <span ref={el}></span>
+      </p>
     )
   },
 })

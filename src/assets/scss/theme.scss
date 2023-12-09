@@ -16,6 +16,8 @@
   --shadow-1: rgb(229, 230, 235);
 
   --shadow-1-active: rgb(220, 223, 230);
+
+  --tech-background-color: rgb(240, 240, 240);
 }
 
 :root.dark {
@@ -35,6 +37,8 @@
   --shadow-1: rgb(72, 72, 73);
 
   --shadow-1-active: rgb(80, 80, 80);
+
+  --tech-background-color: rgba(255, 255, 255, 0.1);
 }
 
 html {
@@ -57,7 +61,7 @@ h6 {
 }
 
 .cc h1 {
-  margin-bottom: 0.8em;
+  margin: 0.5em 0 0.8em;
 }
 
 @media screen and (max-width: 414px) {

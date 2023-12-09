@@ -11,6 +11,7 @@ const routes = router
 
 const posts = Object.create(null)
 routes.forEach((route) => {
+  if (/^\/techs/.test(route.path)) return
   const frontmatter = route.meta.frontmatter as IFrontmatter
   let time = frontmatter.time || new Date()
   time = new Date(time)
