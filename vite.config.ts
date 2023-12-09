@@ -35,7 +35,13 @@ export default defineConfig({
       include: [/\.vue$/, /\.md$/],
     }),
     genMarkdownPathConfig({
-      config: [{ dir: 'src/techs/base', output: 'src/techs/base/index.md' }],
+      config: [
+        { dir: 'src/techs/base', output: 'src/techs/base/index.md' },
+        {
+          dir: 'src/techs/javascript',
+          output: 'src/techs/javascript/index.md',
+        },
+      ],
     }),
     vueJsx(),
     UnoCSS(),
