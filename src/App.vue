@@ -2,19 +2,8 @@
 import Headers from '@/components/header/headers.vue'
 import Home from '@/layouts/home'
 import { Logo } from '@/icons/index'
-import { useRouter } from 'vue-router'
 import { subTitle } from '@/configs'
 import Plum from '@/components/plum/index.vue'
-
-const router = useRouter()
-
-const toRoute = (link: string, isToLink = false) => {
-  if (isToLink) {
-    window.open(link)
-    return
-  }
-  router.push(link)
-}
 </script>
 
 <template>
@@ -25,9 +14,12 @@ const toRoute = (link: string, isToLink = false) => {
     </template>
     <template #right-icon>
       <template v-for="titles in subTitle">
-        <a class="links" @click="toRoute(titles.link, titles.isToLink)">{{
-          titles.title
-        }}</a>
+        <RouterLink
+          class="links"
+          :aria-label="titles.title"
+          :to="titles.link"
+          >{{ titles.title }}</RouterLink
+        >
       </template>
     </template>
   </Headers>

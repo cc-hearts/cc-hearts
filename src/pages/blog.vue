@@ -36,10 +36,6 @@ Object.keys(posts).forEach((key) => {
   array.sort((a: IPosts, b: IPosts) => b.time.getTime() - a.time.getTime())
 })
 
-const toRoute = (link: string) => {
-  router.push(link)
-}
-
 const isShowNewTag = (date: Date) => {
   return Date.now() - +date <= 1000 * 60 * 60 * 48
 }
@@ -55,9 +51,9 @@ const years = computed(() =>
       <span class="year">{{ year }}</span>
       <div class="post-list">
         <template v-for="post in posts[year]">
-          <a
+          <RouterLink
+            :to="post.path"
             class="post-title text-lg leading-1.2em my-2 inline-block relative"
-            @click="toRoute(post.path)"
           >
             <DraftIcon
               v-if="post.draft"
@@ -71,7 +67,7 @@ const years = computed(() =>
               v-if="isShowNewTag(post.time)"
               class="text-3xl top--50% leading-none absolute"
             />
-          </a>
+          </RouterLink>
         </template>
       </div>
     </template>

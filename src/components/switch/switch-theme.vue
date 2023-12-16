@@ -19,6 +19,7 @@ const checked = computed(() => {
   <div class="flex" :class="[cssNs.cls]">
     <button
       role="switch"
+      aria-label="toggle theme"
       class="relative block shrink-0 outline-0"
       :aria-checked="checked"
       @click="handleToggleTheme"
