@@ -1,14 +1,10 @@
 ---
-title: Node 入门
+title: Node 模块化
 date: 2023-03-01
 articleId: c11a08ff-9f8c-4f70-a70a-e379a61e15ed
 ---
 
-# Node 入门
-
-本篇文章会详细讲述 `Node` 中各种案例以及一些常用的 API 使用方法。
-
-## 模块化
+# Node 模块化
 
 早期的 `Node` 版本中 (`v12.0.0` 之前的模块)，只支持 `CommonJs` 的模块化方式 (也就是使用 `require` 关键字引入模块)。随着 Javascript 生态系统的发展以及 ES6 标准的广泛应用。`Node` 也逐渐支持使用 ES Modules 的模块化方式 (使用 `import foo from 'baz'` 的方式引入模块)。
 
@@ -71,7 +67,7 @@ SyntaxError: Cannot use import statement outside a module
 
 ### 依赖加载
 
-依赖优先级：内置模块 > 第三方模块
+依赖加载优先级：内置模块 > 第三方模块
 
 加载第三方模块时，会以项目为起始路径逐层往上寻找依赖 (使用 `module.paths` 可以查看具体的查找路径)。
 
@@ -96,98 +92,3 @@ SyntaxError: Cannot use import statement outside a module
 > `$HOME` 是用户的根目录，`$PREFIX` 是 node 中配置的 `node_prefix`
 
 > <https://nodejs.org/docs/latest-v12.x/api/modules.html#modules_loading_from_node_modules_folders>
-
-## 基础 API
-
-### Path
-
-#### isAbsolute
-
-判断是否是绝对路径。
-
-```js
-const path = require('path')
-
-// @see https://coldfunction.com/k/nodejs/path/isAbsolute
-// https://nodejs.org/api/path.html
-path.isAbsolute('/Users/heart/tet') // true
-```
-
-#### sep
-
-```js
-path.sep // '/' 或者是 '\'
-```
-
-返回路径分隔符，Windows 返回 `\` POSIX 返回 `/`
-
-#### delimiter
-
-返回操作系统环境变量的路径界定符，例如 Windows 返回 `;` POSIX 返回 `:`
-
-```Shell
-# Mac
-/Users/heart/.bun/bin:/Users/heart/Library/pnpm
-```
-
-#### extname
-
-返回最后一次出现的。(句点) 字符到字符串的结尾
-
-```Javascript
-const { extname } = require('path')
-
-extname('jquery.min.js') // returns '.js'
-extname() // returns ''
-
-extname('foo/bar.md?foo=bar') // .md?foo=bar
-```
-
-> <https://nodejs.org/api/path.html#pathsep>
-
-## FAQ
-
-### resolve 和 join 的区别
-
-`resolve` 方法会把一个路径或路径片段的序列解析为一个绝对路径，生成的路径是规范化后的，且末尾的斜杠会被删除，除非路径被解析为根目录。`join` 只是简单的将路径片段进行拼接。
-
-```js
-const { resolve, join } = require('path')
-// 当前工作区的路径 /Users/heart/Desktop/day/fs
-
-// resolve() 没有参数,返回当前工作区的路径
-resolve() // /Users/heart/Desktop/day/fs
-
-resolve('./fs-runtime') // /Users/heart/Desktop/day/fs/fs-runtime
-
-// 绝对路径不会与当前工作区的路径进行拼接
-resolve('/test') // /test
-
-// path.join 只是简单的将路径片段进行拼接，并规范化生成一个路径
-join() // join .
-
-join('data', '/a/b/c', '..') // data/a/b
-```
-
-#### 判断文件存在
-
-判断文件存在推荐使用 `fs.access` 代替 `fs.exists`
-
-对于 `fs.exists`，他的设计没有遵循 `nodejs` 的 `错误优先的回调函数`
-
-> `node 20` 已经将 `fs.exists` 列入废弃的 API
-
-```js
-import { exists, access } from 'node:fs'
-
-exists('/etc/passwd', (e) => {
-  console.log(e ? 'it exists' : 'no passwd!')
-})
-
-// 使用 access 代替
-access('text.txt', fs.constants.W_OK, (err) => {
-  console.log(err)
-})
-```
-
-- <https://cloud.tencent.com/developer/article/1688742>

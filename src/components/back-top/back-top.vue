@@ -47,12 +47,12 @@ onUnmounted(() => {
   cursor: pointer;
   box-sizing: border-box;
   position: fixed;
-  bottom: 3rem;
-  right: 15vw;
+  bottom: 1rem;
+  right: 1rem;
   background: var(--back-top-background);
   box-shadow: 0 0 12px var(--shadow-1);
   transition: all 0.18s;
-  opacity: 0.6;
+  opacity: 0.8;
   pointer-events: all;
   &:hover {
     box-shadow: 0 0 16px var(--shadow-1-active);

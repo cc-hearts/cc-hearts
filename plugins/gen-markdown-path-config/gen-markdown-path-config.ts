@@ -4,6 +4,8 @@ import {
   matterTransformObject,
   objectTransformMatter,
 } from '../../scripts/matter/shard'
+import { globSync } from 'glob'
+import { isDirectory } from '@cc-heart/utils-service'
 
 interface DirOptions {
   dir: string
@@ -67,27 +69,37 @@ export function genMarkdownPathConfig(options: GenMarkdownPathConfigOptions) {
     name: 'genMarkdownPathConfig',
     buildStart() {
       const config = options?.config || []
+
       config.forEach(async (item) => {
-        const outputPath = resolve(process.cwd(), item.output)
+        const dirs = globSync(item.dir) || []
+
+        const isAbsoluteOutput = !/\.\//.test(item.output)
         const excludes = (item.exclude || []).map((item) =>
           resolve(process.cwd(), item)
         )
-        const config = await readMarkdownPath(item.dir, outputPath, excludes)
 
-        const frontmatter = await getMarkdownFrontmatter(outputPath)
-        let matter = ''
-        if (frontmatter) {
-          matter = objectTransformMatter(frontmatter)
-        }
-        const linkStr =
-          config
-            ?.map(
-              (record) =>
-                `- [${record.text}](${relative(item.dir, record.path)})`
-            )
-            .join('\n') || ''
-        const outputStr = `${matter} \n\n${linkStr}\n`
-        writeFile(outputPath, outputStr, 'utf-8')
+        dirs.forEach(async (dir) => {
+          if (!(await isDirectory(dir))) return
+          const outputPath = isAbsoluteOutput
+            ? item.output
+            : resolve(dir, item.output)
+
+          const config = await readMarkdownPath(dir, outputPath, excludes)
+
+          const frontmatter = await getMarkdownFrontmatter(outputPath)
+          let matter = ''
+          if (frontmatter) {
+            matter = objectTransformMatter(frontmatter)
+          }
+          const linkStr =
+            config
+              ?.map(
+                (record) => `- [${record.text}](${relative(dir, record.path)})`
+              )
+              .join('\n') || ''
+          const outputStr = `${matter} \n\n${linkStr}\n`
+          writeFile(outputPath, outputStr, 'utf-8')
+        })
       })
     },
   }

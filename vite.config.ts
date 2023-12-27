@@ -20,28 +20,17 @@ import type { Slug } from './src/types/types'
 import { removeH1Header } from './plugins/header/remove-h1-header'
 import { removeMarkdownSuffix } from './plugins/remove-md-suffix/remove-markdown-suffix'
 import { genMarkdownPathConfig } from './plugins/gen-markdown-path-config/gen-markdown-path-config'
+import { removeUpgradeInsecureRequest } from './plugins/remove-upgrade-insecure-request'
 
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [
-    {
-      name: 'remove-upgrade-insecure-requests',
-      transformIndexHtml(html: string) {
-        const reg = /<meta\b[^>]*content="upgrade-insecure-requests"[^>]*>/gm
-        return html.replace(reg, '')
-      },
-    },
+    removeUpgradeInsecureRequest(),
     vue({
       include: [/\.vue$/, /\.md$/],
     }),
     genMarkdownPathConfig({
-      config: [
-        { dir: 'src/techs/base', output: 'src/techs/base/index.md' },
-        {
-          dir: 'src/techs/javascript',
-          output: 'src/techs/javascript/index.md',
-        },
-      ],
+      config: [{ dir: 'src/techs/*', output: './index.md' }],
     }),
     vueJsx(),
     UnoCSS(),

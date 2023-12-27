@@ -6,6 +6,7 @@ import { useRouter } from 'vue-router'
 const config = [
   { text: 'base', link: '/techs/base/index' },
   { text: 'javascript', link: '/techs/javascript/index' },
+  { text: 'node', link: '/techs/node/index' },
 ].map((target) => ({ ...target, text: capitalize(target.text) }))
 
 const router = useRouter()
