@@ -1,22 +1,21 @@
 <script setup lang="ts">
 import { capitalize } from '@cc-heart/utils'
 import { useRouter } from 'vue-router'
+import TechsDirOptions from '@/configs/techs-auto-config'
 
-// TODO: auto generator
-const config = [
-  { text: 'base', link: '/techs/base/index' },
-  { text: 'javascript', link: '/techs/javascript/index' },
-  { text: 'node', link: '/techs/node/index' },
-].map((target) => ({ ...target, text: capitalize(target.text) }))
+const config = TechsDirOptions.map((target) => ({
+  ...target,
+  text: capitalize(target.text),
+}))
 
 const router = useRouter()
 const toLink = (path: string) => router.push(path)
 </script>
 
 <template>
-  <div class="flex justify-between gap-3%">
+  <div class="flex flex-wrap justify-between gap-2%">
     <div
-      class="w-33% p-8 tech-card"
+      class="w-32% p-8 tech-card m-b-2%"
       v-for="item in config"
       :key="item.text"
       @click="toLink(item.link)"

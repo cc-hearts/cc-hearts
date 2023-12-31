@@ -1,5 +1,7 @@
 ---
 title: 伪类选择器
+date: 2023-12-31
+articleId: 43393dd4-f41d-4f7b-9b82-a68cd7fc1f49
 ---
 
 # 伪类选择器
@@ -31,8 +33,8 @@ article > ol > li > a {
 
 ## 参考资料
 
-[MDN `:is()`](https://developer.mozilla.org/zh-CN/docs/Web/CSS/:is)
+[MDN：is()](https://developer.mozilla.org/zh-CN/docs/Web/CSS/:is)
 
-[MDN `:where()`](https://developer.mozilla.org/zh-CN/docs/Web/CSS/:where)
+[MDN where()](https://developer.mozilla.org/zh-CN/docs/Web/CSS/:where)
 
-[MDN `:has()`](https://developer.mozilla.org/zh-CN/docs/Web/CSS/:has)
+[MDN：has()](https://developer.mozilla.org/zh-CN/docs/Web/CSS/:has)

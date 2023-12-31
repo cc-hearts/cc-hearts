@@ -21,10 +21,15 @@ import { removeH1Header } from './plugins/header/remove-h1-header'
 import { removeMarkdownSuffix } from './plugins/remove-md-suffix/remove-markdown-suffix'
 import { genMarkdownPathConfig } from './plugins/gen-markdown-path-config/gen-markdown-path-config'
 import { removeUpgradeInsecureRequest } from './plugins/remove-upgrade-insecure-request'
+import { generateTechsClassificationPlugin } from './plugins/gen-techs-classification/gen-techs-classification'
 
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [
+    generateTechsClassificationPlugin({
+      dirs: ['src/techs'],
+      output: 'src/configs/techs-auto-config.ts',
+    }),
     removeUpgradeInsecureRequest(),
     vue({
       include: [/\.vue$/, /\.md$/],
