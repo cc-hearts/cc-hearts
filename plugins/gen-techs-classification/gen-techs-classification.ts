@@ -6,6 +6,7 @@ export function generateTechsClassificationPlugin(config: {
 }) {
   return {
     name: 'gen-techs-classification-plugin',
+    apply: 'serve',
     buildStart() {
       const dirs = config.dirs || []
       const task = dirs.map(async (dir) => {
