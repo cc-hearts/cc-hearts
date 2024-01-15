@@ -3,7 +3,7 @@
   "private": true,
   "version": "0.0.1",
   "type": "module",
-  "author": "cc heart",
+  "author": "carl chen",
   "scripts": {
     "prepare": "husky install",
     "dev": "vite --host",

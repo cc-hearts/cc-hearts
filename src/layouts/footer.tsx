@@ -15,7 +15,7 @@ const Footer = defineComponent({
           </a>
           <span class={'m-x-0.5em'}>2023-present ©</span>
           <a class={'cc-footer__link'} href="https://www.github.com/cc-hearts">
-            cc heart
+            carl chen
           </a>
         </footer>
       )

@@ -17,7 +17,7 @@ articleId: a8c0e966-f327-468f-a09c-9883b6961e92
 ```txt
 FROM nginx:latest
 
-LABEL MAINTAINER="cc heart"
+LABEL MAINTAINER="carl chen"
 
 COPY dist//opt/cc-hearts/
 
