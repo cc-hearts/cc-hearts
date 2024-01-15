@@ -144,7 +144,7 @@ h1 {
 h2 {
   font-size: 1.75rem;
   line-height: 2rem;
-  margin: 3rem 0 2rem;
+  margin: 2rem 0;
 }
 
 h3 {
@@ -168,9 +168,10 @@ h5 {
 .prose {
   min-height: 55vh;
 
+  ol,
   ul,
   li {
-    margin: 0;
+    margin: 1em 0;
     padding: 0;
   }
 }
