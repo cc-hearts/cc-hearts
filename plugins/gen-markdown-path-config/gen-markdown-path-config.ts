@@ -97,7 +97,7 @@ export function genMarkdownPathConfig(options: GenMarkdownPathConfigOptions) {
                 (record) => `- [${record.text}](${relative(dir, record.path)})`
               )
               .join('\n') || ''
-          const outputStr = `${matter} \n\n${linkStr}\n`
+          const outputStr = `${matter}\n\n${linkStr}\n`
           writeFile(outputPath, outputStr, 'utf-8')
         })
       })
