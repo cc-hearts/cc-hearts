@@ -150,6 +150,41 @@ globby('**/*', {
   })
 ```
 
+## volta
+
+`Volta` 是一个命令行工具，用于管理 JavaScript 的命令行工具。它的目标是让每个在项目上工作的开发人员无缝地安装相同的工具和版本。`Volta` 可以帮助你选择 Node.js 引擎，并且停止担心它。你可以在项目之间切换，而不必手动切换 Node.js 版本。
+
+安装 `Volta`
+
+```bash
+curl https://get.volta.sh | bash
+```
+
+安装完成后，可以通过 `node@version` 安装确定的 node 版本号
+
+```shell
+volta install node@14.12.0
+```
+
+要将 Volta 设置为始终加载项目的特定版本的 Node.js，可以使用 pin 命令：
+
+```shell
+volta pin node@14.12.0
+```
+
+> `volta pin` 用于将特定版本的 Node.js 或包管理器固定到项目中。这意味着当你进入项目目录时，Volta 将自动使用你固定的版本，而不是默认的全局版本。
+
+除此之外，可以在 `package.json` 中指定 `volta`，使其与项目的其他配置一起进行版本控制。这有助于确保配置信息与代码一起进行跟踪和管理。
+
+```json
+{
+  "volta": {
+    "node": "14.20.0",
+    "yarn": "1.22.19"
+  }
+}
+```
+
 ## 参考资料
 
 [commander docs](https://github.com/tj/commander.js)
