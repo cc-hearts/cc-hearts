@@ -7,6 +7,7 @@ import {
   IconfontIcon as IconFontIcon,
   PasswordIcon,
   SwaggerIcon,
+  CcCliIcon,
 } from '@/icons'
 
 export enum THEME {
@@ -27,6 +28,12 @@ export const subTitle = [
 ]
 
 export const projects = [
+  {
+    title: 'cc-cli',
+    link: 'https://github.com/cc-hearts/cc-cli',
+    description: 'interactive command-line template creation tool',
+    icon: CcCliIcon,
+  },
   {
     title: 'gen-index-export',
     link: 'https://github.com/cc-hearts/gen-index-export',
