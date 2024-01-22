@@ -12,6 +12,10 @@ export default [
     link: '/techs/javascript/index',
   },
   {
+    text: 'mac',
+    link: '/techs/mac/index',
+  },
+  {
     text: 'node',
     link: '/techs/node/index',
   },
