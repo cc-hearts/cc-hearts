@@ -174,4 +174,8 @@ h5 {
     margin: 1em 0;
     padding: 0;
   }
+
+  & > ul,ol >li {
+    padding-left: 1.5em;
+  }
 }
