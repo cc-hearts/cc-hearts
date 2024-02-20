@@ -60,4 +60,14 @@ a {
     color: inherit;
   }
 }
+
+.no-show-scrollbar {
+  -ms-overflow-style: none;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  scrollbar-width: none;
+}
 </style>

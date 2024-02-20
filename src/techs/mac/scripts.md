@@ -4,6 +4,8 @@ date: 2024-01-22
 articleId: 612d7e12-949a-48b5-8fd0-975cf4af66b3
 ---
 
+# mac 常用脚本
+
 ## 启动 Google Canary
 
 > dir 地址需要更换

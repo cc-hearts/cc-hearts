@@ -81,8 +81,8 @@ export default defineComponent({
       window.removeEventListener('scroll', calcActiveCls)
     })
     return () => (
-      <nav class={'absolute top-24 right-25 cc-nav max-w-50'}>
-        <ul class={'relative'}>
+      <nav class={'absolute h-100vh p-t-20 top-0 right-25 cc-nav max-w-50'}>
+        <ul class={'relative h-full overflow-auto no-show-scrollbar'}>
           <li class="outline-title">{title.value}</li>
           {sideRef.value.map((item) => (
             <li

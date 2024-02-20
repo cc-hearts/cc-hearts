@@ -4,6 +4,8 @@ date: 2024-01-22
 articleId: 8ff1eb71-168c-496f-93e8-83758d323048
 ---
 
+# oh-my-zsh 及插件
+
 安装：oh-my-zsh
 
 ```shell
