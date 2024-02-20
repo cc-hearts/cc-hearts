@@ -1,9 +1,9 @@
 {
-  "name": "cc-heart",
+  "name": "blog",
   "private": true,
   "version": "0.0.1",
   "type": "module",
-  "author": "carl chen",
+  "author": "Carl Chen",
   "scripts": {
     "prepare": "husky install",
     "dev": "vite --host",
