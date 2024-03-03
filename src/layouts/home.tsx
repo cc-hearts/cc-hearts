@@ -19,7 +19,7 @@ export default defineComponent({
 
     return () => (
       <>
-        <main class={'m-auto w-full cc' + ' ' + layoutClassNames.value}>
+        <main class={'m-auto w-full' + ' ' + layoutClassNames.value}>
           <Title />
           <router-view />
         </main>

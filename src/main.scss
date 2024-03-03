@@ -9,174 +9,162 @@ html {
     'Noto Color Emoji';
 }
 
-html.dark {
-  color-scheme: dark;
-}
+// html.dark {
+//   color-scheme: dark;
+// }
 
-.shiki-light {
-  background: rgba(0, 93, 199, 0.05) !important;
-}
 
-.shiki-dark {
-  background: rgba(138, 208, 255, 0.1) !important;
-}
 
-html.dark .shiki-light {
-  display: none;
-}
+// html.dark .shiki-light {
+//   display: none;
+// }
 
-html:not(.dark) .shiki-dark {
-  display: none;
-}
+// html:not(.dark) .shiki-dark {
+//   display: none;
+// }
 
-.cc {
-  pre {
-    &:not(.shiki) {
-      padding: 0;
-    }
-  }
+// .cc {
+//   pre {
+//     &:not(.shiki) {
+//       padding: 0;
+//     }
+//   }
 
-  .shiki {
-    font-family: 'DM Mono', monospace;
-    font-size: 1em;
-    border-radius: 4px;
-    line-height: 1.5;
-    overflow: auto;
-  }
 
-  img {
-    width: 100%;
-    margin-top: 0.5rem;
-    cursor: zoom-in;
-    transform: scale(1) translate3d(0, 0, 0);
-    transition: transform 0.3s;
-  }
 
-  table {
-    border-collapse: collapse;
+//   img {
+//     width: 100%;
+//     margin-top: 0.5rem;
+//     cursor: zoom-in;
+//     transform: scale(1) translate3d(0, 0, 0);
+//     transition: transform 0.3s;
+//   }
 
-    td {
-      border: 1px solid var(--color-text-3);
-    }
-  }
+//   table {
+//     border-collapse: collapse;
 
-  .shiki-container {
-    margin-top: 0.5em;
+//     td {
+//       border: 1px solid var(--color-text-3);
+//     }
+//   }
 
-    & > pre {
-      padding: 1rem;
-      border-radius: 0.5rem;
-      // margin: 0 0 0.5em;
-    }
+//   .shiki-container {
+//     margin-top: 0.5em;
 
-    @at-root {
-      .shiki-container > pre {
-        padding: 1em;
-      }
-    }
-  }
+//     & > pre {
+//       padding: 1rem;
+//       border-radius: 0.5rem;
+//       // margin: 0 0 0.5em;
+//     }
 
-  & :not(pre) > code {
-    color: var(--color-text-1);
+//     @at-root {
+//       .shiki-container > pre {
+//         padding: 1em;
+//       }
+//     }
+//   }
 
-    // padding: 0.1em;
-    // border-radius: 0.3rem;
-    // background-color: var(--tag-color);
-    // border: 1px solid var(--tag-color);
-  }
+//   & :not(pre) > code {
+//     color: var(--color-text-1);
 
-  blockquote {
-    background-color: var(--tag-color);
-    padding: 0.3em 1em;
-    margin: 1em 0;
-    overflow: hidden;
-    background: linear-gradient(
-      to right,
-      var(--tag-color) 5px,
-      transparent 6px,
-      transparent 100%
-    );
+//     // padding: 0.1em;
+//     // border-radius: 0.3rem;
+//     // background-color: var(--tag-color);
+//     // border: 1px solid var(--tag-color);
+//   }
 
-    & > p {
-      margin: 0;
-    }
-  }
-}
+//   blockquote {
+//     background-color: var(--tag-color);
+//     padding: 0.3em 1em;
+//     margin: 1em 0;
+//     overflow: hidden;
+//     background: linear-gradient(
+//       to right,
+//       var(--tag-color) 5px,
+//       transparent 6px,
+//       transparent 100%
+//     );
 
-ul,
-ol {
-  padding-left: 2em;
-  line-height: 2rem;
+//     & > p {
+//       margin: 0;
+//     }
+//   }
+// }
 
-  li > p {
-    margin: 0;
-  }
-}
+// ul,
+// ol {
+//   padding-left: 2em;
+//   line-height: 2rem;
 
-p {
-  margin: 1.25em 0;
-  line-height: 1.75;
-  text-align: justify;
-}
+//   li > p {
+//     margin: 0;
+//   }
+// }
 
-a {
-  transition: color 0.3s;
+// p {
+//   margin: 1.25em 0;
+//   line-height: 1.75;
+//   text-align: justify;
+// }
 
-  &:hover {
-    color: var(--color-text-1);
-  }
-}
+// a {
+//   transition: color 0.3s;
 
-a.cc-link {
-  color: var(--a-link-color);
-  transition: all 0.3s;
-}
+//   &:hover {
+//     color: var(--color-text-1);
+//   }
+// }
 
-a.cc-link:hover {
-  box-shadow: 0 1px 0 0 currentColor;
-}
+// a.cc-link {
+//   color: var(--a-link-color);
+//   transition: all 0.3s;
+// }
 
-h1 {
-  font-size: 2rem;
-  line-height: 2.5rem;
-}
+// a.cc-link:hover {
+//   box-shadow: 0 1px 0 0 currentColor;
+// }
 
-h2 {
-  font-size: 1.75rem;
-  line-height: 2rem;
-  margin: 2rem 0;
-}
+// h1 {
+//   font-size: 2rem;
+//   line-height: 2.5rem;
+// }
 
-h3 {
-  font-size: 1.5rem;
-  line-height: 1.75rem;
-  margin: 2.5rem 0 1.5rem;
-}
+// h2 {
+//   font-size: 1.75rem;
+//   line-height: 2rem;
+//   margin: 2rem 0;
+// }
 
-h4 {
-  font-size: 1.25rem;
-  line-height: 1.5rem;
-  margin: 2rem 0 1rem;
-}
+// h3 {
+//   font-size: 1.5rem;
+//   line-height: 1.75rem;
+//   margin: 2.5rem 0 1.5rem;
+// }
 
-h5 {
-  font-size: 1rem;
-  line-height: 1.25rem;
-  margin-top: 1rem 0 0;
-}
+// h4 {
+//   font-size: 1.25rem;
+//   line-height: 1.5rem;
+//   margin: 2rem 0 1rem;
+// }
 
-.prose {
-  min-height: 55vh;
+// h5 {
+//   font-size: 1rem;
+//   line-height: 1.25rem;
+//   margin-top: 1rem 0 0;
+// }
 
-  ol,
-  ul,
-  li {
-    margin: 1em 0;
-    padding: 0;
-  }
+// .prose {
+//   min-height: 55vh;
 
-  & > ul,
-  ol > li {
-    padding-left: 1.5em;
-  }
-}
+//   ol,
+//   ul,
+//   li {
+//     margin: 1em 0;
+//     padding: 0;
+//   }
+
+//   & > ul,
+//   ol > li {
+//     padding-left: 1.5em;
+//   }
+// }

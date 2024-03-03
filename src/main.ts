@@ -11,6 +11,7 @@ import { __DEV__ } from './configs'
 import { useInitTheme } from './hooks'
 import LayoutInstance from './layouts/layout'
 import './main.scss'
+import './markdown.css'
 
 useInitTheme()
 
