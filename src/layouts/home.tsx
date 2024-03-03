@@ -2,6 +2,7 @@ import { defineComponent, ref, watchEffect } from 'vue'
 import { useRouter } from 'vue-router'
 import Footer from './footer'
 import Title from './title'
+import SideNav from './side'
 export default defineComponent({
   setup() {
     const router = useRouter()
@@ -19,10 +20,15 @@ export default defineComponent({
 
     return () => (
       <>
-        <main class={'m-auto w-full cc' + ' ' + layoutClassNames.value}>
-          <Title />
-          <router-view />
-        </main>
+        <div class="m-auto flex">
+          <section class={[layoutClassNames.value]}>
+            <Title />
+            <router-view />
+          </section>
+          <aside class="m-l-4 relative">
+            <SideNav />
+          </aside>
+        </div>
         <Footer />
       </>
     )

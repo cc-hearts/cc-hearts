@@ -53,9 +53,9 @@ export default defineComponent({
     return () => {
       if (!flag.value) return null
       return (
-        <div class="m-b-8">
+        <div>
           <h1>{title.value}</h1>
-          {genChildrenEl()}
+          {/* {genChildrenEl()} */}
         </div>
       )
     }

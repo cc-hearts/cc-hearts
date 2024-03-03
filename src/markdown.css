@@ -1,0 +1,84 @@
+:root {
+  color-scheme: dark light;
+  font-size: 14px;
+  --container-bg-color: #ffffff;
+  --code-lighter-bg-color: #f8f8f8;
+
+}
+
+:root.dark {
+  --container-bg-color: #1a1a1d;
+  --code-lighter-bg-color: #000;
+}
+
+body {
+  background: var(--container-bg-color);
+}
+
+/* h1 - h5 */
+h1 {
+  font-size: 2rem;
+  margin-bottom: 1.5em;
+}
+
+h2 {
+  font-size: 1.75rem;
+  margin: 1.2em 0;
+}
+
+h3 {
+  font-size: 1.25rem;
+  margin: 1em 0;
+}
+
+h4 {
+  font-size: 1.1rem;
+  margin: 0.8em 0;
+}
+
+h5 {
+  font-size: 1rem;
+  margin: 0.5em 0;
+}
+
+p {
+  line-height: 1.5;
+  margin: 1em 0;
+}
+
+html.dark .shiki-light {
+  display: none;
+}
+
+html:not(.dark) .shiki-dark {
+  display: none;
+}
+
+
+.shiki {
+  font-size: 1rem;
+  line-height: 2;
+  padding: 1rem;
+  overflow: auto;
+  margin: 1.5rem 0;
+  border-radius: 0.5rem;
+  background: var(--code-lighter-bg-color) !important;
+}
+
+img:not(.preview-image) {
+  width: 100%;
+  margin-top: 0.5rem;
+  cursor: zoom-in;
+  transform: scale(1) translate3d(0, 0, 0);
+  transition: transform 0.3s;
+}
+
+ul,
+ol {
+  padding-left: 1.2em;
+}
+
+ul>li,
+ol>li {
+  line-height: 1.5;
+}
