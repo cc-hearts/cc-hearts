@@ -844,4 +844,4 @@ typeof 操作符可以确定值的原始类型，而 instanceof 操作符用于�
 ## 参考资料
 
 - [现代 javascript 教程](https://zh.javascript.info/)
-- [Number function toLocaleString() { [native code] } MDN](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Number/toLocaleString#%E4%BD%BF%E7%94%A8_locales)
+- [function toLocaleString() { [native code] } MDN](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Number/toLocaleString#%E4%BD%BF%E7%94%A8_locales)

@@ -93,6 +93,14 @@ pnpm rm --global <package-name>
 pnpm config set auto-install-peers true
 ```
 
+运行所有子包的 `build` 命令
+
+通过 `-r` 这个选项，递归遍历 `workspace` 模式下的子包并且运行相应的脚本，例如：
+
+```shell
+pnpm -r run build # 运行所有子包下 scripts 中的 build 命令
+```
+
 ## 参考资料
 
 - [pnpm -r](https://pnpm.io/cli/recursive)
