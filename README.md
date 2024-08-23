@@ -15,7 +15,6 @@ I'm Carl Chen, a front end engineer.
 
 [gitHub-action]: https://img.shields.io/badge/-GitHub_Actions-black?style=flat&logo=github
 [gitmoji]: https://img.shields.io/badge/-😉_Gitmoji_Commit_Workflow-black?style=flat
-[gcw]: https://github.com/arvinxx/gitmoji-commit-workflow
 
 ### ✍️ Languages
 
