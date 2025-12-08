@@ -19,11 +19,3 @@ I'm Carl Chen, a front end engineer.
 ### ✍️ Languages
 
 ![HTML](https://img.shields.io/badge/-HTML-E34F26?style=flat&logo=html5&logoColor=white) ![JavaScript](https://img.shields.io/badge/-JavaScript-C69D00?style=flat&logo=javascript&logoColor=white) ![TypeScript](https://img.shields.io/badge/-TypeScript-2f74c0?style=flat&logo=typescript&logoColor=white) ![CSS](https://img.shields.io/badge/-CSS-254bdd?style=flat&logo=css3)
-
-![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=cc-hearts&layout=compact&hide=javascript,css,html,less,lua,jupyter%20notebook)
-
-
-
-### ❤️ GitHub Stats
-
-![Arvin XU's github stats](https://github-readme-stats.vercel.app/api?username=cc-hearts&show_icons=true)
