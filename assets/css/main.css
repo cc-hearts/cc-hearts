@@ -1,0 +1,15 @@
+/* 全局基础样式 —— 颜色一律来自 tokens.css */
+* { margin: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-sans);
+  font-size: var(--text-base);
+  line-height: var(--leading-body);
+  -webkit-font-smoothing: antialiased;
+}
+::selection { background: var(--accent-wash); }
+a { color: var(--accent); text-decoration: none; transition: color .15s ease; }
+a:hover { color: var(--accent-ink); }
+a:focus-visible, button:focus-visible { outline: none; box-shadow: var(--ring); border-radius: 2px; }

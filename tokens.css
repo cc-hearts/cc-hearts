@@ -1,0 +1,79 @@
+/* ============================================================
+    tokens.css —— 唯一事实来源（v0.1）
+   全项目唯一允许出现十六进制色值的地方。
+   改这里，所有页面跟着变；其他文件出现裸色值，verify 会拦截。
+
+   TODO(你)：--accent 的赭石色是占位值。
+   用反推法五问（暖冷 / 衬线 / 一色多色 / 方圆 / 疏密）
+   换成你自己的主色，这是系统成为"你的"的第一步。
+   ============================================================ */
+
+:root {
+  /* —— 一、主色（铁律一：只给值得被记住的地方，面积 ≤5%）—— */
+  --accent: #b4532a;        /* 赭石：链接、当前态、关键数字、焦点 ring */
+  --accent-ink: #8a3d1e;    /* 主色深态：hover、小字号上的主色文字 */
+  --accent-wash: #f3e5dc;   /* 主色洗色：标签底、选中底。永远比主色浅四档 */
+
+  /* —— 二、纸（三档表面，铁律二）—— */
+  --paper: #f6f2ea;         /* 页面底色 */
+  --paper-raised: #fbf8f2;  /* 卡片、浮层：比纸亮半档 */
+  --paper-sunk: #ece5d8;    /* 代码块、井：比纸暗半档 */
+
+  /* —— 三、线 —— */
+  --line: #ddd4c3;          /* 常规边框、分割线 */
+  --line-strong: #c3b8a2;   /* 输入框描边、强分割 */
+
+  /* —— 四、墨（三档文字；使用权限见 SKILL.md）—— */
+  --ink: #2d2922;           /* 标题与正文 */
+  --ink-soft: #6f675a;      /* 次要文本、说明 */
+  --ink-faint: #a49a88;     /* 时间戳、占位符；禁止用于长文 */
+
+  /* —— 五、字体（铁律三：serif 承担层级）—— */
+  --font-serif: "Noto Serif SC", "Source Han Serif SC", "Songti SC", "SimSun", Georgia, serif;
+  --font-kai: "LXGW WenKai Screen", "Kaiti SC", "KaiTi", "STKaiti", "SimSun", serif;
+  --font-sans: "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", "Cascadia Code", Consolas, "Courier New", monospace;
+
+  /* —— 六、字阶（层级靠字号与字族，不靠加粗；字重 500 封顶）—— */
+  --text-xs: 0.75rem;    /* 12 · 辅助标注 */
+  --text-sm: 0.875rem;   /* 14 · 说明文字 */
+  --text-base: 1rem;     /* 16 · 正文 */
+  --text-lg: 1.125rem;   /* 18 · 导语 */
+  --text-xl: 1.375rem;   /* 22 · 小标题 */
+  --text-2xl: 1.75rem;   /* 28 · 标题 */
+  --text-3xl: 2.25rem;   /* 36 · 大标题 */
+  --text-4xl: 3rem;      /* 48 · display，仅 hero */
+
+  --leading-body: 1.75;  /* 中文长文行高 */
+  --leading-tight: 1.3;  /* 标题行高 */
+
+  /* —— 七、空间（4px 基数）—— */
+  --space-1: 0.25rem;   /* 4 */
+  --space-2: 0.5rem;    /* 8 */
+  --space-3: 0.75rem;   /* 12 */
+  --space-4: 1rem;      /* 16 */
+  --space-6: 1.5rem;    /* 24 */
+  --space-8: 2rem;      /* 32 */
+  --space-12: 3rem;     /* 48 */
+  --space-16: 4rem;     /* 64 · 章节间距起步 */
+  --space-24: 6rem;     /* 96 · 章节间距上限 */
+
+  /* —— 八、形状与深度（禁硬阴影；深度只有四种表达）—— */
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 12px;    /* 全系统圆角上限；胶囊/头像可用 999px */
+
+  /* —— 九、about 页复刻区（sanyam.sh 风格）—— */
+  --me-bg: #ffffff;         /* 纯白底 */
+  --me-ink: #1a1a1a;        /* 首段文字 */
+  --me-soft: #6b6b6b;       /* 其余段落 */
+  --me-fill: #f4f4f5;       /* 胶囊底 */
+  --me-fill-hover: #e9e9ea; /* 胶囊 hover */
+  --me-line: #e9e9e9;       /* 页脚上边框与链接静态下划线 */
+  --me-link: #1a1a1a;       /* 统一链接颜色（深墨色） */
+  --me-link-work: #1a1a1a;  /* 保留兼容 */
+  --me-link-blog: #1a1a1a;  /* 保留兼容 */
+
+  --ring: 0 0 0 3px rgba(180, 83, 42, 0.18);          /* 焦点态 */
+  --shadow-whisper: 0 1px 2px rgba(45, 41, 34, 0.06); /* 唯一允许的阴影，轻到几乎看不见 */
+}
