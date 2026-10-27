@@ -42,19 +42,67 @@ useHead(() => ({
 
         <p class="me-p">平时主力写 typescript、vue 和 react；开源上，我是<a class="pill" href="https://github.com/antdv-next" target="_blank" rel="noreferrer"><svg class="pill-ico" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8Z"/></svg>antdv-next</a>的核心贡献者，日常修 issue、提 pr、打磨组件；其余时间在自己的开源小组织<a class="pill" href="https://github.com/CarlOpenLab" target="_blank" rel="noreferrer"><svg class="pill-ico" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8Z"/></svg>carlopenlab</a>里倒腾东西。</p>
 
-        <p class="me-p">最近做了一些偏原生与系统的工具：有纯 go 编写、gpu 直出渲染且带 ai 审计的 git 客户端<a class="lnk" href="https://github.com/CarlOpenLab/Gloss" target="_blank" rel="noreferrer">gloss</a>；多端共享 pty 会话与 nat 穿透的终端中枢<a class="lnk" href="https://github.com/CarlOpenLab/beacon" target="_blank" rel="noreferrer">beacon</a>；以及支持 typora 风格即时渲染、集成本地 ai 的 markdown 编辑器<a class="lnk" href="https://github.com/CarlOpenLab/muse" target="_blank" rel="noreferrer">muse</a>。此前也做过一些顺手的小工具，比如<a class="lnk" href="https://github.com/cc-hearts/tool-kit" target="_blank" rel="noreferrer">tool-kit</a>，和一个用 swift 写的 macos 菜单栏应用<a class="lnk" href="https://github.com/cc-hearts/screen-rules" target="_blank" rel="noreferrer">screen-rules</a>。</p>
-
         <p class="me-p">想聊聊前端、开源、原生开发或任何有意思的想法，可以在<a class="lnk" href="https://github.com/cc-hearts" target="_blank" rel="noreferrer">github</a>或<a class="lnk" href="https://juejin.cn/user/387492558675006" target="_blank" rel="noreferrer">掘金</a>找到我，也欢迎<a class="lnk" href="https://github.com/sponsors/cc-hearts" target="_blank" rel="noreferrer">赞助我</a>。</p>
+
+        <div class="me-section">
+          <p class="me-section-title">作品与工具</p>
+          <div class="me-projects">
+            <div class="me-project">
+              <a class="lnk me-project-name" href="https://github.com/CarlOpenLab/Gloss" target="_blank" rel="noreferrer">gloss</a>
+              <p class="me-project-desc">新一代原生 git 客户端，纯 go + gpu 直出渲染，内置 ai 变更审计与智能 commit。</p>
+            </div>
+            <div class="me-project">
+              <a class="lnk me-project-name" href="https://github.com/CarlOpenLab/beacon" target="_blank" rel="noreferrer">beacon</a>
+              <p class="me-project-desc">随时唤醒的跨设备终端中枢，在桌面端、网页与移动端多端共享真实 pty 会话与 nat 穿透。</p>
+            </div>
+            <div class="me-project">
+              <a class="lnk me-project-name" href="https://github.com/CarlOpenLab/muse" target="_blank" rel="noreferrer">muse</a>
+              <p class="me-project-desc">原生轻量 markdown 编辑器，支持 typora 风格即时渲染、纯 go 无 webview，内置本地 ai 助手。</p>
+            </div>
+            <div class="me-project">
+              <a class="lnk me-project-name" href="https://github.com/cc-hearts/screen-rules" target="_blank" rel="noreferrer">screen-rules</a>
+              <p class="me-project-desc">用 swift 编写的 macos 菜单栏应用，自动管理应用窗口在多显示器间的分配与尺寸。</p>
+            </div>
+            <div class="me-project">
+              <a class="lnk me-project-name" href="https://github.com/cc-hearts/tool-kit" target="_blank" rel="noreferrer">tool-kit</a>
+              <p class="me-project-desc">纯客户端运行的开发者实用工具箱，涵盖数据转换、代码生成与加解密等常用场景。</p>
+            </div>
+          </div>
+        </div>
       </template>
 
       <template v-else>
         <p class="me-p me-p--lead">i'm carl, a frontend engineer who also writes node.js and go. passionate about building snappy, zero-webview native tools, and exploring ai on the side.</p>
 
-        <p class="me-p">day to day, i mainly write typescript, vue, and react. in open source, i'm a core contributor to <a class="pill" href="https://github.com/antdv-next" target="_blank" rel="noreferrer"><svg class="pill-ico" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8Z"/></svg>antdv-next</a> (the next generation of ant design vue), fixing issues and refining components; the rest of my time is spent tinkering in my own collective, <a class="pill" href="https://github.com/CarlOpenLab" target="_blank" rel="noreferrer"><svg class="pill-ico" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8Z"/></svg>carlopenlab</a>.</p>
-
-        <p class="me-p">recently, i've built a few native, zero-webview tools: <a class="lnk" href="https://github.com/CarlOpenLab/Gloss" target="_blank" rel="noreferrer">gloss</a>, a git client in pure go with direct gpu rendering and ai change auditing; <a class="lnk" href="https://github.com/CarlOpenLab/beacon" target="_blank" rel="noreferrer">beacon</a>, an ambient terminal hub sharing real ptys across devices; and <a class="lnk" href="https://github.com/CarlOpenLab/muse" target="_blank" rel="noreferrer">muse</a>, a markdown editor with typora-style inline rich text and local ai. earlier tools include <a class="lnk" href="https://github.com/cc-hearts/tool-kit" target="_blank" rel="noreferrer">tool-kit</a> and a macos menu bar utility <a class="lnk" href="https://github.com/cc-hearts/screen-rules" target="_blank" rel="noreferrer">screen-rules</a>.</p>
+        <p class="me-p">day to day, i mainly write typescript, vue, and react. in open source, i'm a core contributor to <a class="pill" href="https://github.com/antdv-next" target="_blank" rel="noreferrer"><svg class="pill-ico" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8Z"/></svg>antdv-next</a>, fixing issues and refining components; the rest of my time is spent tinkering in my own collective, <a class="pill" href="https://github.com/CarlOpenLab" target="_blank" rel="noreferrer"><svg class="pill-ico" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8Z"/></svg>carlopenlab</a>.</p>
 
         <p class="me-p">feel free to reach out on <a class="lnk" href="https://github.com/cc-hearts" target="_blank" rel="noreferrer">github</a> or <a class="lnk" href="https://juejin.cn/user/387492558675006" target="_blank" rel="noreferrer">juejin</a> to talk frontend, open source, native apps, or anything interesting. you're also welcome to <a class="lnk" href="https://github.com/sponsors/cc-hearts" target="_blank" rel="noreferrer">sponsor me</a>.</p>
+
+        <div class="me-section">
+          <p class="me-section-title">projects</p>
+          <div class="me-projects">
+            <div class="me-project">
+              <a class="lnk me-project-name" href="https://github.com/CarlOpenLab/Gloss" target="_blank" rel="noreferrer">gloss</a>
+              <p class="me-project-desc">next-generation native git client in pure go with gpu direct rendering and ai change auditing.</p>
+            </div>
+            <div class="me-project">
+              <a class="lnk me-project-name" href="https://github.com/CarlOpenLab/beacon" target="_blank" rel="noreferrer">beacon</a>
+              <p class="me-project-desc">ambient terminal hub sharing real pty sessions across native desktop, web, and mobile via nat relay.</p>
+            </div>
+            <div class="me-project">
+              <a class="lnk me-project-name" href="https://github.com/CarlOpenLab/muse" target="_blank" rel="noreferrer">muse</a>
+              <p class="me-project-desc">native-first markdown editor with typora-style inline rich text, pure go rendering, and local ai.</p>
+            </div>
+            <div class="me-project">
+              <a class="lnk me-project-name" href="https://github.com/cc-hearts/screen-rules" target="_blank" rel="noreferrer">screen-rules</a>
+              <p class="me-project-desc">tiny macos menu bar app written in swift to manage window placement and sizes across displays.</p>
+            </div>
+            <div class="me-project">
+              <a class="lnk me-project-name" href="https://github.com/cc-hearts/tool-kit" target="_blank" rel="noreferrer">tool-kit</a>
+              <p class="me-project-desc">developer utility collection running 100% client-side for data conversion, code gen, and crypto.</p>
+            </div>
+          </div>
+        </div>
       </template>
 
       <footer class="me-foot">
@@ -116,15 +164,55 @@ body.me-bare {
   height: 44px;
   border-radius: 50%;
   display: block;
-  margin-bottom: 2em;
+  margin-bottom: 1.5em;
 }
 
 .me-p {
-  margin: 0 0 2em;
+  margin: 0 0 1.25em;
   color: var(--me-soft);
   text-wrap: pretty;
 }
 .me-p--lead { color: var(--me-ink); }
+
+/* 作品区域：紧凑双列对齐，自然自适应首列宽度 */
+.me-section {
+  margin: 1.6em 0 1.8em;
+}
+.me-section-title {
+  margin: 0 0 0.85em;
+  color: var(--me-ink);
+}
+.me-projects {
+  display: flex;
+  flex-direction: column;
+  gap: 0.875em;
+}
+.me-project {
+  display: grid;
+  grid-template-columns: 6.2rem 1fr;
+  align-items: baseline;
+  gap: 0.65rem;
+  line-height: 1.6;
+}
+.me-project-name {
+  color: var(--me-ink);
+  font-weight: 500;
+  justify-self: start;
+  width: fit-content;
+}
+.me-project-desc {
+  margin: 0;
+  color: var(--me-soft);
+  text-wrap: pretty;
+}
+
+@media (max-width: 32rem) {
+  .me-project {
+    display: flex;
+    flex-direction: column;
+    gap: 0.15rem;
+  }
+}
 
 /* 外链：灰胶囊 + 站点 favicon；align-middle 与正文居中对齐（对齐他的 align-middle + translate） */
 .pill {
@@ -150,37 +238,39 @@ body.me-bare {
 }
 .pill:focus-visible { outline: 2px solid var(--me-line); outline-offset: 2px; }
 
-/* 链接：统一配色 + 静态细下划线 + hover 从左画出（对齐 sanyam.sh 的 link-underline-draw） */
+/* 链接：极简优雅双层下划线（底线常驻 + hover 平滑滑入与回弹） */
 .lnk {
   position: relative;
+  display: inline-block;
   color: var(--me-link);
-  text-decoration-line: underline;
-  text-decoration-thickness: 1px;
-  text-underline-offset: 0.13em;
-  text-decoration-color: var(--me-line);
-  transition: color 0.2s, text-decoration-color 0.2s;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+.lnk::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0.05em;
+  height: 1px;
+  background: var(--me-line);
 }
 .lnk::after {
   content: '';
   position: absolute;
   left: 0;
   right: 0;
-  bottom: -0.13em;
+  bottom: 0.05em;
   height: 1px;
-  background: currentColor;
+  background: var(--me-ink);
   transform: scaleX(0);
   transform-origin: 0 50%;
+  transition: transform 0.24s cubic-bezier(0.16, 1, 0.3, 1);
 }
-.lnk:hover { text-decoration-color: transparent; }
 .lnk:hover::after {
-  animation: link-underline-draw 0.45s cubic-bezier(0.22, 1, 0.36, 1) both;
+  transform: scaleX(1);
 }
 .lnk:focus-visible { outline: 2px solid var(--me-line); outline-offset: 2px; }
-
-@keyframes link-underline-draw {
-  from { transform: scaleX(0); }
-  to { transform: scaleX(1); }
-}
 
 /* 页脚：签名 + 小图标，与正文之间一条极淡的线 */
 .me-foot {
